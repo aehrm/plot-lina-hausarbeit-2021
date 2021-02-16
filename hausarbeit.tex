@@ -1,15 +1,20 @@
 % hunspell: tex
 \documentclass[titlepage=firstiscover,a4paper,12pt]{scrartcl}
-\usepackage[lmargin=3cm,rmargin=3cm,tmargin=3cm,bmargin=3cm]{geometry}
+\usepackage[lmargin=3cm,rmargin=3cm,tmargin=2cm,bmargin=2cm,footskip=0.7cm]{geometry}
 
-\usepackage{polyglossia}
+\usepackage[luatexrenderer=Node]{polyglossia}
 \setmainlanguage{german}
 \setotherlanguage{english}
 
+%./opentype/public/tex-gyre-math/texgyretermes-math.otf
+%./opentype/public/tex-gyre/texgyretermes-bold.otf
+
+
 \usepackage{fontspec}
 \usepackage{unicode-math}
-\setmainfont[Scale=1.05]{Libertinus Serif}
-\setmathfont[Scale=1.05]{Libertinus Math}
+%\setmainfont[Scale=1.05]{Libertinus Serif}
+\setmainfont[BoldFont=texgyretermes-bold.otf,ItalicFont=texgyretermes-italic.otf]{texgyretermes-regular.otf}
+\setmathfont{texgyretermes-math.otf}
 %\addtokomafont{disposition}{\rmfamily\scshape}
 \usepackage{setspace}
 \onehalfspacing
@@ -28,6 +33,10 @@
 \setcounter{biburlucpenalty}{8000}
 \setlength{\bibitemsep}{0pt}
 \addbibresource{references.bib}
+\DefineBibliographyStrings{german}{
+  andothers        = {et\,al\adddot},
+  andmore          = {et\,al\adddot}
+}
 
 \usepackage[german=guillemets,autostyle=true]{csquotes}
 \SetCiteCommand{\autocite}
@@ -42,10 +51,10 @@
 
 
 \usepackage{mathtools}
-\usepackage{amsthm}
-\newcounter{satz}
-\newtheorem{theorem}[satz]{Satz}
-\newtheorem{observation}[satz]{Beobachtung}
+%\usepackage{amsthm}
+%\newcounter{satz}
+%\newtheorem{theorem}[satz]{Satz}
+%\newtheorem{observation}[satz]{Beobachtung}
 
 \setlength{\emergencystretch}{2em}
 \setlength{\parskip}{0pt}
@@ -66,6 +75,7 @@
 %\subtitle{Repräsentation von Dramen als gerichtete azyklische Graphen und deren Handlungen als Flüsse}
 
 \begin{document}
+\flushbottom
 
 \maketitle\clearpage
 
@@ -75,28 +85,62 @@
 
 \section{Einleitung}
 
-% und Motivation
+% 1. Netzwerktheorie grundsätzlich einführen -> linNA
+% 2. Plotanalyse (vgl. Trilcke 2017, Moretti) -> Figurennetzwerke in der linNA, Untersuchung mittels SNA
+% 3. statisches Figurennetzwerk scheinbar nicht in der Lage, plot zu operationalisieren (Trilcke 2017)
 
-% Netzwerktheorie einführen
+% Motivation: Plotanalyse, konkretes Ziel definieren
 
-% hunspell: add relieren diagrammatischen
-Intuitiv kann ein \emph{Netzwerk} als eine Sammlung von Entitäten verstanden werden, welche in binären Relationen miteinander in Beziehung stehen. Beispielsweise ließe sich ein \emph{soziales Netzwerk} angeben, in der Personen die Entitäten bilden, und je zwei Personen binär relieren (bildlich: verbunden sind), wenn diese sich kennen.
-Damit wird auch deutlich, dass nicht jedes Paar an Entitäten notwendigerweise im Netzwerk relieren muss.
-Netzwerke lassen sich in einer diagrammatischen Form darstellen, in der die Entitäten als Punkte gezeichnet werden, und eine Linie zwei Punkte verbinden, wenn die dazugehörigen Entitäten relieren; siehe z.B. Abb.~\ref{fig:netzwerk}.
+% Eigener Beitrag: 
 
-%Netzwerke lassen sich als \emph{Graphen} repräsentieren. Die Etablierung und Untersuchung ebejener ist 
-%\emph{Graphen} ermöglichen eine Modellierung von Netzwerken: Graphen sind mathematische Strukturen, die 
+Franco Moretti kann mit seinem Pamphlet \citetitle{moretti_network_2011}\autocite{moretti_network_2011} als Begründer eines Programms verstanden werden, welches die Quantifikation von Plot%
+\footnote{\textquote{Plot} soll hier und im Folgenden nur intuitiv verstanden werden; auf eine präzise Definition verzichten wir hier schon deshalb, weil eine allgemeingültig anerkannte Definition nicht einmal existiert.}
+innerhalb narrativer Texte mittels Methoden aus den \eng{Digital Literary Studies} zum Ziel hat.
+Während Fragen zu \textquote{\eng{language and style}} durch Korpusanalysen in den \emph{Digital Literary Studies} quantitativ und maschinell beantwortet werden können, befindet sich im Rahmen von \textquote{\eng{plot}} bei den  computergestützten Methoden der Literaturwissenschaft immer noch eine Leerstelle. % hunspell: acc language and style plot
+% hunspell: add Morettis distant reading 
+Ferner ist Morettis Vorhaben auch eine \eng{distant-reading}-Motivation zu finden: gerade die computerisierte Methode, Plot auszuwerten, könnte in großen Korpusanalysen generelle Grammatiken bzw. Regularitäten im Plot vieler Werke zum Vorschein bringen. % hunspell: acc -Motivation
+Zur Schließung dieser Leerstelle schlägt Moretti vor, die \emph{Netzwerkanalyse} als Instrument zur quantitativen Plot-Analyse heranzuziehen.\autocite[Vgl.][]{moretti_network_2011}
 
-\emph{Graphen} sind mathematische Strukturen aus dem Teilgebiet der diskreten Mathematik, und sind im Wesentlichen nur eine abstrakte Beschreibung von Strukturen, welche wie in Abb.~\ref{fig:netzwerk} dargestellt werden können, also Strukturen von Punkten mit Linien zwischen genau zwei Punkten.
-Damit abstrahieren Graphen weiter von der Idee der Netzwerke, lassen also außer acht, welche \textquote*{reale} Netzwerke modelliert werden.
-% hunspell: add Tittmann
-Während nach Tittmann die \emph{Graphentheorie} \textcquote[11]{tittmann_graphentheorie:_2011}{zunächst nur die rein topologischen Fragen einer Netzstruktur} eines Graphen untersucht, kann sich die Netzwerktheorie den Überlegungen und Ergebnissen der Graphentheorie zu Eigen machen: insbesondere lassen sich im Allgemeinen Netzwerke eben als Graphen modellieren. Damit gehen zwar \textcquote[11]{tittmann_graphentheorie:_2011}{in diesem abstrakten Modell alle Informationen über die konkrete Art und Beschaffung \textelp{des real vorliegenden Netzwerkes} verloren}, aber, so Tittmann, \textcquote[11]{tittmann_graphentheorie:_2011}{verbleiben jedoch viele erstaunliche Eigenschaften eines \textelp{Netzwerkes}, die bereits auf dieser Abstraktionsstufe modelliert werden können.}
+Zentraler Forschungsgegenstand der \emph{Netzwerkanalyse} sind \emph{Netzwerke}.
+Intuitiv kann ein Netzwerk als eine Sammlung von Entitäten verstanden werden, welche in binären Relationen miteinander in Beziehung stehen.
+Im Rahmen Morettis Pamphlet wurde beispielsweise das \emph{Figurennetzwerk} von \emph{Hamlet} betrachtet, in denen also das Personal von \emph{Hamlet} die Entitäten bilden, und je zwei Personen binär relieren (bildlich: verbunden sind), wenn diese auf der Bühne interagieren.
+Netzwerke lassen sich in einer diagrammatischen Form darstellen, in der die Entitäten als Punkte gezeichnet werden und Linien zwei relierende Entitäten verbindet; siehe z.B. Abb.~\ref{fig:netzwerk} als Diagramm Morettis \emph{Hamlet}-Netzwerks. % hunspell: acc -Netzwerks.
 
-\section{Grundlagen}
+% TODO zu 2.5 verschieben?
+%\emph{Graphen} sind mathematische Strukturen aus dem Teilgebiet der diskreten Mathematik, und sind im Wesentlichen Abstraktionen von Netzwerken; sie lassen dabei außer acht, welches \textquote*{reale} Netzwerk modelliert wird.
+%Während nach Tittmann die \emph{Graphentheorie} \textcquote[11]{tittmann_graphentheorie:_2011}{zunächst nur die rein topologischen Fragen einer Netzstruktur} eines Graphen untersucht, kann sich die Netzwerktheorie den Überlegungen und Ergebnissen der Graphentheorie zu Eigen machen: insbesondere lassen sich Netzwerke eben als Graphen modellieren. Damit gehen zwar \textcquote[11]{tittmann_graphentheorie:_2011}{in diesem abstrakten Modell alle Informationen über die konkrete Art und Beschaffung \textelp{des real vorliegenden Netzwerkes} verloren}, aber \textcquote[11]{tittmann_graphentheorie:_2011}{verbleiben jedoch viele erstaunliche Eigenschaften eines \textelp{Netzwerkes}, die bereits auf dieser Abstraktionsstufe modelliert werden können.}
+
+Nach Moretti bilden diese Interaktionen als die Handlungen des Dramas ab – das resultierende Figurennetzwerk damit die summative strukturalisierte Gesamthandlung des Werks.
+Trilcke greift diese Idee auf, und führt diese mit Mitteln der \emph{Social Network Analysis} rigoros weiter. % hunsepll: acc Social Network Analysis
+Insbesondere macht Trilcke eine Operationalisierung auf Figurennetzwerken plausibel, welche dramatische Texte (im Kontext von Klotz' Typisierung) als \emph{offen} bzw. \emph{geschlossen} klassifizieren können.\autocite[Vgl.][]{trilcke_social_2013}
+Auch wenn diese Ergebnis in die Richtung der \textquote*{Operationalisierung von Plot} geht, macht selbst Trilcke später darauf aufmerksam, dass auch mit aktuellen Ansätzen der literarischen Netzwerkanalyse die Operationalisierung des Plots durch diese Figurennetzwerke nicht zufriedenstellend ist.
+
+%\subsection{Eigener Betrag}
+
+Zentrale Schwachstelle in Figurennetzwerken sehen Trilcke et~al. insbesondere im Fakt, dass durch solche \emph{statischen} Modelle die temporale Dimension von Plot nicht abgebildet werden kann.\autocite[Vgl.][176]{trickle_netzwerkdynamik_2017}
+Diese Arbeit folgt deren generellem Forschungsdesiderat, die Netzwerkanalyse in Richtung einer quantitativen Plot-Analyse weiterzuentwickeln.
+Während aktuelle Entwicklungen jedoch versuchen, \emph{dynamische} Netzwerke zu entwickeln um sie für die Plot-Analyse zu gebrauchen, wählt diese Arbeit einen alternativen Weg und motiviert Netzwerke für dramatische Texte, in denen die \emph{Auftritte} (und nicht Figuren) die Entitäten des Netzwerks darstellen.
+
+Präziser will die Arbeit plausibilisieren, dass in solchen Netzwerken (i) Handlungssequenzen deutlich werden, und sich so (ii) einen Vorschlag zu einer Plot-Strukturierung eines dramatischen Werks errechnen lassen kann.
+% TODO was ist mit Plot-Strukturierung gemeint
+Die Errechnung erfolgt mit algorithmischen Methoden aus der Graphentheorie.
+Letzter Punkt soll insbesondere beitragen, Kompositionsprinzipien von Handlungssequenzen in digitalen Korpora messbar zu machen, und so bspw. Fragen zum Verhältnis von Haupt- und Nebenhandlung, oder zu Verknüpfungstechniken von Handlungssequenzen, via \eng{distant reading} vergleichend für viele Werke zu beantworten. % hunspell: acc distant reading
+
+
+%\subsection{Aufbau der Arbeit}
+
+Nächster Abschnitt konkretisiert Begriffe, die wir zur Erarbeitung des Netzwerkmodells benötigen; insbesondere wählen wir einen Handlungsbegriff, definieren Begriffe aus der Graphentheorie, und gehen kurz auf das digitale Dramenkorpus GerDraCor ein, welches unseren Überlegungen zugrunde liegen wird.
+Anschließend wird in Abschnitt \ref{sec:verwandte-arbeiten} auf verwandte Arbeiten der netzwerktheoretischen Plot-Analyse eingegangen.
+Abschnitt \ref{sec:situationsgraph} bzw. \ref{sec:segmentierung} wenden sich dem eigentlichen Ziel zu, und behandeln o.g. Punkte (i) und (ii): erster plausibilisiert das Modell der \emph{Situationsgraphen}, zweiter erklärt wie sich hieraus die Plot-Struktur eines Dramas ablesen lassen kann.
+
+
+
+
+\section{Grundlagen}\label{sec:grundlagen}
 
 \subsection{Zum Begriff der Handlung in dramatischen Texten}
 
-% TODO ausbessern?
+% TODO ausbessern? vgl. Routledge Encycopedia: Plot
 Grundsätzlich ist zu sagen, dass der Begriff der \textquote{Handlung}
 nur schwer und aufwändig zu präzisieren ist.
 Unter anderem arbeitet Meister in seiner Habilitationsschrift Auffassungen unterschiedlichster narratologischer Denkschulen auf;\autocite{meister_computing_2008}
@@ -106,7 +150,7 @@ ferner sei anzumerken, dass Jannidis die Arbeit von Meister als Indiz wertet, na
 Wir wollen für diese Arbeit deshalb folgende (bewusst sehr vereinfachende) Arbeitsdefinitionen verwenden: \emph{Gesamthandlung} soll hier für die summative \textquote{Handlung}  verstanden werden, also all den im Text dargestellten Begebenheiten, gewissermaßen als Übersetzung von \emph{mythos} bzw. Fabel.
 
 % hunspell: add Hübler
-\emph{Handlung} soll als genau diese die Gesamthandlung konstituierenden \textquote{Begebenheiten} stehen.\autocite[Vgl.][5-8]{asmuth_einfuhrung_2016}
+\emph{Handlung} soll als genau diese die Gesamthandlung konstituierenden \textquote{Begebenheiten} stehen.\autocite[Vgl.][5--8]{asmuth_einfuhrung_2016}
 Damit sind nicht nur Handlungen im engeren Sinne gemeint, hier eine (nach Pfister und Hübler) \textcquote[269]{pfister_drama:_2001}{absichtsvoll gewählte, nicht kausal bestimmte Überführung einer Situation in eine andere}.
 (Wobei Hübler in diesem Kontext \textcquote[220]{pfister_drama:_2001}{Situation als die gegebene Relation von Figuren zueinander und zu einem gegenständlichen oder ideellen Kontext} versteht. Dieser Situationsbegriff weicht von dem unten Eingeführten ab.)
 Gemeint sind auch \textquote*{innere Handlungen} wie bspw. Gedanken und Gefühlsentwicklungen; 
@@ -170,7 +214,7 @@ Wir folgen den Ausführungen von Krumke und Noltemeier für eine formal präzise
 \end{enumerate}
 Ist $a$ Anfangsecke von $r$ und $b$ Endecke von $r$, sagen wir auch, dass \emph{$a$ Vorgänger von $b$} bzw. \emph{$b$ Nachfolger von $a$} ist.
 Ein Pfeil $r$ nennen wir \emph{Schlinge} wenn $\alpha(r)=\omega(r)$. Zwei Pfeile $r, r'$ nennen wir \emph{parallel}, wenn $\alpha(r)=\alpha(r')$, $\omega(r)=\omega(r')$.
-Ein Graph ist \emph{einfach}, wenn seine Pfeilmenge weder Schlingen noch Parallelen enthalten.\autocite[vgl.][7-8]{krumke_graphentheoretische_2012}
+Ein Graph ist \emph{einfach}, wenn seine Pfeilmenge weder Schlingen noch Parallelen enthalten.\autocite[vgl.][7--8]{krumke_graphentheoretische_2012}
 Wie Netzwerke können wir auch Graphen diagrammatisch zeichnen, wie bspw. in Abb.~\ref{fig:graph}, was auch die eben eingeführten Termini verdeutlicht.
 Zur einfacheren Notation bezeichnen wir für gegebenen Graph $G$ mit $V(G)$ bzw. $R(G)$ die zu $G$ zugehörige Ecken- bzw. Pfeilmenge. % hunspell: acc Ecken-
 
@@ -186,7 +230,7 @@ In dieser Klasse von Graphen definieren wir – dem Terminus von Diestel folgend
 
 % TODO ungerichtet
 
-\section{Verwandte Arbeiten}
+\section{Verwandte Arbeiten}\label{sec:verwandte-arbeiten}
 
 \subsection{Analyse der Konfigurationsstruktur}
 
@@ -198,41 +242,85 @@ Hierbei wird die Struktur des dramatische Werks als abstraktes Objekt modelliert
 Der Replikentext ist dabei nicht Gegenstand der Analyse, vielmehr die Struktur, welche von Auftritten, Szenen und Figuren induziert wird.
 Einen knappen Überblick über Marcus' Dramentheorie liefert sein Aufsatz in der \emph{Zeitschrift für Literaturwissenschaft und Linguistik}.\autocite{marcus_mathematisch-linguistisches_1971}
 
-Pfister nimmt diese Überlegungen auf, und etabliert Marcus' \textquote{Konfigurationsmatrix} in seinem Einführungswerk als Analysewerkzeug für Dramen; die Konfigurationsanalyse kann daher durchaus als \textquote{traditionelle} Analyse verstanden werden.
-Die Konfigurationsmatrix ist eine boolsche Matrix, welche die Auftritte der einzelnen Figuren in den Situationen des Dramas speichert.
+Pfister nimmt diese Überlegungen auf, und etabliert Marcus' \textquote{Konfigurationsmatrix} in seinem Einführungswerk als Analysewerkzeug für Dramen.
+Die Konfigurationsmatrix ist eine boolesche Matrix, welche die Auftritte der einzelnen Figuren in den Situationen des Dramas speichert.
 Jede Zeile der Matrix repräsentiert hierbei eine Figur, jede Spalte eine zur Situation spezifischen Konfiguration.
 Wenn immer also eine Figur in einer spezifischen Situation auftritt, steht in der korrespondierenden Zelle eine 1, ansonsten 0.
-\autocites[Vgl.][235-240]{pfister_drama:_2001}[vgl. auch][140-141]{marcus_mathematisch-linguistisches_1971}
+\autocites[Vgl.][235--240]{pfister_drama:_2001}[vgl. auch][140--141]{marcus_mathematisch-linguistisches_1971}
 Abbildung \ref{fig:konfigurationsmatrix} zeigt eine Visualisierung der zu \emph{Emilia Galotti} zugehörigen Konfigurationsmatrix.
 
-Aufbauend auf der Konfigurationsmatrix können dann auch binäre Relationen zwischen Figuren definiert werden, wie bspw. Konkomitanz (die Zeilen der zwei Figuren sind identisch) oder Dominanz (für jede Spalte gilt: eine 1 in der Zeile von Figur $a$ impliziert eine 1 in der Zeile von Figur $b$).
-Pfister erläutert auch Marcus' quantitative Maß der \textquote{szenische Nähe} zweier Figuren als die Hammingdistanz zwischen den zwei Zeilen dieser Figuren.\footnote{Pfister selbst bezeichnet diese Metrik als \textquote{szenische Distanz}. Dieses Maß ist nicht zu verwechseln mit dem \textquote{szenischen Abstand}, wie er in o.g. Aufsatz von Marcus erläutert wird.}
-Als quantitative Gesamtstatistik geht Pfister auch auf Marcus' \textquote{Bevölkerungsdichte} ein, welche als der Anteil der 1-Zellen an der Zahl aller Zellen der Matrix definiert ist.\footnote{Auch hier wählt Pfister mit \textquote{Konfigurationsdichte} einen anderen Begriff.}
+Nach Trilcke kann die von Marcus durchgeführte Konfigurationsanalyse sogar als Vorläufer netzwerkanalytischer Untersuchungen verstanden werden.\autocite[Vgl.][221--222]{trilcke_social_2013}
+Tatsächlich sind die in der Einleitung angesprochenen Figurennetzwerke schon von Marcus beschrieben worden\autocite[Vgl. $G(\Omega)$ in][141--142]{marcus_mathematisch-linguistisches_1971}, neben dem aus der \eng{Social Network Analysis} stammende Maß der  Distanz (\eng{geodesic distance})\autocite[Vgl. \textquote{szenischer Abstand}][141]{marcus_mathematisch-linguistisches_1971}. % hunspell: add Social Network Analysis geodesic distance
+Um \textcquote[142]{marcus_mathematisch-linguistisches_1971}{zu einem besseren Verständnis der Szenenführung zu kommen} schlägt Marcus insbesondere die Betrachtung von \textquote{Kernen} (damit sind maximale unabhängigen Mengen im Figurennetzwerk gemeint) vor.  % hunspell: acc Szenenführung
+Zumindest im zitierten Aufsatz wird auf die Relevanz von Kernen auf die Plot-Analyse nicht eingegangen.
+Auch weitere systematischen Untersuchungen dieser Kerne, und insbesondere deren Zusammenhang mit Handlung, konnten vom Autor nicht ausgemacht werden.
+
+\subsection{Change Rates} % hunspell: add change rate rates
+
+% TODO citation needed
+Um die in der Einleitung angesprochenen Limitationen der \textquote{statischen} Figurennetzwerke zu umgehen, führt die dlina-Arbeitsgruppe neue Maße auf Basis der Konfigurationsmatrix ein, um Handlungsentwicklungen zu erfassen.
+Diese lassen sich grob in drei Gruppen aufteilen:
+\begin{enumerate*}
+    \item Die Zeitpunkt-orientierten Indices identifizieren die Situation, in der strukturelle Schlüsselmomente geschehen.
+    In welcher Situation waren alle Figuren mindestens einmal auf der Bühne präsent? Wann tritt die Figur mit den höchsten Zentralitätswerten zuerst auf?
+    \item Die Zeitpunkt-orientierten Maße quantifizieren diese Schlüsselmomente, bspw. wie viele Figuren in der letzten Situationen präsent sind.
+    \item Die Geschehens-orientierten Maße können als \textquote*{Zeitreihen} verstanden werden, bzw. den Statistiken welche sich hieraus ergeben. 
+\end{enumerate*}
+Zur letzteren gehört auch die von der Arbeitsgruppe benannte \emph{segment change rate}, welche sie in ihren Vorträgen und veröffentlichen Arbeiten besonders intensiv bearbeiten.
+
+%Zu einer Situation bezeichnet die \emph{segment change rate} die Größe der symmetrischen Differenz zwischen der Konfiguration zu dieser Situation, und der Konfiguration zur konsekutiv darauf folgenden Situation.
+Sei zu einer Situation $s$ mit $s'$ die unmittelbar konsekutiv folgende Situation gemeint. Seien $K_s$ bzw. $K_{s'}$ die Konfigurationen (als Mengen von Figuren) zu $s$ bzw. $s'$.
+Dann ist die \emph{segment change rate} von $s$ gegeben durch $|K_s\,\triangle\,K_{s'}|/|K_s \cup K_{s'}|$ wobei mit dem Mengenoperator $\triangle$ wie üblich die symmetrische Differenz gemeint ist.
+Entsprechend realisiert die \emph{segment change rate} ein Maß der Situationsveränderung.
+Über die sequentielle Abfolge der Situationen für ein Drama ergibt sich eine Zeitreihe von \emph{segment change rates} (bis auf die letzte Situation), welche die Arbeitsgruppe \emph{beat charts} nennt.
+Lageparameter bzw. Streuung der \emph{segment change rate} innerhalb eines Werks liefere eine Typisierung in hoch- bzw. niedrigdynamische Werke (abh. von Mittelwert) oder stark- bzw. schwachryhtmische Werke (abh. von Standardabweichung). % hunspell: acc stark-
+Extremausschläge im \emph{beat chart} würden ferner mit den Aktgrenzen übereinstimmen.
+
+Diese Arbeit der dlina-Arbeitsgruppe wird hier deshalb so intensiv erläutert, als da sie die gleiche Datengrundlage wie die hier vorliegende Arbeit verwendet, sowie vielversprechende Quantifizierungen des Plots in Aussicht sein könnten.
+Insbesondere fragt sich die Arbeitsgruppe, ob sich mit diesen \emph{beat charts} weitere dramatischen Charakteristika erfassen lassen können, wie bspw. Expositionstypen.
+Dennoch wird von Pfister hingewiesen, dass keine konkrete literaturwissenschaftliche Theoriebildung diesen \emph{change rates} vorgeschaltet war.\autocite[Vgl.][]{trilcke_small_2020}
+Tatsächlich sind die Ideen der \emph{segment change rate} und \emph{beat charts} \textcquote[Kap.~4]{trilcke_small_2020}{rein netzwerkanalytisch, wenn nicht algorithmisch inspiriert}.
+Ferner mündete deren Analyse \textcquote[Kap.~4]{trilcke_small_2020}{in einer unvertrauten Beschreibungsweise, von der sich \textelp{} in tradierten literaturwissenschaftlichen Begriffen nicht recht sagen lässt, was sie eigentlich beschreibt.}
+Gerade deshalb versucht die hier vorliegende Arbeit
+%– wie in der Einleitung angedeutet –
+deutlich stärker das Modell aus literaturwissenschaftlicher Perspektive zu motivieren, anstatt eine von Beispielen getriebene Überzeugung über Korrektheit der Modelle zu erreichen.
 
 
-\subsection{Social Network Analysis} % hunspell: add Social Network Analysis
-% Moretti, Trilcke, ezlinaviz
-
-Moretti kann als einer der prominentesten Befürworter gezählt werden, welche einen Methodenimport aus der soziolgisch-empirischen \emph{Social Network Analysis} (SNA) in die Literaturwissenschaft vorschlagen.
-Morettis Ziel ist (wie jene dieser Arbeit) die quantitative Erfassung von \textquote*{\eng{plot}}, wobei für seine Überlegungen der \textquote{\eng{character-network}} eines dramatischen Werks zentral ist.
-Morettis \eng{character-networks} sind klar von den Sozialen Netzwerken der Netzwerktheorie inspiriert: ein \eng{character-networks} ist ein ungerichteter Graph mit Figuren als Ecken, wobei zwei Figuren genau dann durch eine Kante verbunden sind, wenn diese miteinander auf der Bühne sprechen.
-Nach Moretti sei dieses \eng{character-networks} eine Akkumulation aller Handlungen, und die Graphstrukturen würden deshalb für eine Plotanalyse nützliche Substrukturen unter den Figuren aufzeigen.\autocite[Vgl.][3-4]{moretti_network_2011}
-%
-% Marcus als Vorreiter?
-%
-In diesem Zusammenhang macht Trilcke die Einschätzung, dass Morettis Essay eher interpretativ die visualisierten Graphen auf Verwertbarkeit prüft. Dabei würde die vorhandenen Forschungsergebnisse der SNA nur periphär zur Hilfe ziehen; stattdessen arbeite er mit \textcquote[202]{trilcke_social_2013}{ad hoc-Konzepten, die er offenbar intuitiv angesichts der \textelp{} Netzwerkvisualisierungen gebildet hat. Das hat hat kaum noch etwas mit der SNA zu tun.}
-
-Als Alternative bzw. Ergänzung präsentiert daher Trilcke eine deutlich näher an den Methoden der SNA stehende exemplarische Netzwerkanalyse eines Figurennetzwerks – in diesem Fall sind zwei Figuren adjazent, wenn beie Figuren in der Konfiguration von mindestens einer Situation präsent sind.
-Trilcke macht deutlich, dass diese Netzwerkanalyse eine Fortsetzung der \textquote*{traditionellen} Konfigurationsanalyse von Marcus und Pfister darstellen könnte.
-Im vorliegenden Beispiel operationalisiert Trilcke die von Klötz etablierte Differenzierung zwischen \emph{offenen} und \emph{geschlossenen} Dramen über qualitative Eigenschaften des Graphen (wie Zusammenhang) und quantitativen Maßen (Dichte, mittlerer Grad, Standardabweichung vom Grad jeder Ecke).
-
-%Im Rahmen der hier durchgeführten Arbeit ist anzumerken, dass Trilcke selbst die Mächtigkeit dieser Figurennetzwerke in der Plotanalyse für begrenzt hält: Es \textcquote[224]{trilcke_social_2013}{sollte auch umrissen  sein,  welchen  Aspekt  der  Dramen  die  Konfigurationsnetzwerkanalyse beschreibt: Vollständig erfasst wird lediglich jenes kompositorische Grundgerüst,  das  die  szenisch  präsentierte Handlung  hervorbringt,  keineswegs diese Handlung selbst; ganz zu schweigen von der verdeckten, in Redebeiträgen  narrativ  vermittelten  Handlung.}
 
 
+%\subsection{Zentralitätsmaße in dynamischen Netzwerken}
+\subsection{Dynamische Netzwerke}
+
+Wie auch in der Einleitung schon angedeutet, scheinen die \emph{statischen} Figurennetzwerke nicht in der Lage zu sein, Handlung zu fassen.
+Dass ist schon insofern naheliegend, als da Figurennetzwerke als summatives Aggregat aller Einzelhandlungen verstanden werden können.
+Offenbar können also keine Differenzierungen im zeitlichen Verlauf der Handlung durch das Figurennetzwerk abgebildet werden.
+
+%Nach Trilcke würde die sequenzielle \textquote*{Dimension} von Handlung in solchen statischen Netzwerken verdeckt, \emph{weil} das Figurennetzwerk 
+Plot fasst gerade die Temporalität narrativer Texte, deshalb müssten Weiterentwicklungen der literarischen Netzwerkanalyse in Richtung Plot-Analyse Wege finden, diese zeitliche Dimension zu modellieren, so die dlina-Arbeitsgruppe.
+Nach ihnen sei daher der einzige Ausweg, den Text als ein sich über die zeitliche Dimension veränderndes \emph{dynamisches} Netzwerk zu modellieren.
+Nur die \textquote{Netzwerkdynamik}, also die \textquote{verändernde Folge von Netzwerkzuständen}, würden dann einen Zugang zur quantitativen Netzwerkanalyse bergen.\autocite[Vgl.][176]{trickle_netzwerkdynamik_2017}
+Damit motivieren sie zum Einen die komparative Analyse der Figurennetzwerke der z.B. einzelnen Akten eines Dramas, insbesondere durch Vergleich der Visualisierungen.
+Nichtsdestotrotz weist die Arbeitsgruppe darauf hin, dass solche Visualisierungsmethoden unzufriendenstellend sind, wenn man mit diesen Korpusanalysen bzw. \eng{distant reading} betreiben will.\autocite[Vgl.][178]{trickle_netzwerkdynamik_2017}
+
+In dieser Hinsicht sieht die Arbeitsgruppe zum Anderen mehr Potential in der \textquote{Berechnung netzwerkanalytischer Maße \textins{von dynamischen Netzwerken} und deren statistische Weiterverarbeitung}\autocites[178]{trickle_netzwerkdynamik_2017}[Vgl. auch][438]{fischer_network_2017}, weshalb diese auch die oben ausgeführte \emph{segment change rate} entwickeln.
+(Wobei bei diesen Maße nicht ersichtlich ist, inwiefern diese mit dynamischen Netzwerken zusammenhängen – diese liegen der Ansicht des Autors des hier vorliegenden Werks näher an der Konfigurationsanalyse.)
+An der Idee von Maßen dynamischer Netzwerke näher ist die von den Autoren zitierte Arbeit von Prado et~al., welche von Taylor et~al. entwickelte Zentralitätsmaße für \textquote{\eng{temporal networks}} aufgreifen, für literarische Fragestellungen verwenden, und diese auf zeitlich variablen Figurennetzwerken anwenden.\autocites{prado_temporal_2016}{taylor_eigenvector-based_2015}
+%Auf eine ausführliche Beschreibung des Verfahrens muss an dieser Stelle wegen der 
+Aufgrund des umfangreichen und nichttrivialen Verfahrens muss auf eine Beschreibung ebendieses an dieser Stelle verzichtet werden.
+Festhalten können wir nichtsdestotrotz, dass
+\begin{enumerate*}
+    \item die Analyse neue Erkenntnisse über die für die Handlung relevantesten Figuren liefern kann,
+    \item dennoch aus literaturwissenschaftlicher Perspektive unklar ist, wie sich diese Maße ergeben; ebenso ist die Interpretationen der Maße tendenziell schwierig.\autocite[Vgl.][14--15]{prado_temporal_2016}
+        Ob die Methode von Prado et~al. tatsächlich ein Instrumentarium zur quantitativen Plot-Analyse beitragen kann, zweifeln Trilcke et~al. an.\footnote{\textquote{Tatsächlich lässt sich dieses Erkenntnisversprechen \textins{der quantitativen Plot-Analyse} mit den derzeit verfolgten Ansätzen im Bereich der literaturwissenschaftlichen Netzwerkanalyse kaum aufgreifen, geschweige denn einlösen \emph{(so auch Prado et al. 2016)}}; Hervorhebung nur hier. \cite[176]{trickle_netzwerkdynamik_2017}.}
+        Ferner
+    \item bleiben bei Prado et~al. die Figurennetzwerke die Datengrundlage, was sie zumindest oberflächlich von der hier vorliegenden Arbeit unterscheidet, welche explizit nicht mit Figurennetzwerken arbeitet.
+\end{enumerate*}
+
+Rückblickend auf die These von Trilcke et~al., welche dynamische Netzwerke als notwendig sehen, ist hervorzuheben, dass die vorliegende Arbeit ebenjene These explizit in Frage stellt.
+Die Arbeit präsentiert ein \emph{statisches} Netzwerk, welches in der Lage zu sein scheint, Handlung im dramatischen Werk sinnvoll und hinreichend effektiv strukturell (wenn nicht sogar quantitativ) zu erfassen.
 
 
-
-\section{Gerichtete azyklische Graphen als Modelle der syntagmatischen Handlungsstruktur im Drama}
+\section{Gerichtete azyklische Graphen als Modelle der syntagmatischen Handlungsstruktur im Drama}\label{sec:situationsgraph}
 
 % TODO ?
 
@@ -264,7 +352,7 @@ Verbinde zwei Punkte durch einen Pfeil (in der chronologischen Reihenfolge) wenn
 Abbildung \ref{fig:situationsgraph} zeigt Visualisierungen des Situationsgraphen zu \emph{Emilia Galotti}, einmal in ungewichteter Darstellung, und einmal in welcher die Dicke des Pfeilzugs zu $r$ proportional zu $w(r)^{1/3}$ ist.
 
 Die Abbildung \ref{fig:situationsgraph} zeigt schon, wie solche Situationsgraphen dazu verwendet werden können, sich einen graphischen Überblick über das Werk zu verschaffen.
-Ähnlich wie in \textquote{Konfigurationsmatrizen} werden die Veränderungen der Konfigurationen im Verlauf des Werks deutlich.
+Ähnlich wie in Konfigurationsmatrizen werden die Veränderungen der Konfigurationen im Verlauf des Werks deutlich.
 Vorteil der Darstellung als Graph liegt dann insbesondere darin, dass Fragen wie \textquote{Wann tritt Odoardo wieder auf, nach seiner Exposition im Akt II.4} leicht beantwortet werden können. % hunspell: acc Odoardo
 Die gewichtete Darstellung kann in ähnlicher Weise beitragen, Beobachtungen wie \textquote{TODO} anzuregen.
 Auf diese Verwendungsweise als Visualisierung soll aber im Folgenden nicht weiter eingegangen werden, zugunsten einer näheren Beschäftigung mit dem eigentlichen Forschungsdesiderat.
@@ -303,7 +391,7 @@ Damit erlaubt Beobachtung (i) einen restriktiven Charakter die notwendige (zunä
 % (ii) Informationsweitergabe, Propagierung der Effekte von "Situations"-Veränderungen
 Auch wenn die folgende Argumentation eher unscharf sind, dürfte Beobachtung (ii) wesentlich zur Behauptung beitragen.
 Nach Definition ist Figur $p$ in $s_i$ und $s_j$ präsent.
-Damit wird zum einen eine \emph{Informationsweitergabe} im inneren Kommunikationssystem (also des fiktionalen \textquote{Universums}) plausibel.
+Damit wird zum Einen eine \emph{Informationsweitergabe} im inneren Kommunikationssystem (also des fiktionalen \textquote{Universums}) plausibel.
 Informationen werden von dieser Figur in $s_i$ empfangen und ggf. in $s_j$ vergeben – wobei diese Informationsvergabe einen Effekt auf die Informiertheit der anderen Figuren haben sollte.
 Zum anderen – insbesondere wenn die Informationsvergabe ausbleibt – haben die in $s_i$ empfangenen Informationen einen Einfluss auf die jeweilige Figur und ihre Handlungen in der darauf folgenden Situation $s_j$. (Wie bspw. bei einem Befehl und deren Ausführung vorliegt.)
 Das Ausmaß dieser beiden Effekte hängt jedenfalls rudimentär mit der Replikenlänge von $p$ in den Situationen zusammen, was durch das Pfeilgewicht reflektiert wird.
@@ -324,7 +412,7 @@ Hieraus folgt, dass wir plausible Handlungssequenzen im Drama finden können, we
 Abbildung \ref{fig:} zeigt den Handlungsgraph von \emph{Emilia Galotti} mit einem hervorgehobenen Weg.
 Die Überlegungen scheinen zumindest für diese Instanz zuzustimmen: TODO
 
-\section{Segmentierung in Handlungssequenzen – Disjunkte Wegüberdeckungen}
+\section{Segmentierung in Handlungssequenzen – Disjunkte Wegüberdeckungen}\label{sec:segmentierung}
 
 
 Vorher führen wir noch eine Vereinfachung des Situationsgraphen vor, um diesen in einen \emph{einfachen} gerichteten azyklischen Graphen zu transformieren.
@@ -342,7 +430,7 @@ Präziser:
 \subsection{Zur Operationalisierung}
 
 Folgender Abschnitt wendet sich dem eigentlichen Forschungsdesiderat zu: die Segmentierung der im dramatischen Text dargestellten Gesamthandlung in Handlungssequenzen.
-Wie im vorigen Abschnitt bereits ausgearbeitet, konnten wir eine Korrespondenz zwischen Handlungssequenzen im Drama, und Wegen im entsprechenden Handgrundgraph $H$ plausibel machen.
+Wie im vorigen Abschnitt bereits ausgearbeitet, konnten wir eine Korrespondenz zwischen Handlungssequenzen im Drama, und Wegen im entsprechenden Situationsgraph $G$ plausibel machen.
 % TODO Motivation in der Einleitung: Kombination von Sequenzen, Präsentation von Geschichte, Komposition, Segmentierung
 Intuitiv könnte eine Operationalisierung dieser Frage in Verbindung mit unserem Konstruierten Situationsgraphen $S$ vorläufig wie folgt aussehen: \emph{Finde eine disjunkte Wegüberdeckung von $H$, also eine Menge an Wegen $\mathcal{P}$, sodass zu jeder Ecke $v\in V(H)$ genau ein Weg $P \in \mathcal{P}$ existiert, sodass $v$ Element der Spur von $P$ ist. Die Wege in $\mathcal{P}$ korrespondieren mit den Sequenzen im Drama.}
 
