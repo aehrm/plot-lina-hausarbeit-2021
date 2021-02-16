@@ -99,9 +99,9 @@ innerhalb narrativer Texte mittels Methoden aus den \eng{Digital Literary Studie
 Während Fragen zu \textquote{\eng{language and style}} durch Korpusanalysen in den \emph{Digital Literary Studies} quantitativ und maschinell beantwortet werden können, befindet sich im Rahmen von \textquote{\eng{plot}} bei den  computergestützten Methoden der Literaturwissenschaft immer noch eine Leerstelle. % hunspell: acc language and style plot
 % hunspell: add Morettis distant reading 
 Ferner ist Morettis Vorhaben auch eine \eng{distant-reading}-Motivation zu finden: gerade die computerisierte Methode, Plot auszuwerten, könnte in großen Korpusanalysen generelle Grammatiken bzw. Regularitäten im Plot vieler Werke zum Vorschein bringen. % hunspell: acc -Motivation
-Zur Schließung dieser Leerstelle schlägt Moretti vor, die \emph{Netzwerkanalyse} als Instrument zur quantitativen Plot-Analyse heranzuziehen.\autocite[Vgl.][]{moretti_network_2011}
+Zur Schließung dieser Leerstelle schlägt Moretti vor, die \emph{Netzwerkanalyse} als Instrument zur quantitativen Plot-Analyse heranzuziehen.\autocites[Vgl.][]{moretti_network_2011}[Vgl.][]{trilcke_small_2020}
 
-Zentraler Forschungsgegenstand der \emph{Netzwerkanalyse} sind \emph{Netzwerke}.
+Zentraler Forschungsgegenstand der Netzwerkanalyse sind \emph{Netzwerke}.
 Intuitiv kann ein Netzwerk als eine Sammlung von Entitäten verstanden werden, welche in binären Relationen miteinander in Beziehung stehen.
 Im Rahmen Morettis Pamphlet wurde beispielsweise das \emph{Figurennetzwerk} von \emph{Hamlet} betrachtet, in denen also das Personal von \emph{Hamlet} die Entitäten bilden, und je zwei Personen binär relieren (bildlich: verbunden sind), wenn diese auf der Bühne interagieren.
 Netzwerke lassen sich in einer diagrammatischen Form darstellen, in der die Entitäten als Punkte gezeichnet werden und Linien zwei relierende Entitäten verbindet; siehe z.B. Abb.~\ref{fig:netzwerk} als Diagramm Morettis \emph{Hamlet}-Netzwerks. % hunspell: acc -Netzwerks.
@@ -110,26 +110,27 @@ Netzwerke lassen sich in einer diagrammatischen Form darstellen, in der die Enti
 %\emph{Graphen} sind mathematische Strukturen aus dem Teilgebiet der diskreten Mathematik, und sind im Wesentlichen Abstraktionen von Netzwerken; sie lassen dabei außer acht, welches \textquote*{reale} Netzwerk modelliert wird.
 %Während nach Tittmann die \emph{Graphentheorie} \textcquote[11]{tittmann_graphentheorie:_2011}{zunächst nur die rein topologischen Fragen einer Netzstruktur} eines Graphen untersucht, kann sich die Netzwerktheorie den Überlegungen und Ergebnissen der Graphentheorie zu Eigen machen: insbesondere lassen sich Netzwerke eben als Graphen modellieren. Damit gehen zwar \textcquote[11]{tittmann_graphentheorie:_2011}{in diesem abstrakten Modell alle Informationen über die konkrete Art und Beschaffung \textelp{des real vorliegenden Netzwerkes} verloren}, aber \textcquote[11]{tittmann_graphentheorie:_2011}{verbleiben jedoch viele erstaunliche Eigenschaften eines \textelp{Netzwerkes}, die bereits auf dieser Abstraktionsstufe modelliert werden können.}
 
-Nach Moretti bilden diese Interaktionen als die Handlungen des Dramas ab – das resultierende Figurennetzwerk damit die summative strukturalisierte Gesamthandlung des Werks.
+Nach Moretti bilden diese Interaktionen die Handlungen des Dramas ab – das resultierende Figurennetzwerk damit die summative strukturalisierte Gesamthandlung des Werks.
 Trilcke greift diese Idee auf, und führt diese mit Mitteln der \emph{Social Network Analysis} rigoros weiter. % hunsepll: acc Social Network Analysis
 Insbesondere macht Trilcke eine Operationalisierung auf Figurennetzwerken plausibel, welche dramatische Texte (im Kontext von Klotz' Typisierung) als \emph{offen} bzw. \emph{geschlossen} klassifizieren können.\autocite[Vgl.][]{trilcke_social_2013}
-Auch wenn diese Ergebnis in die Richtung der \textquote*{Operationalisierung von Plot} geht, macht selbst Trilcke später darauf aufmerksam, dass auch mit aktuellen Ansätzen der literarischen Netzwerkanalyse die Operationalisierung des Plots durch diese Figurennetzwerke nicht zufriedenstellend ist.
+Auch wenn diese Ergebnis in die Richtung der Operationalisierung von Plot geht, macht selbst Trilcke später darauf aufmerksam, dass auch mit aktuellen Ansätzen der literarischen Netzwerkanalyse die Operationalisierung des Plots durch diese Figurennetzwerke nicht zufriedenstellend ist.
 
 %\subsection{Eigener Betrag}
 
 Zentrale Schwachstelle in Figurennetzwerken sehen Trilcke et~al. insbesondere im Fakt, dass durch solche \emph{statischen} Modelle die temporale Dimension von Plot nicht abgebildet werden kann.\autocite[Vgl.][176]{trickle_netzwerkdynamik_2017}
 Diese Arbeit folgt deren generellem Forschungsdesiderat, die Netzwerkanalyse in Richtung einer quantitativen Plot-Analyse weiterzuentwickeln.
 Während aktuelle Entwicklungen jedoch versuchen, \emph{dynamische} Netzwerke zu entwickeln um sie für die Plot-Analyse zu gebrauchen, wählt diese Arbeit einen alternativen Weg und motiviert Netzwerke für dramatische Texte, in denen die \emph{Auftritte} (und nicht Figuren) die Entitäten des Netzwerks darstellen.
+Wie in der literarischen Netzwerkanalyse üblich, verwertet die hier vorgestellte Methode ausschließlich strukturelle Aspekte der dramatischen Werke, und ist blind gegenüber dem Inhalt des Haupttext.
 
 Präziser will die Arbeit plausibilisieren, dass in solchen Netzwerken (i) Handlungssequenzen deutlich werden, und sich so (ii) einen Vorschlag zu einer Plot-Strukturierung eines dramatischen Werks errechnen lassen kann.
-% TODO was ist mit Plot-Strukturierung gemeint
+% TODO was ist mit Plot-Strukturierung gemeint; klares Ziel ausdrücken
 Die Errechnung erfolgt mit algorithmischen Methoden aus der Graphentheorie.
 Letzter Punkt soll insbesondere beitragen, Kompositionsprinzipien von Handlungssequenzen in digitalen Korpora messbar zu machen, und so bspw. Fragen zum Verhältnis von Haupt- und Nebenhandlung, oder zu Verknüpfungstechniken von Handlungssequenzen, via \eng{distant reading} vergleichend für viele Werke zu beantworten. % hunspell: acc distant reading
 
 
 %\subsection{Aufbau der Arbeit}
 
-Nächster Abschnitt konkretisiert Begriffe, die wir zur Erarbeitung des Netzwerkmodells benötigen; insbesondere wählen wir einen Handlungsbegriff, definieren Begriffe aus der Graphentheorie, und gehen kurz auf das digitale Dramenkorpus GerDraCor ein, welches unseren Überlegungen zugrunde liegen wird.
+Nächster Abschnitt konkretisiert Begriffe, die wir zur Erarbeitung des Netzwerkmodells benötigen; insbesondere wählen wir einen Handlungs(sequenz)begriff, definieren Begriffe aus der Graphentheorie, und gehen kurz auf das digitale Dramenkorpus GerDraCor ein, welches unseren Überlegungen zugrunde liegen wird. % hunspell: acc Handlungs sequenz
 Anschließend wird in Abschnitt \ref{sec:verwandte-arbeiten} auf verwandte Arbeiten der netzwerktheoretischen Plot-Analyse eingegangen.
 Abschnitt \ref{sec:situationsgraph} bzw. \ref{sec:segmentierung} wenden sich dem eigentlichen Ziel zu, und behandeln o.g. Punkte (i) und (ii): erster plausibilisiert das Modell der \emph{Situationsgraphen}, zweiter erklärt wie sich hieraus die Plot-Struktur eines Dramas ablesen lassen kann.
 
@@ -169,20 +170,24 @@ chronologischer und kausaler Relationen.
 % hunspell: on
 Den letzten Satz können wir als eine Definition für Handlungssequenzen (in Abgrenzung an willkürliche Sequenzen von Handlungen) auffassen.
 Dass Pfister nicht näher eingeht, was er mit \textquote{chronologischen und kausalen Relationen} meint, ist durchaus nicht problematisch, und sehen wir als Möglichkeit, \textquote{kausale Relationen} möglichst offen zu verstehen.
-
+%
 Nichtsdestotrotz muss angemerkt werden, dass diese Definition immer noch relativ nahe an einem aristotelischem Ideal bleibt, wenn er kausale Geschlossenheit bzw. Wahrscheinlichkeit fordert.
 Das könnte diese Definition nur schwer anwendbar für anti-aristotelische Dramaturgien machen, welche z.B. kausale Geschlossenheit explizit verwerfen.\autocite[Vgl.][268]{pfister_drama:_2001}
 
-Im obigen Zitat wird auch das in der Einleitung intuitiv angesprochene Forschungsdesiderat deutlich:
+Im obigen Zitat wird auch das in der Einleitung intuitiv angesprochene Ziel der Arbeit deutlich:
+Die Gesamthandlung eines Dramas ist oft mehr als eine einzige lineare Kette an Einzelhandlungen, sondern ist die Komposition meist durchaus komplexer.
+Essenziell für eine Analyse ist daher, die einzelnen Handlungssequenzen zu identifizieren, die kombiniert die Gesamthandlung konstituieren.
+Gerade im Hinblick auf Fragen betreffend der hierarchischen Abstufung (\textquote*{Haupthandlung} vs. \textquote*{Nebenhandlung}) ist es vorteilhaft, wenn eine solche Segmentierung thematisch ähnliche Handlungen in Sequenzen zusammenfasst, bzw. wenn die resultierenden Sequenzen der Segmentierung sich thematisch abgrenzen.
+Als da unsere Datengrundlage ohnehin blind gegenüber Inhalt bzw. Themen des Haupttextes ist, führen wir hier schon eine erste Vereinfachung durch:
+Wir identifizieren (starken) kausalem Zusammenhang mit thematischer Ähnlichkeit, entsprechend ist als eine wünschenswerte Segmentierung möglichst grob, also bestehend aus aus langen, stark zusammenhängenden, wenigen Handlungssequenzen.
 % TODO Segmentierung in Handlungssequenzen
 % TODO Thematische Gruppierung: vgl. Haupt- und Nebenhandlung
 
-% TODO Streichen, Pfister verwirft diese Definition explizit
 \subsection{Segmentierung der Darstellung in Situationen}
 
 Auf der Seite der Darstellung definieren wir eine \emph{Situation} – hier nun Marcus folgend – als Segmentierung des Textverlaufs in Abschnitte, in denen keine Veränderungen hinsichtlich der Szenerie oder den präsenten Figuren erfolgen. Situationen werden also durch Szenenwechsel, Auf- oder Abtritt einer Figur begrenzt.\autocite[Vgl.][140]{marcus_mathematisch-linguistisches_1971} % hunspell: acc Auf-
 
-Wir werden im Folgenden annehmen, dass wir jeder Situation einer Menge von Handlungen zuordnen können, und insbesondere eine Handlung sich nicht über mehrere Handlungen erstreckt. 
+Wir werden im Folgenden annehmen, dass wir jeder Situation einer Menge von Handlungen zuordnen können, und insbesondere eine Handlung sich nicht über mehrere Situationen erstreckt. 
 Für diese Annahme spricht – auch wenn die folgende Begründung durchaus schwach ist –, dass unsere Definition von Handlung eine \textquote{Überführung} zwischen zwei Situationen fordert, die wir als punktuell an einem \emph{Zeitpunkt} verstehen können.
 Eine Handlung kann sich deshalb nicht auf mehrere Situationen erstrecken.
 
@@ -253,7 +258,7 @@ Nach Trilcke kann die von Marcus durchgeführte Konfigurationsanalyse sogar als 
 Tatsächlich sind die in der Einleitung angesprochenen Figurennetzwerke schon von Marcus beschrieben worden\autocite[Vgl. $G(\Omega)$ in][141--142]{marcus_mathematisch-linguistisches_1971}, neben dem aus der \eng{Social Network Analysis} stammende Maß der  Distanz (\eng{geodesic distance})\autocite[Vgl. \textquote{szenischer Abstand}][141]{marcus_mathematisch-linguistisches_1971}. % hunspell: add Social Network Analysis geodesic distance
 Um \textcquote[142]{marcus_mathematisch-linguistisches_1971}{zu einem besseren Verständnis der Szenenführung zu kommen} schlägt Marcus insbesondere die Betrachtung von \textquote{Kernen} (damit sind maximale unabhängigen Mengen im Figurennetzwerk gemeint) vor.  % hunspell: acc Szenenführung
 Zumindest im zitierten Aufsatz wird auf die Relevanz von Kernen auf die Plot-Analyse nicht eingegangen.
-Auch weitere systematischen Untersuchungen dieser Kerne, und insbesondere deren Zusammenhang mit Handlung, konnten vom Autor nicht ausgemacht werden.
+Auch weitere systematischen Untersuchungen dieser Kerne, und insbesondere deren Zusammenhang mit Gesamthandlung, konnten vom Autor nicht ausgemacht werden.
 
 \subsection{Change Rates} % hunspell: add change rate rates
 
@@ -273,7 +278,7 @@ Sei zu einer Situation $s$ mit $s'$ die unmittelbar konsekutiv folgende Situatio
 Dann ist die \emph{segment change rate} von $s$ gegeben durch $|K_s\,\triangle\,K_{s'}|/|K_s \cup K_{s'}|$ wobei mit dem Mengenoperator $\triangle$ wie üblich die symmetrische Differenz gemeint ist.
 Entsprechend realisiert die \emph{segment change rate} ein Maß der Situationsveränderung.
 Über die sequentielle Abfolge der Situationen für ein Drama ergibt sich eine Zeitreihe von \emph{segment change rates} (bis auf die letzte Situation), welche die Arbeitsgruppe \emph{beat charts} nennt.
-Lageparameter bzw. Streuung der \emph{segment change rate} innerhalb eines Werks liefere eine Typisierung in hoch- bzw. niedrigdynamische Werke (abh. von Mittelwert) oder stark- bzw. schwachryhtmische Werke (abh. von Standardabweichung). % hunspell: acc stark-
+Lageparameter bzw. Streuung der \emph{segment change rate} innerhalb eines Werks liefere eine Typisierung in hoch- bzw. niedrigdynamische Werke (abh. von Mittelwert) oder stark- bzw. schwachrhythmische Werke (abh. von Standardabweichung). % hunspell: acc stark-
 Extremausschläge im \emph{beat chart} würden ferner mit den Aktgrenzen übereinstimmen.
 
 Diese Arbeit der dlina-Arbeitsgruppe wird hier deshalb so intensiv erläutert, als da sie die gleiche Datengrundlage wie die hier vorliegende Arbeit verwendet, sowie vielversprechende Quantifizierungen des Plots in Aussicht sein könnten.
@@ -291,9 +296,9 @@ deutlich stärker das Modell aus literaturwissenschaftlicher Perspektive zu moti
 %\subsection{Zentralitätsmaße in dynamischen Netzwerken}
 \subsection{Dynamische Netzwerke}
 
-Wie auch in der Einleitung schon angedeutet, scheinen die \emph{statischen} Figurennetzwerke nicht in der Lage zu sein, Handlung zu fassen.
+Wie auch in der Einleitung schon angedeutet, scheinen die \emph{statischen} Figurennetzwerke nicht in der Lage zu sein, Plot zu fassen.
 Dass ist schon insofern naheliegend, als da Figurennetzwerke als summatives Aggregat aller Einzelhandlungen verstanden werden können.
-Offenbar können also keine Differenzierungen im zeitlichen Verlauf der Handlung durch das Figurennetzwerk abgebildet werden.
+Offenbar können also keine Differenzierungen im zeitlichen Verlauf des Plots durch das Figurennetzwerk abgebildet werden.
 
 %Nach Trilcke würde die sequenzielle \textquote*{Dimension} von Handlung in solchen statischen Netzwerken verdeckt, \emph{weil} das Figurennetzwerk 
 Plot fasst gerade die Temporalität narrativer Texte, deshalb müssten Weiterentwicklungen der literarischen Netzwerkanalyse in Richtung Plot-Analyse Wege finden, diese zeitliche Dimension zu modellieren, so die dlina-Arbeitsgruppe.
@@ -309,7 +314,7 @@ An der Idee von Maßen dynamischer Netzwerke näher ist die von den Autoren ziti
 Aufgrund des umfangreichen und nichttrivialen Verfahrens muss auf eine Beschreibung ebendieses an dieser Stelle verzichtet werden.
 Festhalten können wir nichtsdestotrotz, dass
 \begin{enumerate*}
-    \item die Analyse neue Erkenntnisse über die für die Handlung relevantesten Figuren liefern kann,
+    \item die Analyse neue Erkenntnisse über die für die Gesamthandlung relevantesten Figuren liefern kann,
     \item dennoch aus literaturwissenschaftlicher Perspektive unklar ist, wie sich diese Maße ergeben; ebenso ist die Interpretationen der Maße tendenziell schwierig.\autocite[Vgl.][14--15]{prado_temporal_2016}
         Ob die Methode von Prado et~al. tatsächlich ein Instrumentarium zur quantitativen Plot-Analyse beitragen kann, zweifeln Trilcke et~al. an.\footnote{\textquote{Tatsächlich lässt sich dieses Erkenntnisversprechen \textins{der quantitativen Plot-Analyse} mit den derzeit verfolgten Ansätzen im Bereich der literaturwissenschaftlichen Netzwerkanalyse kaum aufgreifen, geschweige denn einlösen \emph{(so auch Prado et al. 2016)}}; Hervorhebung nur hier. \cite[176]{trickle_netzwerkdynamik_2017}.}
         Ferner
@@ -317,12 +322,15 @@ Festhalten können wir nichtsdestotrotz, dass
 \end{enumerate*}
 
 Rückblickend auf die These von Trilcke et~al., welche dynamische Netzwerke als notwendig sehen, ist hervorzuheben, dass die vorliegende Arbeit ebenjene These explizit in Frage stellt.
-Die Arbeit präsentiert ein \emph{statisches} Netzwerk, welches in der Lage zu sein scheint, Handlung im dramatischen Werk sinnvoll und hinreichend effektiv strukturell (wenn nicht sogar quantitativ) zu erfassen.
+Die Arbeit präsentiert ein \emph{statisches} Netzwerk, welches in der Lage zu sein scheint, Plot im dramatischen Werk sinnvoll und hinreichend effektiv strukturell (wenn nicht sogar quantitativ) zu erfassen.
 
 
 \section{Gerichtete azyklische Graphen als Modelle der syntagmatischen Handlungsstruktur im Drama}\label{sec:situationsgraph}
 
 % TODO ?
+% Behauptung 1: Pfeile stellen kausale Zusammenhänge zwischen Situationen dar
+% Behauptung 2: Wege entsprechen Handlungs(!)sequenzen
+% Intuitive Einleitung in das Modell?
 
 Die Präsentation geht hierbei \textquote*{rückwärts} vor: für eine eindeutige und präzise Definition wird erst eine mathematische Definition geliefert, dann eine intuitive Definition bzw. Erklärung, und erst im zweiten Teil die spezifischen Modellierungen motiviert.
 
@@ -355,9 +363,21 @@ Die Abbildung \ref{fig:situationsgraph} zeigt schon, wie solche Situationsgraphe
 Ähnlich wie in Konfigurationsmatrizen werden die Veränderungen der Konfigurationen im Verlauf des Werks deutlich.
 Vorteil der Darstellung als Graph liegt dann insbesondere darin, dass Fragen wie \textquote{Wann tritt Odoardo wieder auf, nach seiner Exposition im Akt II.4} leicht beantwortet werden können. % hunspell: acc Odoardo
 Die gewichtete Darstellung kann in ähnlicher Weise beitragen, Beobachtungen wie \textquote{TODO} anzuregen.
-Auf diese Verwendungsweise als Visualisierung soll aber im Folgenden nicht weiter eingegangen werden, zugunsten einer näheren Beschäftigung mit dem eigentlichen Forschungsdesiderat.
 
-In diesem Sinne ist anzumerken, dass wir in großen digitalen Korpora wie \textsc{GerDraCor} die Situationsgraphen aller enthaltenen Dramentexten automatisch bestimmen können:
+Auf diese Verwendungsweise als Visualisierung soll aber im Folgenden nicht weiter eingegangen werden, zugunsten einer näheren Beschäftigung mit dem eigentlichen Forschungsdesiderat.
+Deshalb wir noch eine Vereinfachung des Situationsgraphen vor, um diesen in einen \emph{einfachen} gerichteten azyklischen Graphen zu transformieren.
+Hierzu fassen wir alle parallelen Kanten in eine einzige zusammen, und weisen dieser als Gewicht die Summe der ersetzten Parallelen zu.
+Präziser:
+\begin{em}%
+    Aus einem Situationsgraphen $G=(S, R, \alpha, \omega)$ mit Gewichtung $w$ geht wie folgt ein \emph{einfacher Situationsgraph} $G_\mathrm{sim}$ hervor: Sei $\sim$ eine Relation auf $R$ sodass $r\sim r'$ genau dann wenn $r$ und $r'$ parallel in $G$ sind.
+    Damit ist $\sim$ eine Äquivalenzrelation; sei deshalb $R/{\sim}$ die Partitionierung von $R$ in Äquivalenzklassen, und $[r]$ die $\sim$-Äquivalenzklasse von $r$.
+    Dann sei $G_\mathrm{sim} \coloneq (S, R/{\sim}, \alpha', \omega')$, gewichtet durch $w\colon {R/{\sim}} \to \mathbb{N}$, mit
+    \[ \alpha'([r]) \coloneq \alpha(r), \quad \omega'([r]) \coloneq \omega(r), \quad w([r]) \coloneq \textstyle\sum_{r'\in [r]} w(r'). \]
+    Die Zuweisung von $\alpha, \omega$ ist insbesondere nach Definition von Parallelen wohldefiniert.
+\end{em}%
+Abbildung \ref{fig:simple} zeigt den aus dem Situationsgraph für \emph{Emilia Galotti} hervorgehenden einfachen Situationsgraphen.
+
+In diesem Sinne ist anzumerken, dass wir in großen digitalen Korpora wie \textsc{GerDraCor} die (einfachen) Situationsgraphen aller enthaltenen Dramentexten automatisch bestimmen können:
 Wir beobachten, dass wir aus einer TEI-codierte Edition eines dramatischen Werks (genauer: sogar schon aus dem zum Drama korrespondierenden \textquote*{Zwischenformat}) alle relevanten Informationen maschinell ableiten können, die wir zur Konstruktion des Situationsgraphen benötigt haben, also
 \begin{enumerate*}
     \item die Sequenz von Situationen und den dazugehörigen Konfigurationen, und
@@ -380,7 +400,8 @@ Diese Aussage soll durch folgende Überlegungen plausibilisiert werden.
 Zunächst halten wir folgende einfache Beobachtungen fest, die sich aus der Definition des Graphen ergeben:
 \begin{enumerate*}
     \item Die Situation $s_i$ geschieht werks-chronologisch vor Situation $s_j$. % hunspell: acc werks-chronologisch
-    \item Die Konfigurationen dieser beiden Situationen überschneiden sich, es gibt also eine Figur, welche zu beiden Situationen auftritt. Das ist die eindeutige $p\in P$ mit $(s_i,s_j,p)=r$.
+    \item Die Konfigurationen dieser beiden Situationen überschneiden sich.
+        Für diese Figuren ist $s_j$ der unmittelbar folgende Auftritt nach $s_i$.
 \end{enumerate*}
 
 % (i) Sukzession
@@ -390,18 +411,18 @@ Damit erlaubt Beobachtung (i) einen restriktiven Charakter die notwendige (zunä
 
 % (ii) Informationsweitergabe, Propagierung der Effekte von "Situations"-Veränderungen
 Auch wenn die folgende Argumentation eher unscharf sind, dürfte Beobachtung (ii) wesentlich zur Behauptung beitragen.
-Nach Definition ist Figur $p$ in $s_i$ und $s_j$ präsent.
+Eine Teilmenge an Figuren ist sowohl in $s_i$ also auch und $s_j$ präsent.
 Damit wird zum Einen eine \emph{Informationsweitergabe} im inneren Kommunikationssystem (also des fiktionalen \textquote{Universums}) plausibel.
-Informationen werden von dieser Figur in $s_i$ empfangen und ggf. in $s_j$ vergeben – wobei diese Informationsvergabe einen Effekt auf die Informiertheit der anderen Figuren haben sollte.
-Zum anderen – insbesondere wenn die Informationsvergabe ausbleibt – haben die in $s_i$ empfangenen Informationen einen Einfluss auf die jeweilige Figur und ihre Handlungen in der darauf folgenden Situation $s_j$. (Wie bspw. bei einem Befehl und deren Ausführung vorliegt.)
+Informationen werden von dieser Figur in $s_i$ empfangen und ggf., aber szenisch frühestens, in $s_j$ vergeben – wobei diese Informationsvergabe einen Effekt auf die Informiertheit der anderen Figuren haben sollte.
+Zum anderen haben die in $s_i$ empfangenen Informationen einen Einfluss auf die jeweilige Figur und ihre Handlungen in der darauf folgenden Situation $s_j$. (Wie bspw. bei einem Befehl und deren Ausführung vorliegt.)
 Das Ausmaß dieser beiden Effekte hängt jedenfalls rudimentär mit der Replikenlänge von $p$ in den Situationen zusammen, was durch das Pfeilgewicht reflektiert wird.
 % TODO Motivieren: Gewicht als \sum \min \{ \rho(s_i, p), \rho(s_j, p) \} gibt (zumindest ordinal) wieder, wie gewichtig die Effekte in (ii) sind
 
 
 \subsection{Handlungssequenzen – Wege im Situationsgraph}
 
-Es liegt unmittelbar nahe, die eben gewonnene Behauptung über Pfeile auf \emph{Wege} im  Situationsgraph auszudehnen.
-Sei $P=(s_{i_0}, r_1, s_{i_1}, r_2, s_{i_2}, \dots, r_k, s_{i_k})$ ein Weg in $G$. 
+Es liegt unmittelbar nahe, die eben gewonnene Behauptung über Pfeile auf \emph{Wege} im einfachen Situationsgraph auszudehnen.
+Sei $P=(s_{i_0}, r_1, s_{i_1}, r_2, s_{i_2}, \dots, r_k, s_{i_k})$ ein Weg in $G_\text{sim}$. 
 Da der Pfeil $r_1$ von Situation $s_{i_0}$ nach $s_{i_1}$ zeigt, schließen wir aus obiger Behauptung, dass eine Handlung in $s_{i_0}$ eine Handlung in $s_{i_1}$ bewirkt.
 Ebenso bewirkt eine Handlung in $s_{i_1}$ eine in $s_{i_2}$, usw., bis zu einer Handlung in Situation $s_{i_k}$.
 
@@ -409,66 +430,48 @@ Wir können also den Weg $P$ als Zeuge einer Handlungssequenz verstehen, welche 
 Damit haben wir für die zweite am Anfang genannte Behauptung argumentiert.
 Hieraus folgt, dass wir plausible Handlungssequenzen im Drama finden können, wenn wir den Situationsgraphen gegeben haben. 
 
-Abbildung \ref{fig:} zeigt den Handlungsgraph von \emph{Emilia Galotti} mit einem hervorgehobenen Weg.
+Abbildung \ref{fig:} zeigt den einfachen Situationsgraph von \emph{Emilia Galotti} mit einem hervorgehobenen Weg (in diesem Fall jener Weg mit maximalem Gewicht).
 Die Überlegungen scheinen zumindest für diese Instanz zuzustimmen: TODO
 
 \section{Segmentierung in Handlungssequenzen – Disjunkte Wegüberdeckungen}\label{sec:segmentierung}
 
-
-Vorher führen wir noch eine Vereinfachung des Situationsgraphen vor, um diesen in einen \emph{einfachen} gerichteten azyklischen Graphen zu transformieren.
-Hierzu fassen wir alle parallelen Kanten in eine einzige zusammen, und weisen dieser als Gewicht die Summe der ersetzten Parallelen zu.
-Präziser:
-\begin{em}%
-    Aus einem Situationsgraphen $G=(S, R, \alpha, \omega)$ mit Gewichtung $w$ geht wie folgt ein \emph{einfacher Situationsgraph} $G_\mathrm{sim}$ hervor: Sei $\sim$ eine Relation auf $R$ sodass $r\sim r'$ genau dann wenn $r$ und $r'$ parallel in $G$ sind.
-    Damit ist $\sim$ eine Äquivalenzrelation; sei deshalb $R/{\sim}$ die Partitionierung von $R$ in Äquivalenzklassen, und $[r]$ die $\sim$-Äquivalenzklasse von $r$.
-    Dann sei $G_\mathrm{sim} \coloneq (S, R/{\sim}, \alpha', \omega')$, gewichtet durch $w\colon {R/{\sim}} \to \mathbb{N}$, mit
-    \[ \alpha'([r]) \coloneq \alpha(r), \quad \omega'([r]) \coloneq \omega(r), \quad w([r]) \coloneq \textstyle\sum_{r'\in [r]} w(r'). \]
-    Die Zuweisung von $\alpha, \omega$ ist insbesondere nach Definition von Parallelen wohldefiniert.
-\end{em}%
-(Abbildung \ref{fig:simple} zeigt den aus dem Situationsgraph für \emph{Emilia Galotti} hervorgehenden einfachen Situationsgraphen.)
+Nachdem im vorigen Abschnitt eine Korrespondenz zwischen Wegen im Situationsgraph $G$ und Handlungssequenzen im zugehörigen dramatischen Werk plausibilisiert wurden, greift dieser Abschnitt diese Einsicht auf.
+Durch graphentheoretische Methoden können als unmittelbare Konsequenz eine Segmentierung in Handlungssequenzen errechnen.
+Hierfür werden zunächst im ersten Teil theoretische Überlegungen durchgeführt, welche diese Behauptung stützen.
+Im Anschluss wird im zweiten Teil diese endgültige Operationalisierung auf Basis unseres Modells von Situationsgraphen anhand TODOs Werks TODO vorgeführt.
 
 \subsection{Zur Operationalisierung}
 
-Folgender Abschnitt wendet sich dem eigentlichen Forschungsdesiderat zu: die Segmentierung der im dramatischen Text dargestellten Gesamthandlung in Handlungssequenzen.
-Wie im vorigen Abschnitt bereits ausgearbeitet, konnten wir eine Korrespondenz zwischen Handlungssequenzen im Drama, und Wegen im entsprechenden Situationsgraph $G$ plausibel machen.
-% TODO Motivation in der Einleitung: Kombination von Sequenzen, Präsentation von Geschichte, Komposition, Segmentierung
-Intuitiv könnte eine Operationalisierung dieser Frage in Verbindung mit unserem Konstruierten Situationsgraphen $S$ vorläufig wie folgt aussehen: \emph{Finde eine disjunkte Wegüberdeckung von $H$, also eine Menge an Wegen $\mathcal{P}$, sodass zu jeder Ecke $v\in V(H)$ genau ein Weg $P \in \mathcal{P}$ existiert, sodass $v$ Element der Spur von $P$ ist. Die Wege in $\mathcal{P}$ korrespondieren mit den Sequenzen im Drama.}
+Folgender Abschnitt wendet sich dem eigentlichen Ziel dieser Arbeit zu: die Segmentierung der im dramatischen Text dargestellten Gesamthandlung in Handlungssequenzen.
+Wie im vorigen Abschnitt bereits ausgearbeitet, konnten wir eine Korrespondenz zwischen Handlungssequenzen im Drama, und Wegen im entsprechenden einfachen Situationsgraph $G_\text{sim}$ plausibel machen.
+Intuitiv können wir also eine geeignete Segmentierung erreichen, indem wir $G_\text{sim}$ in disjunkte Wege zerlegen.
+Hierzu betrachten wir im Folgenden \emph{gewichtsmaximale disjunkte Wegüberdeckungen} in $G_\text{sim}$,
+und führen zunächst folgende Definition ein:
+\emph{Das Gewicht einer disjunkten Wegüberdeckung eines mit $w$ gewichteten Graphen ist $w(\mathcal{P}) \coloneq \sum_{P\in\mathcal{P}} \sum_{r\in P} w(r)$.}
+Unter dieser Definition von Gewicht ist das Bestimmen einer gewichtsmaximalen disjunkten Wegüberdeckung in gewichteten einfachen gerichteten azyklischen Graphen algorithmisch effizient lösbar, indem bspw. auf das Problem des Matchings maximalen Gewichts reduziert wird.\footnote{Dieses Ergebnis ist \textquote*{mathematische Folklore}. Siehe auch \cite[761]{cormen_introduction_2009} für den ungewichteten Fall.} 
 
-Das \textquote{zu jeder Ecke} sichert, dass jeder Konfiguration (repräsentiert durch $v$) eine Handlungssequenz (repräsentiert durch $P_i)$ zugeordnet wird.
-Das muss notwendigerweise gefordert werden, wenn wir eine \emph{Segmentierung} in Handlungssequenzen erreichen wollen.
-(Wir erinnern uns an dieser Stelle, dass wir auch Handlungssequenzen mit nur einer Handlung zulassen – das entspricht Wegen der Länge 0.)
-Das \textquote{genau ein Weg} sichert, eine Konfiguration nicht in zwei verschiedenen Handlungssequenzen beteiligt ist.
-Die letztere Einschränkung ist nicht selbstverständlich: es ist durchaus möglich, dass in einer Konfiguration zwei Handlungen vorhanden sind, welche in jeweils unterschiedlichen Sequenzen beteiligt sind.
-Nichtsdestotrotz müssen wir aus der im vorigen Abschnitt beschriebenen Operationalisierung annehmen, dass zu einer Konfiguration (bzw. Ecke) nur genau eine Handlung beteiligt ist.
-Dass im Übrigen auch eine Handlung \emph{nur} einer Sequenz zugeordnet werden könne, ist ebenso schwer zu vertreten. % – diese Einschränkung ist vielmehr durch die geplante Operationalisierung zu motivieren.
-% hunspell: add Trilcke
-Wir behelfen uns mit der (durchaus nicht sehr zufriedenstellenden) Plausibilisierung, dass zum Einen unsere Definition von Handlungssequenzen diese als \textquote{geschlossenes System} nach Trilcke versteht (s.o.). Zum Anderen vereinfacht diese Einschränkung die Definition der Operationalisierung – die als Heuristik ohnehin nicht den Anspruch erhebt, \textquote*{perfekt} zu sein.
+Dem Ziel in der Einleitung folgend, wollen wir nun Hinweise liefern, dass diese Operationalisierung unsere gewünschten Ziele erreicht.
+Also dass eine solche gewichtsmaximale disjunkten Wegüberdeckung $\mathcal{P}^*$ eine sinnvolle Segmentierung in Handlungssequenzen liefern kann.
+Hierzu gehen wir drei Punkte an:
 
-Mit der oben getroffenen vorläufigen Operationalisierung tritt trotzdem noch ein weiteres Problem auf: viele der von der Operationalisierung gesuchten Wegüberdeckungen liefern überhaupt keine für literaturwissenschaftliche Fragestellungen \emph{sinnvolle} bzw. verwertbare Segmentierung.
-Ein Beispiel wäre die triviale Wegüberdeckung, in der jeder Ecke $v$ dem Pfad $(v)$ der Länge 0 zugeordnet wird. 
-Aus dieser Segmentierung lassen sich offenbar keine neuen Informationen gewinnen, obwohl dieses die geforderten Eigenschaften einer disjunkten Wegüberdeckung erfüllt.
+\begin{enumerate}[nosep,align=left,leftmargin=0pt,itemindent=1.2cm,labelwidth=0pt,listparindent=1cm] % hunspell: acc nosep align left leftmargin pt itemindent labelwidth listparindent
+    \item Zunächst folgt aus der Definition von Wegüberdeckungen, dass jeder Ecke (Situation) ein Weg zugeordnet ist.
+        Damit sind also auch alle Handlungen dieser Situation in einer Sequenz vertreten – das ist offenbar eine notwendige Bedingung für eine geeignete Segmentierung in Handlungssequenzen.
+        (Wege $(s_i)$ der Länge 0 sollen hier nicht weiter stören, und als Sequenzen interpretiert werden, welche nur aus den Handlungen von $s_i$ bestehen.)
 
-Unsere Operationalisierung müssen wir also noch schärfer präzisieren.
-%Hierbei gehen wir wieder wie im vorigen Abschnitt vor:
-%wir nähern uns der Lösung, indem wir zum Einen uns deutlicher machen, was wir von dem Modell \emph{mindestens} erwarten, zum Anderen zeigen, was das Modell \emph{höchstens} leisten kann, 
-Mindestens erwarten wir vom Modell, dass die bestimmte Segmentierung den Fragestellungen bezüglich Handlung/Handlungssequenzen dienlich ist.
-Es ist plausibel, dass eine Segmentierung in möglichst große und logisch-kausal stark zusammenhängende Sequenzen dies erfüllen, zum Beispiel um zu untersuchen wie Sequenzen (indirekt) verknüpft sind.
-Es könnte ferner argumentiert werden, dass eine ebensolche Segmentierung einem intuitiven Verständnis von logisch sinnvollen Segmentierungen nahe kommt.
-%
-Voriger Abschnitt hat schon argumentiert, dass die berechneten Pfeilgewichtungen im Handlungsgraph genau diesen logisch-kausalen Zusammenhang von Handlungen modellieren.
-Es spricht also dafür, eine Operationalisierung zu wählen, welche versucht, eine Überdeckung mit möglichst langen, oder vielmehr \emph{gewichtigen} Wegen zu finden.
-%Höchstens kann das Modell das leisten, was als Informationen vorliegen.
-%Die oben 
+    \item Die Wegüberdeckung ist disjunkt, also sind die Handlungen einer Situation (Ecke) genau einer und der gleichen Sequenz (Weg) zugeordnet. 
+        Diese Einschränkung ist eher problematisch: es ist durchaus möglich, dass in einer Situation zwei Handlungen vorhanden sind, welche in jeweils unterschiedlichen Sequenzen beteiligt sind.
+        Trotzdem müssen wir diese Einschränkung auf \emph{disjunkte} Wegüberdeckungen treffen, als da schon Information über Einzelhandlungen innerhalb einzelner Situationen dem Modell verborgen ist.
+        Als Heuristik nimmt dieses Modell also an, dass in jeder Situation nur genau eine Einzelhandlung geschieht.
 
-Unsere abschließende Operationalisierung lautet also wie folgt: \emph{Finde eine disjunkte Wegüberdeckung $\mathcal{P}$ von Situationsgraph $S$ mit Gewichtung $w\colon R(H)\to\mathbb{N}$ sodass das Gewicht der Überdeckung, definiert als $\sum_{P\in\mathcal{P}} \sum_{r\in P} w(r)$, maximiert wird. Die Wege in $\mathcal{P}$ korrespondieren mit den Sequenzen im Drama.}
-Hier sei ferner noch hingewiesen, dass die hier gewählte Definition von des Gewichts einer Wegüberdeckung bewirkt, dass die Gewichte der Pfeile \emph{zwischen} den Wegen minimiert wird.
-Übertragen auf das zugrundeliegende Drama also die Wechselwirkungen \emph{zwischen} zwei Sequenzen.
+    \item Voriger Abschnitt \ref{sec:} machte plausibel, dass durch die Pfeilgewichtungen der kausale Zusammenhang zwischen Situationen (durch eine einzelne Figur) angezeigt wird.
+        Die Reduktion auf den einfachen Situationsgraph summiert diese Zusammenhänge im Fall von Parallelen auf.
+        Durch die Wahl der \emph{gewichtsmaximalen} disjunkten Wegüberdeckung erreichen wir deshalb – intuitiv gesprochen – das Ziel einer \textquote{wünschenswerten Segmentierung}, wie in \ref{sec:} angesprochen: eine möglichst grobe Segmentierung in stark zusammenhängende Handlungssequenzen.
 
-Das von der Operationalisierung formulierte Optimierungsproblem kann algorithmisch effizient gelöst werden.
-Wir werden hierzu die Details aussparen, zugunsten einer intensiveren Evaluation dieser Methode im nächsten Abschnitt.
-Interessierten sei an die Übungsaufgabe 26–2 der \emph{Introduction to Algorithms} von Cormen et al. bzw. an den dazugehörigen Lösungsvorschlag von Lohr und Bodnar verwiesen.\autocites[761]{cormen_introduction_2009}{lohr_clrs} % hunspell: acc Introduction to Algorithms Cormen Lohr Bodnar lohr clrs
-Der Lösungsvorschlag generalisiert auf den gewichteten Fall, wie er uns hier vorliegt.
-Dies folgt in Verbindung mit dem bekannten \emph{Ganzzahligkeitssatz kostenminimaler/-maximaler Flüsse} % hunspell: acc Ganzzahligkeitssatz kostenminimaler -maximaler
+        Aus Definition des Gewichts eine Wegüberdeckung folgt im Übrigen, dass das gesamte Gewicht aller Pfeile im Handlungsgraph $G$ \emph{zwischen} zwei verschiedenen Wegen von $\mathcal{P}^*$ minimiert wird.
+        Übertragen auf die Segmentierung bedeutet dies, dass eine solche Segmentierung gewählt wurde, welche die kausalen Verknüpfungen zwischen den Sequenzen minimiert.
+\end{enumerate}
+
 
 
 
