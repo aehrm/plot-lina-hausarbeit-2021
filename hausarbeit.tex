@@ -27,6 +27,38 @@
 
 \usepackage[hidelinks,pdfusetitle,pdfencoding=auto,psdextra,bookmarksopen]{hyperref}
 
+\usepackage{graphicx}% for \rotatebox
+\usepackage{everypage}
+\usepackage{environ}
+\usepackage{pdflscape}% not required
+
+\newcounter{abspage}% \thepage not reliab
+
+\makeatletter
+\newcommand{\newSFPage}[1]% #1 = \theabspage
+  {\global\expandafter\let\csname SFPage@#1\endcsname\null}
+
+\NewEnviron{SidewaysFigure}{\begin{figure}[p]
+\protected@write\@auxout{\let\theabspage=\relax}% delays expansion until shipout
+  {\string\newSFPage{\theabspage}}%
+\ifdim\textwidth=\textheight
+  \rotatebox{90}{\parbox[c][\textwidth][c]{\linewidth}{\BODY}}%
+\else
+  \rotatebox{90}{\parbox[c][\textwidth][c]{20cm}{\BODY}}%
+\fi
+\end{figure}}
+
+\AddEverypageHook{% check if sideways figure on this page
+  \ifdim\textwidth=\textheight
+    \stepcounter{abspage}% already in landscape
+  \else
+    \@ifundefined{SFPage@\theabspage}{}{\global\pdfpageattr{/Rotate 0}}%
+    \stepcounter{abspage}%
+    \@ifundefined{SFPage@\theabspage}{}{\global\pdfpageattr{/Rotate 90}}%
+  \fi}
+\makeatother
+
+
 
 \usepackage[notes]{biblatex-chicago}
 \setcounter{biburllcpenalty}{7000}
@@ -81,7 +113,7 @@
 
 \tableofcontents\clearpage
 
-\listoffigures\clearpage
+%\listoffigures\clearpage
 
 \section{Einleitung}
 
@@ -231,7 +263,7 @@ Man beachte, dass auch $(v_0)$ ein Weg (der Länge $0$) ist.
 Die erste Ecke der Spur nennen wir die \emph{Startecke von $P$}, die letzte Ecke die \emph{Endecke von $P$}.\autocite[vgl.][31]{krumke_graphentheoretische_2012}
 
 Ein \emph{gerichteter azyklischer Graph} ist ein Graph, welcher kein Kreis enthält, also kein Weg existiert, der Länge $\geq 1$ hat, sowie die Start- und Endecke übereinstimmen.
-In dieser Klasse von Graphen definieren wir – dem Terminus von Diestel folgend – eine \emph{disjunkte Wegüberdeckung} für einen gerichteten azyklischen Graph $G$ als eine Menge von Wegen $P_1, \dots, P_k$, sodass jede Ecke $v\in V(G)$ in der Spur von genau einem Weg enthalten ist.\autocite[55]{diestel_graphentheorie_2006}
+In dieser Klasse von Graphen definieren wir – dem Terminus von Diestel folgend – eine \emph{(ecken-)disjunkte Wegüberdeckung} für einen gerichteten azyklischen Graph $G$ als eine Menge von Wegen $P_1, \dots, P_k$, sodass jede Ecke $v\in V(G)$ in der Spur von genau einem Weg enthalten ist.\autocite[55]{diestel_graphentheorie_2006}
 
 % TODO ungerichtet
 
@@ -252,7 +284,7 @@ Die Konfigurationsmatrix ist eine boolesche Matrix, welche die Auftritte der ein
 Jede Zeile der Matrix repräsentiert hierbei eine Figur, jede Spalte eine zur Situation spezifischen Konfiguration.
 Wenn immer also eine Figur in einer spezifischen Situation auftritt, steht in der korrespondierenden Zelle eine 1, ansonsten 0.
 \autocites[Vgl.][235--240]{pfister_drama:_2001}[vgl. auch][140--141]{marcus_mathematisch-linguistisches_1971}
-Abbildung \ref{fig:konfigurationsmatrix} zeigt eine Visualisierung der zu \emph{Emilia Galotti} zugehörigen Konfigurationsmatrix.
+Abbildung \ref{fig:konfigurationsmatrix} zeigt eine Visualisierung der zu \emph{Emilia Galotti} zugehörigen Konfigurationsmatrix, bestimmt aus der digitalen TEI-Edition (vgl. Abschnitt \ref{sec:daten}).
 
 Nach Trilcke kann die von Marcus durchgeführte Konfigurationsanalyse sogar als Vorläufer netzwerkanalytischer Untersuchungen verstanden werden.\autocite[Vgl.][221--222]{trilcke_social_2013}
 Tatsächlich sind die in der Einleitung angesprochenen Figurennetzwerke schon von Marcus beschrieben worden\autocite[Vgl. $G(\Omega)$ in][141--142]{marcus_mathematisch-linguistisches_1971}, neben dem aus der \eng{Social Network Analysis} stammende Maß der  Distanz (\eng{geodesic distance})\autocite[Vgl. \textquote{szenischer Abstand}][141]{marcus_mathematisch-linguistisches_1971}. % hunspell: add Social Network Analysis geodesic distance
@@ -262,12 +294,11 @@ Auch weitere systematischen Untersuchungen dieser Kerne, und insbesondere deren 
 
 \subsection{Change Rates} % hunspell: add change rate rates
 
-% TODO citation needed
-Um die in der Einleitung angesprochenen Limitationen der \textquote{statischen} Figurennetzwerke zu umgehen, führt die dlina-Arbeitsgruppe neue Maße auf Basis der Konfigurationsmatrix ein, um Handlungsentwicklungen zu erfassen.
+Um die in der Einleitung angesprochenen Limitationen der \textquote{statischen} Figurennetzwerke zu umgehen, führt die dlina-Arbeitsgruppe neue Maße auf Basis der Konfigurationsmatrix ein, um Handlungsentwicklungen zu erfassen.\autocites{trickle_netzwerkdynamik_2017}{fischer_network_2017}
 Diese lassen sich grob in drei Gruppen aufteilen:
 \begin{enumerate*}
     \item Die Zeitpunkt-orientierten Indices identifizieren die Situation, in der strukturelle Schlüsselmomente geschehen.
-    In welcher Situation waren alle Figuren mindestens einmal auf der Bühne präsent? Wann tritt die Figur mit den höchsten Zentralitätswerten zuerst auf?
+        Zum Beispiel die Situation, in der alle Figuren mindestens einmal auf der Bühne präsent waren. Oder: die Situation in der die Figur mit den höchsten Zentralitätswerten zuerst auftritt.
     \item Die Zeitpunkt-orientierten Maße quantifizieren diese Schlüsselmomente, bspw. wie viele Figuren in der letzten Situationen präsent sind.
     \item Die Geschehens-orientierten Maße können als \textquote*{Zeitreihen} verstanden werden, bzw. den Statistiken welche sich hieraus ergeben. 
 \end{enumerate*}
@@ -357,16 +388,32 @@ Damit lässt sich sofort der Situationsgraph definieren:
 Intuitiv lässt sich also wie folgt ein Situationsgraph bestimmen: zeichne für jede Situation einen Punkt.
 Verbinde zwei Punkte durch einen Pfeil (in der chronologischen Reihenfolge) wenn eine Figur in den beiden zugehörigen Situationen \emph{konsekutiv} auftritt, also nicht während den Situationen zwischen den beiden.
 \textquote*{Benenne} diesen Pfeil mit der Figur, und weise diesem Pfeil als Gewicht die Replikenlänge jener Situation zu, in der die Figur weniger spricht.
-Abbildung \ref{fig:situationsgraph} zeigt Visualisierungen des Situationsgraphen zu \emph{Emilia Galotti}, einmal in ungewichteter Darstellung, und einmal in welcher die Dicke des Pfeilzugs zu $r$ proportional zu $w(r)^{1/3}$ ist.
+Damit lässt sich im Übrigen jeder Figur ein Weg in $G$ zuordnen; alle Wege überdecken dann $G$, wobei diese zwar pfeildisjunkt, im Allgemeinen aber nicht eckendisjunkt sind.
+Abbildung \ref{fig:situationsgraph} zeigt Visualisierungen des Situationsgraphen zu \emph{Emilia Galotti} in gewichteter Darstellung.
+Die dafür notwendigen Parameter (i)–(iv) wurden dabei approximativ durch die digitale TEI-Edition bestimmt, wie in Abschnitt \ref{sec:daten} erläutert.
+Zur Erinnerung: es werden Szenen mit Situationen identifiziert, und Konfigurationen durch die Repliken einer Szene induziert.
 
-Die Abbildung \ref{fig:situationsgraph} zeigt schon, wie solche Situationsgraphen dazu verwendet werden können, sich einen graphischen Überblick über das Werk zu verschaffen.
+
+\begin{SidewaysFigure}
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=25cm]{graph.pdf}}
+    \caption{Einbettung des Situationsgraphen zu \emph{Emilia Galotti}.
+        Pfeile $r$ werden hierbei als Linie von $\alpha(r)$ zu $\omega(r)$ dargestellt, dabei ist $\alpha(r)$ immer links von $\omega(r)$.
+    Bis auf Angelo und den Kammerdiener ist dem Pfad jeder Figur eine eindeutige Farbe zugeordnet. Alle Pfeile der Form $(s_i,s_j, p)$ mit Gewicht $w$ sind dann in der zu $p$ zugehörigen Farbe gezeichnet, und die Dicke des Pfeilzugs ist linear in Abhängigkeit von $w$.}
+    \label{fig:situationsgraph}
+    \makebox[\textwidth][c]{\includegraphics[width=25cm]{graphsim.pdf}}
+    \caption{Selbe Einbettung des einfachen Situationsgraphen zu \emph{Emilia Galotti}. Die rot hervorgehobenen Pfeilzüge entsprechen den auf S.~\pageref{pos:weg-diskussion} diskutierten Weg.} 
+    \label{fig:situationsgraph-einfach}
+\end{SidewaysFigure}
+
+Selbe Abbildung zeigt schon, wie solche Situationsgraphen dazu verwendet werden können, sich einen graphischen Überblick über das Werk zu verschaffen.
 Ähnlich wie in Konfigurationsmatrizen werden die Veränderungen der Konfigurationen im Verlauf des Werks deutlich.
 Vorteil der Darstellung als Graph liegt dann insbesondere darin, dass Fragen wie \textquote{Wann tritt Odoardo wieder auf, nach seiner Exposition im Akt II.4} leicht beantwortet werden können. % hunspell: acc Odoardo
-Die gewichtete Darstellung kann in ähnlicher Weise beitragen, Beobachtungen wie \textquote{TODO} anzuregen.
+Im Fall von \emph{Emilia Galotti} kann kann die Visualisierung bspw. auch dazu beitragen, Marinelli als \textquote*{Rechte Hand} des Prinzen zu deuten: nicht nur überschneiden sich die Wege der Figuren im Graph häufig (blaue bzw. orangene Linien), sondern springt Marinellis Weg auch zwischen Hof und den bürgerlichen Figuren. % hunspell: acc Marinelli Marinellis
 
 Auf diese Verwendungsweise als Visualisierung soll aber im Folgenden nicht weiter eingegangen werden, zugunsten einer näheren Beschäftigung mit dem eigentlichen Forschungsdesiderat.
 Deshalb wir noch eine Vereinfachung des Situationsgraphen vor, um diesen in einen \emph{einfachen} gerichteten azyklischen Graphen zu transformieren.
-Hierzu fassen wir alle parallelen Kanten in eine einzige zusammen, und weisen dieser als Gewicht die Summe der ersetzten Parallelen zu.
+Hierzu fassen wir alle parallelen Pfeile in einen einzigen zusammen, und weisen dieser als Gewicht die Summe der ersetzten Parallelen zu.
 Präziser:
 \begin{em}%
     Aus einem Situationsgraphen $G=(S, R, \alpha, \omega)$ mit Gewichtung $w$ geht wie folgt ein \emph{einfacher Situationsgraph} $G_\mathrm{sim}$ hervor: Sei $\sim$ eine Relation auf $R$ sodass $r\sim r'$ genau dann wenn $r$ und $r'$ parallel in $G$ sind.
@@ -375,26 +422,25 @@ Präziser:
     \[ \alpha'([r]) \coloneq \alpha(r), \quad \omega'([r]) \coloneq \omega(r), \quad w([r]) \coloneq \textstyle\sum_{r'\in [r]} w(r'). \]
     Die Zuweisung von $\alpha, \omega$ ist insbesondere nach Definition von Parallelen wohldefiniert.
 \end{em}%
-Abbildung \ref{fig:simple} zeigt den aus dem Situationsgraph für \emph{Emilia Galotti} hervorgehenden einfachen Situationsgraphen.
+Abbildung \ref{fig:situationsgraph-einfach} zeigt den aus dem Situationsgraph für \emph{Emilia Galotti} hervorgehenden einfachen Situationsgraphen.
 
-In diesem Sinne ist anzumerken, dass wir in großen digitalen Korpora wie \textsc{GerDraCor} die (einfachen) Situationsgraphen aller enthaltenen Dramentexten automatisch bestimmen können:
-Wir beobachten, dass wir aus einer TEI-codierte Edition eines dramatischen Werks (genauer: sogar schon aus dem zum Drama korrespondierenden \textquote*{Zwischenformat}) alle relevanten Informationen maschinell ableiten können, die wir zur Konstruktion des Situationsgraphen benötigt haben, also
-\begin{enumerate*}
-    \item die Sequenz von Situationen und den dazugehörigen Konfigurationen, und
-    \item die Replikenlänge einer spezifischen Figur in einer spezifischen Situation.
-\end{enumerate*}
+%In diesem Sinne ist anzumerken, dass wir in großen digitalen Korpora wie \textsc{GerDraCor} die (einfachen) Situationsgraphen aller enthaltenen Dramentexten automatisch bestimmen können:
+%Wir beobachten, dass wir aus einer TEI-codierte Edition eines dramatischen Werks (genauer: sogar schon aus dem zum Drama korrespondierenden \textquote*{Zwischenformat}) alle relevanten Informationen maschinell ableiten können, die wir zur Konstruktion des Situationsgraphen benötigt haben, also
+%\begin{enumerate*}
+    %\item die Sequenz von Situationen und den dazugehörigen Konfigurationen, und
+    %\item die Replikenlänge einer spezifischen Figur in einer spezifischen Situation.
+%\end{enumerate*}
 
 
 \subsection{Kausale Zusammenhänge zwischen Situationen}
 
 % Behauptung 1: Pfeile stellen kausale Zusammenhänge zwischen Situationen dar
-% Behauptung 2: Wege entsprechen Handlungs(!)sequenzen
 
 
 Nun können wir uns der am Anfang des Abschnitts genannten ersten Behauptung zuwenden: Pfeile im einfachen Situationsgraph machen \textquote{kausale Zusammenhänge} zwischen Situationen deutlich.
 Wenn wir den Definitionen unserer Termini folgen, ist diese Aussage bedeutungslos, sind ja \textquote{Situationen} zuallererst nur Segmentierung auf der Ebene der Darstellung; wir müssen uns also auf die Domäne der Handlungen beziehen (denn nur diese können kausale Zusammenhänge ausbilden).
-Überlegter ausgedrückt wollen wir deshalb begründen, dass ein Pfeil $r$ von $s_i$ nach $s_j$ anzeigt, dass \emph{eine Handlung} in $s_i$ kausal \emph{eine Handlung} in $s_j$ verursacht hat, bzw. ein Effekt dieser Handlung ist.
-Wie stark dieser Zusammenhang ist, wird durch die Gewichtung deutlich.
+Überlegter ausgedrückt wollen wir deshalb begründen, dass ein Pfeil $r$ von $s_i$ nach $s_j$ anzeigt, dass (mind.) \emph{eine Handlung} in $s_i$ kausal \emph{eine Handlung} in $s_j$ verursacht hat, bzw. ein Effekt dieser Handlung ist.
+Wie stark dieser Zusammenhang ist, wird durch die Gewichtung des Pfeils deutlich.
 
 Diese Aussage soll durch folgende Überlegungen plausibilisiert werden. 
 Zunächst halten wir folgende einfache Beobachtungen fest, die sich aus der Definition des Graphen ergeben:
@@ -416,10 +462,12 @@ Damit wird zum Einen eine \emph{Informationsweitergabe} im inneren Kommunikation
 Informationen werden von dieser Figur in $s_i$ empfangen und ggf., aber szenisch frühestens, in $s_j$ vergeben – wobei diese Informationsvergabe einen Effekt auf die Informiertheit der anderen Figuren haben sollte.
 Zum anderen haben die in $s_i$ empfangenen Informationen einen Einfluss auf die jeweilige Figur und ihre Handlungen in der darauf folgenden Situation $s_j$. (Wie bspw. bei einem Befehl und deren Ausführung vorliegt.)
 Das Ausmaß dieser beiden Effekte hängt jedenfalls rudimentär mit der Replikenlänge von $p$ in den Situationen zusammen, was durch das Pfeilgewicht reflektiert wird.
-% TODO Motivieren: Gewicht als \sum \min \{ \rho(s_i, p), \rho(s_j, p) \} gibt (zumindest ordinal) wieder, wie gewichtig die Effekte in (ii) sind
+In dem hier vorliegenden Fall gilt $w(r) = \sum_{p\in P} \min \{ \rho(s_i, p), \rho(s_j, p) \}$, ein kausaler Effekt durch Figur $p$ wird also dann festgemacht wenn diese in beiden Situationen viel spricht.
 
 
 \subsection{Handlungssequenzen – Wege im Situationsgraph}
+
+% Behauptung 2: Wege entsprechen Handlungs(!)sequenzen
 
 Es liegt unmittelbar nahe, die eben gewonnene Behauptung über Pfeile auf \emph{Wege} im einfachen Situationsgraph auszudehnen.
 Sei $P=(s_{i_0}, r_1, s_{i_1}, r_2, s_{i_2}, \dots, r_k, s_{i_k})$ ein Weg in $G_\text{sim}$. 
@@ -430,15 +478,31 @@ Wir können also den Weg $P$ als Zeuge einer Handlungssequenz verstehen, welche 
 Damit haben wir für die zweite am Anfang genannte Behauptung argumentiert.
 Hieraus folgt, dass wir plausible Handlungssequenzen im Drama finden können, wenn wir den Situationsgraphen gegeben haben. 
 
-Abbildung \ref{fig:} zeigt den einfachen Situationsgraph von \emph{Emilia Galotti} mit einem hervorgehobenen Weg (in diesem Fall jener Weg mit maximalem Gewicht).
-Die Überlegungen scheinen zumindest für diese Instanz zuzustimmen: TODO
+\label{pos:weg-diskussion}Abbildung \ref{fig:situationsgraph-einfach} zeigt den einfachen Situationsgraph von \emph{Emilia Galotti} mit einem hervorgehobenen Weg.
+Die Überlegungen scheinen zumindest für diese Instanz zuzustimmen, und der Weg von II.3 zu V.5 scheint tatsächlich eine zumindest überwiegend plausible Handlungssequenz zu erklären:
+Angelo wird von Pirro über den Weg der Hochzeitsgesellschaft zum Trauungsort informiert (II.3); Mutmaßlich erlaubt ihm diese Information den erfolgreichen Überfall auf die Hochzeitskutsche und in gegenüber Marinelli Erfolg zu verkünden (III.2–3).
+Überzeugt, dass Emilia keinen Verdacht schöpft, wird sie vom Prinzen empfangen und in ein Nebenzimmer geführt (III.5).
+Entsprechend muss Marinelli die Intrige selbst weiter verfolgen und entschließt, Claudia Galotti doch zu empfangen (III.6).
+Er erklärt ihr, dass der Prinz schon um Emilia beschäftigt ist, aber Claudia erkennt in 
+in Marinelli auch denjenigen, mit welcher Appiani im Streit vor seinem Tod war.
+Sie schöpft Verdacht und drängt zu Emilia (III.8).
+Nach deren Begegnung ist sich Claudia daher sicher, dass Emilia den Prinzen auf Distanz halten würde, und beteuert dies Odoardo (IV.8).
+
+%Die durch den letzten Pfeil von III.8 zu IV.8 angezeigte kausale Konsequenz ist abschließend aber eher zweifelhaft, 
+
+
+%In der Erinnerung an die Begegnung in der Kirche (III.5) begreift dieser, ..., und versucht deshalb Marinelli anschließend für die Intrige zu verantworten (IV.1).
+
+%Die durch den Pfeil von IV.1 zu IV.2 angezeigte kausale Konsequenz ist zweifelhaft, müsste 
+%die Diskussion zwischen Marinelli und dem Prinzen  einen Einfluss auf deren Handeln in IV.2 haben; vielmehr wird deren Handeln durch die Ankunft von Orsina bedingt.
+
 
 \section{Segmentierung in Handlungssequenzen – Disjunkte Wegüberdeckungen}\label{sec:segmentierung}
 
 Nachdem im vorigen Abschnitt eine Korrespondenz zwischen Wegen im Situationsgraph $G$ und Handlungssequenzen im zugehörigen dramatischen Werk plausibilisiert wurden, greift dieser Abschnitt diese Einsicht auf.
 Durch graphentheoretische Methoden können als unmittelbare Konsequenz eine Segmentierung in Handlungssequenzen errechnen.
 Hierfür werden zunächst im ersten Teil theoretische Überlegungen durchgeführt, welche diese Behauptung stützen.
-Im Anschluss wird im zweiten Teil diese endgültige Operationalisierung auf Basis unseres Modells von Situationsgraphen anhand TODOs Werks TODO vorgeführt.
+Im Anschluss wird im zweiten Teil diese endgültige Operationalisierung auf Basis unseres Modells von Situationsgraphen anhand Goethes Werks \emph{Götz von Berlichingen} vorgeführt.
 
 \subsection{Zur Operationalisierung}
 
@@ -448,7 +512,7 @@ Intuitiv können wir also eine geeignete Segmentierung erreichen, indem wir $G_\
 Hierzu betrachten wir im Folgenden \emph{gewichtsmaximale disjunkte Wegüberdeckungen} in $G_\text{sim}$,
 und führen zunächst folgende Definition ein:
 \emph{Das Gewicht einer disjunkten Wegüberdeckung eines mit $w$ gewichteten Graphen ist $w(\mathcal{P}) \coloneq \sum_{P\in\mathcal{P}} \sum_{r\in P} w(r)$.}
-Unter dieser Definition von Gewicht ist das Bestimmen einer gewichtsmaximalen disjunkten Wegüberdeckung in gewichteten einfachen gerichteten azyklischen Graphen algorithmisch effizient lösbar, indem bspw. auf das Problem des Matchings maximalen Gewichts reduziert wird.\footnote{Dieses Ergebnis ist \textquote*{mathematische Folklore}. Siehe auch \cite[761]{cormen_introduction_2009} für den ungewichteten Fall.} 
+Unter dieser Definition von Gewicht ist das Bestimmen einer gewichtsmaximalen disjunkten Wegüberdeckung in gewichteten einfachen gerichteten azyklischen Graphen, und damit auch $G_\text{sim}$, algorithmisch effizient lösbar, indem bspw. auf das Problem des Matchings maximalen Gewichts reduziert wird.\footnote{Dieses Ergebnis ist mathematische Folklore. Siehe auch \cite[761]{cormen_introduction_2009} für den ungewichteten Fall.} 
 
 Dem Ziel in der Einleitung folgend, wollen wir nun Hinweise liefern, dass diese Operationalisierung unsere gewünschten Ziele erreicht.
 Also dass eine solche gewichtsmaximale disjunkten Wegüberdeckung $\mathcal{P}^*$ eine sinnvolle Segmentierung in Handlungssequenzen liefern kann.
@@ -479,9 +543,52 @@ Hierzu gehen wir drei Punkte an:
 
 % vgl. Dantons Tod, Götz von Berlichingen
 
+\begin{SidewaysFigure}
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=25cm]{graphsim-götz.pdf}}
+    \caption{Einbettung des einfachen Situationsgraphen zu \emph{Götz von Berlichingen}.
+        Wieder sind die Pfeile als Linien visualisiert und von links nach rechts zu lesen.
+    Die gewichtsmaximale disjunkte Wegüberdeckung $\mathcal{P}^*$ ist einerseits durch rot hervorgehobene Pfeile visualisiert; andererseits visualisieren rot hervorgehobene Ecken die Wege der Länge 0. N.B.: Ecke bzw. Situation V.10 (\textquote{In einem Finstern engen Gewölbe}) ist isoliert, denn keine der in dieser Situation auftrenenen Figuren tritt auch in einer anderen Situation auf.}
+    \label{fig:situationsgraph-götz}
+\end{SidewaysFigure}
 
+Die eben durchgeführten Überlegungen wollen wir nun anhand Goethes ...
 
-%\section{Anwendung: \textenglish{Distant Reading} des \textenglish{German Drama Corpus}}
+% TODO Wahl vom Werk: offenes Drama, etc.
+% TODO "Problem" wegen Kollektiven, nicht namentlichen Figuren ("Knecht") etc., vgl. Trilcke Fn. 77
+% TODO Fehler im TEI auf Zeile 7315
+
+Wie bereits im Fall von \emph{Emilia Galotti} können wir den für \emph{Götz} zugehörigen Situationsgraph bestimmen.
+%Auf Basis der TEI-codierten digitalen Edition des \emph{Götz} aus dem \emph{German Drama Corpus} können Situationen und Replikenlängen ausgelesen werden, und entsprechend den zugehörigen Situationsgraph bestimmen.
+Durch die in den vorigen Abschnitten beschriebenen Verfahren erreichen wir den einfachen Situationsgraph $G_\text{sim}$ sowie die dazugehörige gewichtsmaximale disjunkte Wegüberdeckung $\mathcal{P}^*$.
+Die Überdeckung besteht aus neun Wegen.
+Sechs Wege haben die Länge $>0$, welche wir wie in Abbildung \ref{fig:situationsgraph-götz} nach absteigender Länge mit (A)–(F) benennen.
+Drei Wege haben Länge $0$, diese überdecken jwewils Situationen II.5, III.22, V.10.
+Die einzelnen Wege können hier aus Platzgründen nicht so ausführlich beschrieben werden wie in Abschnitt \ref{sec:} bei \emph{Emilia Galotti} durchgeführt wurde, stattdessen beschränken wir uns auf einige Beobachtungen dieser Segmentierung.
+
+\emph{Zu (A):} Der längste Weg dieser Überdeckung scheint relativ schlüssig eine Handlungssequenz um die Partei Götzens zu erklären, zumindest aber thematisch.
+Das ist im ersten Teil die Handlung um Jagsthausen, die Festname Götzens, und dessen Rückzug aus Bamberg auf seine Burg.
+Fragwürdig ist die Verbindung zum zweiten Teil (ab V.4), in der insbesondere Elisabeth letzte Hilfe für Götz zu erwirken versucht.
+Ebenso wird die gesamte Sequenz regelmäßig von Situationen unterbrochen, die nicht im engeren Sinne in einem kausalen Zusammenhang stehen (z.B. II.11, \textquote{Bauernhochzeit}, die Expsition Lerses in III.6).
+Ferner ist die eigentliche Situation der Festnahme (III.22) überhaupt nicht Teil vom Weg (A), wird die Handlung dort in einer Mauerschau narrativ vermittelt.
+
+\emph{Zu (B):} Dieser Weg kann zweifelsfrei der Handlung um den Hauptmann der Reichsexekution zugeordnet werden.
+Problematisch ist aber, dass die kausalen Wechselwirkungen zwischen dieser Sequenz und jener aus (A) im Graphen nicht angzeigt werden, und so eine Isolation der beiden Sequenzen suggerieren.
+Dies ist hier insbesondere dem Umstand geschuldet, dass die Gefechte im dritten Akt zeitlich verdeckt sind, und narrativ nachgetragen werden.
+
+\emph{Zu (C) und (E):} Erster Weg kann als die Sequenz um die Bamberger Partei verstanden werden.
+Weislingen wird überlistet, sich gegen Götz zu stellen, und er erwirkt die Reichsakt.
+Anschließend wird der kausale Zusammenhang aber diffus, und bezieht sich eher auf Adelheids Plan, Weislingen zu vergifeten – die eindeutige Konsequenz in V.10 wird dann aber Weg (D) zugeordnet.
+Auch die Ausreißer (E), II.5 und V.3 sind schwer zu erklären, aber auch genauso schwer ist in diesem thematischen Teil des Dramas eine klare dramturgische Struktur festzumachen.
+Die Einlage der V.11 \textquote{In einem finstern engen Gewölbe} interpretiert das Modell als isoliert.
+Dass dies Einlage thematische und bis zu kausale Relationen mit dem Rest ausbildet, wird dagegen vom Modell nicht angezeigt.
+
+\emph{Zu (D) und (F)}: Grundsätzlich scheint das Modell ab Akt V nur schwer in der Lage zu sein, nachvollziehbare Handlungssequenzen zu liefern.
+Weg (D) bezieht sich bis V.5 auf die Bauernrebellion, springt dann aber zum Tod Weislingens (V.10), anstatt mit Weg (F) fortzufahren: Götzens Flucht und anschließende Gefangennahme.
+Dass Pfeil V.5–V.10 Teil der Überdeckung sind, anstatt (intuitiv viel naheliegender) V.5–V.10 und V.8–V10, ist vermutlich durch zwei Eigenheiten der Datenlage zu erklären: zum einen ist V.5 eine Szene, welcher eigentlich keiner Situation entspricht, denn Weislingen tritt erst ganz zum Schluss kurz auf.
+Zum anderen verzerrt Weislingens lange Replik in dieser Szene die tatsächlich bestehenden kausalen Relationen zu V.6.
+(Die Überdeckung an sich ist aber maximal – es gilt $w(\text{V.5}, \text{V.10})>w(\text{V.8}, \text{V.10}) + w(\text{V.5}, \text{V.6})$.) 
+
 
 \section{Fazit}
 
