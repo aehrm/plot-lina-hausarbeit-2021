@@ -131,24 +131,24 @@
 % Eigener Beitrag: 
 
 Franco Moretti kann mit seinem Pamphlet \citetitle{moretti_network_2011}\autocite{moretti_network_2011} als Begründer eines Programms verstanden werden, welches die Quantifikation von Plot innerhalb narrativer Texte mittels Methoden aus den \eng{Digital Literary Studies} zum Ziel hat.
-(\emph{Plot} soll hier und im Folgenden nur intuitiv verstanden werden.)
+(\textquote{Plot} soll hier und im Folgenden nur intuitiv verstanden werden.)
 Während Fragen zu \textquote{\eng{language and style}} durch Korpusanalysen in den \emph{Digital Literary Studies} quantitativ und maschinell beantwortet werden können, befindet sich im Rahmen von \textquote{\eng{plot}} bei den  computergestützten Methoden der Literaturwissenschaft immer noch eine Leerstelle. % hunspell: acc language and style plot
 % hunspell: add Morettis distant reading 
-Ferner ist in Morettis Vorhaben auch eine \eng{distant-reading}-Motivation zu finden: gerade die computerisierte Methode, Plot auszuwerten, könnte in großen Korpusanalysen generelle Grammatiken bzw. Regularitäten im Plot vieler Werke zum Vorschein bringen. % hunspell: acc -Motivation
+Ferner ist in Morettis Vorhaben auch eine Motivation in Richtung \eng{distant reading} zu finden: Gerade die computerisierte Methode, Plot auszuwerten, könnte in großen Korpusanalysen generelle Grammatiken bzw. Regularitäten im Plot vieler Werke zum Vorschein bringen. % hunspell: acc -Motivation
 Zur Schließung dieser Leerstelle schlägt Moretti vor, die \emph{Netzwerkanalyse} als Instrument zur quantitativen Plot-Analyse heranzuziehen.\autocites[Vgl.][]{moretti_network_2011}[Vgl.][]{trilcke_small_2020}
 
 %Zentraler Forschungsgegenstand der Netzwerkanalyse sind \emph{Netzwerke}.
 %Intuitiv kann ein Netzwerk als eine Sammlung von Entitäten verstanden werden, welche in binären Relationen miteinander in Beziehung stehen.
-Im Rahmen Morettis Pamphlet wurde beispielsweise das \emph{Figurennetzwerk} vom dramatischen Werk \emph{Hamlet} betrachtet, in denen also das Personal von \emph{Hamlet} die Entitäten bilden, und je zwei Figuren binär relieren (bildlich: verbunden sind), wenn diese auf der Bühne interagieren.\autocite[Siehe z.B.][13, Abbildung 1]{moretti_network_2011}
+Im Rahmen Morettis Pamphlets wurde beispielsweise das \emph{Figurennetzwerk} vom dramatischen Werk \emph{Hamlet} betrachtet, in denen also das Personal von \emph{Hamlet} die Entitäten bilden, und je zwei Figuren binär relieren (bildlich: verbunden sind), wenn diese auf der Bühne interagieren.\autocite[Siehe z.\,B.][13, Abbildung 1]{moretti_network_2011}
 Nach Moretti bilden diese Interaktionen die Handlungen des Dramas ab – das resultierende Figurennetzwerk damit die summative strukturalisierte Gesamthandlung des Werks.
 Trilcke greift diese Idee auf, und führt diese mit Mitteln der \emph{Social Network Analysis} rigoros weiter.\autocite{trilcke_social_2013} % hunsepll: acc Social Network Analysis
 Auch wenn diese Ergebnisse in die Richtung einer Operationalisierung von Plot geht, macht Trilcke selbst später darauf aufmerksam, dass auch mit aktuellen Ansätzen der literarischen Netzwerkanalyse die Operationalisierung des Plots durch diese Figurennetzwerke nicht zufriedenstellend ist.
 
 %\subsection{Eigener Betrag}
 
-Zentrale Schwachstelle in Figurennetzwerken sehen Trilcke et~al. insbesondere im Fakt, dass durch solche \emph{statischen} Modelle die temporale Dimension von Plot nicht abgebildet werden kann.\autocite[Vgl.][176]{trickle_netzwerkdynamik_2017}
+Zentrale Schwachstelle in Figurennetzwerken sehen Trilcke et~al. insbesondere im Fakt, dass durch solche \emph{statischen} Modelle die zeitliche Dimension von Plot nicht abgebildet werden kann.\autocite[Vgl.][176]{trickle_netzwerkdynamik_2017}
 Diese Arbeit folgt deren generellem Forschungsdesiderat, die Netzwerkanalyse in Richtung einer quantitativen Plot-Analyse im Rahmen von Dramen weiterzuentwickeln.
-Während aktuelle Entwicklungen jedoch versuchen, \emph{dynamische} Netzwerke zu entwickeln um sie für die Plot-Analyse zu gebrauchen, wählt diese Arbeit einen alternativen Weg und motiviert Netzwerke für dramatische Texte, in denen die \emph{Auftritte} (und nicht Figuren) die Entitäten des Netzwerks darstellen.
+Während aktuelle Entwicklungen jedoch versuchen, \emph{dynamische} Netzwerke zu entwickeln um sie für die Plot-Analyse zu gebrauchen, wählt diese Arbeit einen alternativen Weg und motiviert Netzwerke für dramatische Texte, in denen die \emph{Auftritte} die Entitäten des Netzwerks darstellen, nicht die Figuren.
 Wie in der literarischen Netzwerkanalyse üblich, verwertet die hier vorgestellte Methode ausschließlich strukturelle Aspekte der dramatischen Werke, und ist blind gegenüber dem Inhalt des Haupttext.
 
 Präziser will die Arbeit plausibilisieren, dass in solchen Netzwerken (i) Handlungssequenzen deutlich werden, und sich so (ii) heuristisch ein Vorschlag zu einer Plot-Strukturierung eines dramatischen Werks errechnen lassen kann.
@@ -158,9 +158,10 @@ Letzter Punkt soll insbesondere beitragen, aus dieser Plot-Strukturierung dann K
 
 %\subsection{Aufbau der Arbeit}
 
-Nächster Abschnitt konkretisiert Begriffe, die wir zur Erarbeitung des Netzwerkmodells benötigen; insbesondere wählen wir einen Handlungs(sequenz)begriff, definieren Begriffe aus der Graphentheorie, und gehen kurz auf das digitale Dramenkorpus \emph{GerDraCor} ein, welches unseren Überlegungen zugrunde liegen wird. % hunspell: acc Handlungs sequenz
+Nächster Abschnitt konkretisiert Begriffe, die wir zur Erarbeitung des Netzwerkmodells benötigen.
+Insbesondere wählen wir einen Handlungs(sequenz)begriff, definieren Begriffe aus der Graphentheorie, und gehen kurz auf das digitale Dramenkorpus \emph{GerDraCor} ein, welches unseren Überlegungen zugrunde liegen wird. % hunspell: acc Handlungs sequenz
 Anschließend wird in Abschnitt \ref{sec:verwandte-arbeiten} auf verwandte Arbeiten der netzwerktheoretischen Plot-Analyse eingegangen.
-Abschnitt \ref{sec:situationsgraph} bzw. \ref{sec:segmentierung} wenden sich dem eigentlichen Ziel zu, und behandeln o.g. Punkte (i) und (ii): erster plausibilisiert das Modell der \emph{Situationsgraphen}, zweiter erklärt wie sich hieraus die Plot-Struktur eines Dramas ablesen lassen kann.
+Abschnitt \ref{sec:situationsgraph} bzw. \ref{sec:segmentierung} wenden sich dem eigentlichen Ziel zu, und behandeln o.\,g. Punkte (i) und (ii): Erster plausibilisiert das Modell der \emph{Situationsgraphen}, Zweiter erklärt wie sich hieraus die Plot-Struktur eines Dramas ablesen lassen kann.
 
 
 
@@ -174,7 +175,7 @@ Wir wollen deshalb für diese Arbeit deshalb folgende (bewusst sehr vereinfachen
 
 % hunspell: add Hübler
 \emph{Handlung} soll als genau diese die Gesamthandlung konstituierenden \textquote*{Einzelhandlung} bzw. \textquote{Begebenheiten} stehen.\autocite[Vgl.][5--8]{asmuth_einfuhrung_2016}
-Damit sind nicht nur Handlungen im engeren Sinne gemeint (nach Pfister und Hübler eine \textquote{absichtsvoll gewählte, nicht kausal bestimmte Überführung einer Situation in eine andere}\footnote{\cite[269]{pfister_drama:_2001}. \textquote{Situation} im Kontext dieses Zitats entspricht nicht der Verwendung in dieser Arbeit.}), sondern auch solche \textquote{Begebenheiten}, die überhaupt nicht mehr als Handlungen erkennbar sind, weil an ihnen z.B. keine tätigende Figuren beteiligt sind.
+Damit sind nicht nur Handlungen im engeren Sinne gemeint (nach Pfister und Hübler eine \textquote{absichtsvoll gewählte, nicht kausal bestimmte Überführung einer Situation in eine andere}\footnote{\cite[269]{pfister_drama:_2001}. \textquote{Situation} im Kontext dieses Zitats entspricht nicht der Verwendung in dieser Arbeit.}), sondern auch solche \textquote{Begebenheiten}, die überhaupt nicht mehr als Handlungen erkennbar sind, weil an ihnen z.\,B. keine tätigende Figuren beteiligt sind.
 Diese Art von Handlungen würde Pfister eher als \textquote{Geschehen} beschreiben\autocite[Vgl.][270]{pfister_drama:_2001}, auf diese feine Aufschlüsselung soll in dieser Arbeit aber verzichtet werden.
 
 Eine \emph{Handlungssequenz} soll für uns mehr als nur eine Aneinanderreihung von Handlungen bezeichnen.
@@ -203,12 +204,13 @@ Eine sinnvolle Segmentierung deshalb auch möglichst grob, also bestehend aus au
 
 \subsection{Segmentierung der Darstellung in Situationen}\label{sec:situationen}
 
-Auf der Seite der Darstellung definieren wir eine \emph{Situation} – hier nun Marcus folgend – als Segmentierung des Textverlaufs in Abschnitte, in denen keine Veränderungen hinsichtlich der Szenerie oder den präsenten Figuren erfolgen. Situationen werden also durch Szenenwechsel, Auf- oder Abtritt einer Figur begrenzt.\autocite[Vgl.][140]{marcus_mathematisch-linguistisches_1971} % hunspell: acc Auf-
+Auf der Seite der Darstellung definieren wir eine \emph{Situation} – hier nun Marcus folgend – als Segmentierung des Textverlaufs in Abschnitte, in denen keine Veränderungen hinsichtlich der Szenerie oder den präsenten Figuren erfolgen.
+Situationen werden also durch Szenenwechsel, Auf- oder Abtritt einer Figur begrenzt.\autocite[Vgl.][140]{marcus_mathematisch-linguistisches_1971} % hunspell: acc Auf-
 
 Nachdem wir Handlungen einen punktuellen Charakter zusprechen, 
 werden wir im Folgenden annehmen, dass wir jeder Situation einer Menge von Handlungen zuordnen können, und insbesondere eine Handlung sich nicht über mehrere Situationen erstreckt. 
 Es sei hier außerdem angemerkt, dass die Umkehrung obiger Annahme nicht zutrifft: Eine Handlung der Gesamthandlung des Dramas muss im Allgemeinen nicht immer in einer Situation dargestellt werden, sondern kann \emph{verdeckt} an der Gesamthandlung beteiligt sein.
-Darunter fallen neben den \emph{räumlich} verdeckten Handlungen (z.B. Mauerschau) auch die \emph{zeitlich} verdeckten Handlungen (welche z.B. ausgespart wurden und nicht szenisch präsentiert werden).
+Darunter fallen neben den \emph{räumlich} verdeckten Handlungen (z.\,B. Mauerschau) auch die \emph{zeitlich} verdeckten Handlungen (welche z.\,B. ausgespart wurden und nicht szenisch präsentiert werden).
 Üblicherweise werden solche Handlungen dann narrativ von den Figuren vermittelt.\autocite[Vgl.][276]{pfister_drama:_2001}
 
 \subsection{Personal und Rede}\label{sec:personal}
@@ -224,10 +226,10 @@ Zu einer spezifischen Situation und einer spezifischen Figur sei die \emph{Repli
 
 Grundlage der literarischen Netzwerkanalyse ist die Abstraktion der \emph{Struktur} dramatischer Texte.
 Der Inhalt des Haupttextes wird dabei ignoriert bzw. nur rudimentär quantitativ ausgewertet.
-Das liegt schon daran, dass Fragestellungen betreffend des Inhalts nicht bzw. nur rudimentär maschinell beantwortet werden können, und sich deshalb den \eng{Digital Literary Studies} weitestgehend entzieht.\autocite[Vgl. auch][607]{jannidis_computergestuetzte_2017}
+Das liegt schon daran, dass Fragestellungen betreffend des Inhalts nicht bzw. nur rudimentär maschinell beantwortet werden können, und sich deshalb den \eng{Digital Literary Studies} weitestgehend entzieht.\autocite[Vgl.~auch][607]{jannidis_computergestuetzte_2017}
 
 Während auch die maschinelle Extraktion der Struktur aus dem Nebentext grundsätzlich immer noch nicht gelöst ist, kann stattdessen auf manuell annotierte digitale Editionen dramatischer Texte zurückgreifen.
-In unserem Fall verwenden wir hierfür \emph{German Drama Corpus (GerDraCor)}\footnote{\cite{fischer_programmable_2019}.\par Wenn im Folgenden auf \emph{GerDraCor}-Editionen Bezug genommen wird, dann ist immer die Revision e0da4e0 (20. Februar 2021) des Git-Repositories gemeint: \url{https://github.com/dracor-org/gerdracor/tree/e0da4e0a181b577326cc8c69adf86e8cd8e94433}}, eine Sammlung TEI-codierter deutscher dramatische Werke. % hunspell: acc Git-Repositories Corpus German
+In unserem Fall verwenden wir hierfür \emph{German Drama Corpus (GerDraCor)}\footnote{\cite{fischer_programmable_2019}.\par Wenn im Folgenden auf \emph{GerDraCor}-Editionen Bezug genommen wird, dann ist immer die Revision e0da4e0 (20.~Februar 2021) des Git-Repositories gemeint: \url{https://github.com/dracor-org/gerdracor/tree/e0da4e0a181b577326cc8c69adf86e8cd8e94433}}, eine Sammlung TEI-codierter deutscher dramatische Werke. % hunspell: acc Git-Repositories Corpus German -Editionen
 Aus der entsprechenden XML-Datei lässt sich dann die im Nebentext ausgezeichnete Akt- und Szenenabfolge des Werks bestimmen, sowie die einzelnen Repliken jeder Figur.
 Hieraus wollen wir die oben definierten strukturellen eines dramatischen Werks wie folgt ableiten:
 \begin{enumerate*}
@@ -241,7 +243,8 @@ Ein potentielles Modell muss daher mit diesen Imperfektionen der Eingangsdaten u
 
 \subsection{Graphen}
 
-Wir folgen den Ausführungen von Krumke und Noltemeier für eine formal präzise Definition des Graphen.  Ein \emph{gerichteter Graph} (kurz \emph{Graph}) ist ein Quadrupel $G=(V,R,\alpha, \omega)$ mit folgenden zwei Eigenschaften:
+Wir folgen den Ausführungen von Krumke und Noltemeier für eine formal präzise Definition des Graphen.
+Ein \emph{gerichteter Graph} (kurz \emph{Graph}) ist ein Quadrupel $G=(V,R,\alpha, \omega)$ mit folgenden zwei Eigenschaften:
 \begin{enumerate*}
     \item $V$ und $R$ sind endliche disjunkte Mengen, erstere wird als \emph{Eckenmenge} bezeichnet, letztere als \emph{Pfeilmenge},
     \item $\alpha$ und $\omega$ sind Abbildungen von $R$ nach $V$. Für $r\in R$ ist $\alpha(r)$ die \emph{Anfangsecke} von $r$, und $\omega(r)$ die \emph{Endecke} von $r$.
@@ -296,7 +299,7 @@ Dann ist die \emph{segment change rate} von $s$ gegeben durch $|K_s\,\triangle\,
 Entsprechend realisiert die \emph{segment change rate} ein Maß der Situationsveränderung.
 Über die sequentielle Abfolge der Situationen für ein Drama ergibt sich eine Zeitreihe von \emph{segment change rates} (bis auf die letzte Situation), welche die Arbeitsgruppe \emph{beat chart} nennt.
 Lageparameter bzw. Streuung der \emph{segment change rate} innerhalb eines Werks liefere eine Typisierung in hoch- bzw. niedrigdynamische Werke (abh. von Mittelwert) oder stark- bzw. schwachrhythmische Werke (abh. von Standardabweichung). % hunspell: acc stark-
-Extremausschläge im \emph{beat chart} würden ferner mit den Aktgrenzen übereinstimmen.\autocite[Vgl. z.B.][439--440]{fischer_network_2017}
+Extremausschläge im \emph{beat chart} würden ferner mit den Aktgrenzen übereinstimmen.\autocite[Vgl. z.\,B.][439--440]{fischer_network_2017}
 
 Diese Arbeit der dlina-Arbeitsgruppe wird hier deshalb so intensiv erläutert, da sie – wie die hier vorliegende Arbeit – der Konfigurationsanalyse zugeordnet werden kann.
 Insbesondere fragt sich die Arbeitsgruppe, ob sich mit diesen \emph{beat charts} weitere dramatischen Charakteristika erfassen lassen können, wie bspw. Expositionstypen.
@@ -364,7 +367,7 @@ Damit lässt sich sofort der Situationsgraph definieren:
 \end{em}
 Aus der Definition von $R$ geht hervor, dass der Graph azyklisch ist.
 
-Intuitiv lässt sich also wie folgt ein Situationsgraph bestimmen: zeichne für jede Situation einen Punkt.
+Intuitiv lässt sich also wie folgt ein Situationsgraph bestimmen: Zeichne für jede Situation einen Punkt.
 Verbinde zwei Punkte durch einen Pfeil (in der chronologischen Reihenfolge) wenn eine Figur in den beiden zugehörigen Situationen \emph{konsekutiv} auftritt, also nicht während den Situationen zwischen den beiden.
 \textquote*{Benenne} diesen Pfeil mit der Figur, und weise diesem Pfeil als Gewicht die Replikenlänge jener Situation zu, in der die Figur weniger spricht.
 Damit lässt sich im Übrigen jeder Figur ein Weg in $G$ zuordnen; alle Wege überdecken dann $G$, wobei diese zwar paarweise pfeildisjunkt, im Allgemeinen aber nicht eckendisjunkt sind.
@@ -389,7 +392,7 @@ Selbe Abbildung zeigt schon, wie solche Situationsgraphen dazu verwendet werden 
 Ähnlich wie in Konfigurationsmatrizen werden die Veränderungen der Konfigurationen im Verlauf des Werks deutlich.
 Es sei hier anzumerken, dass sich eine Konfigurationsmatrix in einen ungewichteten Situationsgraph umrechnen lassen kann und umgekehrt; die beiden Darstellungsformen sind im Wesentlichen äquivalent.
 Vorteil der Darstellung als Graph liegt dann insbesondere darin, dass Fragen wie \textquote{Wann tritt Odoardo wieder auf, nach seiner Exposition im Akt II.4} leicht beantwortet werden können. % hunspell: acc Odoardo
-Im Fall von \emph{Emilia Galotti} kann kann die Visualisierung bspw. auch dazu beitragen, Marinelli als \textquote*{Rechte Hand} des Prinzen zu deuten: nicht nur überschneiden sich die Wege der Figuren im Graph häufig (blaue bzw. orangene Linien), sondern springt Marinellis Weg auch zwischen den höfischen und den bürgerlichen Figuren. % hunspell: acc Marinelli Marinellis
+Im Fall von \emph{Emilia Galotti} kann kann die Visualisierung bspw. auch dazu beitragen, Marinelli als \textquote*{Rechte Hand} des Prinzen zu deuten: Nicht nur überschneiden sich die Wege der Figuren im Graph häufig (blaue bzw. orangene Linien), sondern springt Marinellis Weg auch zwischen den höfischen und den bürgerlichen Figuren. % hunspell: acc Marinelli Marinellis
 
 Auf diese Verwendungsweise als Visualisierung soll aber im Folgenden nicht weiter eingegangen werden, zugunsten einer näheren Beschäftigung mit dem eigentlichen Forschungsdesiderat.
 Deshalb nehmen wir noch eine Vereinfachung des Situationsgraphen vor, um diesen in einen \emph{einfachen} gerichteten azyklischen Graphen zu transformieren.
@@ -555,7 +558,7 @@ Die einzelnen Wege können hier aus Platzgründen nicht so ausführlich beschrie
 \emph{Zu (A):} Der längste Weg dieser Überdeckung scheint relativ schlüssig eine Handlungssequenz um die Partei Götzens zu erklären, zumindest aber thematisch.
 Das ist im ersten Teil die Handlung um Jagsthausen, die Festname Götzens, und dessen Rückzug aus Bamberg auf seine Burg.
 Fragwürdig ist die Verbindung zum zweiten Teil (ab V.4), in der insbesondere Elisabeth letzte Hilfe für Götz zu erwirken versucht.
-Ebenso wird die gesamte Sequenz regelmäßig von Situationen unterbrochen, die nicht im engeren Sinne in einem kausalen Zusammenhang stehen (z.B. II.11 \textquote{Bauernhochzeit}, oder die Exposition Lerses in III.6).
+Ebenso wird die gesamte Sequenz regelmäßig von Situationen unterbrochen, die nicht im engeren Sinne in einem kausalen Zusammenhang stehen (z.\,B. II.11 \textquote{Bauernhochzeit}, oder die Exposition Lerses in III.6).
 Ferner ist die eigentliche Situation der Festnahme Götzens (III.22) überhaupt nicht Teil vom Weg (A), wird die Handlung dort in einer Mauerschau narrativ vermittelt.
 
 \emph{Zu (B):} Dieser Weg kann zweifelsfrei der Handlung um den Hauptmann der Reichsexekution zugeordnet werden.
@@ -594,12 +597,12 @@ Nur dann lassen sich allgemeine Schlüsse über das hier vorgestellte Modell zie
 Ein solches geeignetes annotiertes Test-Korpus existiert aber gegenwärtig nicht.
 
 Als Ausblick bieten sich also zwei weitere Beschäftigungen mit dem hier vorgeschlagenen Modell an:
-Erstens, enger mit der \textquote*{traditionellen} Literaturwissenschaft verknüpft, kann durch eine bewusstere Wahl von Beispielwerken die Mächtigkeit des Modells weiter untersucht werden, z.B. Werke herausgesucht werden, für welche das Modell sehr schlechte Ergebnisse liefert.
+Erstens, enger mit der \textquote*{traditionellen} Literaturwissenschaft verknüpft, kann durch eine bewusstere Wahl von Beispielwerken die Mächtigkeit des Modells weiter untersucht werden, z.\,B. Werke herausgesucht werden, für welche das Modell sehr schlechte Ergebnisse liefert.
 Ganz Moretti folgend kann, immer gekoppelt an das Plot-Konzept, eine Weiterentwicklung bzw. Korrektur der hier vorgestellten Operationalisierung auch Einsichten zur Plot-Konzeptionalisierung liefern.\autocites[Vgl.][13]{moretti_operationalizing:_2013}[Vgl.][]{trilcke_small_2020} % hunspell: acc Plot-Konzeptionalisierung
 
 Zweitens, näher an der Praxis der \eng{Digital Humanities} liegend, lässt sich das hier vorliegende Modell vergleichend und unabhängig vom Konzept Plot analysieren: % hunspell: Humanities
 Wir können Trilcke und Fischer folgen, und den Situationsgraphen an sich als das eigentliche \textquote{epistemische Ding} verstehen – nicht das repräsentierte Werk.
-Damit fällt die Korrespondenz zu Plot zwar weg, dann aber kann ein Situationsgraph (bzw. deren gewichtsmaximale Wegüberdeckung) als \emph{Element} eines großer Korpus von Situationsgraphen verstanden werden.\autocite[Vgl.]{trilcke_literaturwissenschaft_2018}
+Damit fällt die Korrespondenz zu Plot zwar weg, dann aber kann ein Situationsgraph (bzw. deren gewichtsmaximale Wegüberdeckung) als \emph{Element} eines großer Korpus von Situationsgraphen verstanden werden.\autocite[Vgl.][]{trilcke_literaturwissenschaft_2018}
 \emph{GerDraCor} induziert einen solchen Korpus von Situationsgraphen, indem wie bei \emph{Emilia Galotti} und \emph{Götz} die digitalen Editionen in Situationsgraphen umgerechnet werden.
 Hierauf können dann mit statistischen Methoden Regularitäten und Ausreißer erkannt werden, bzw. die einzelnen Graphen mit dem Korpus in Beziehung gesetzt werden.
 \textquote{Wie viele Wege hat die gewichtsmaximale Wegüberdeckung eines Situationsgraphs des Korpus \emph{im Durchschnitt}?} wäre beispielsweise eine naheliegende Fragestellung.
