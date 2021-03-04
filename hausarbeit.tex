@@ -237,7 +237,7 @@ Entsprechend unserer Definition definiert eine \emph{Situation} eindeutig eine T
 Diese Teilmenge nennen wir die zur spezifischen Situation korrespondierende \emph{Konfiguration}.\autocite[Vgl.][235]{pfister_drama:_2001}
 % hunspell: add Repliken Replik Replikenlänge
 Zu einer spezifischen Situation und einer spezifischen Figur sei die \emph{Replikenlänge} die Anzahl Wörter aller Redebeiträge dieser Figur in der vorgegebenen Situation.
-Wenn diese Figur nicht in der korrespondierenden Situation enthalten sein sollte, ist die Replikenlänge Null.
+Wenn diese Figur nicht in der korrespondierenden Situation auftreten sollte, ist die Replikenlänge Null.
 
 
 \subsection{Zur Datengrundlage}\label{sec:daten}
@@ -246,7 +246,7 @@ Grundlage der literarischen Netzwerkanalyse ist die Abstraktion der \emph{Strukt
 Der Inhalt des Haupttextes wird dabei ignoriert bzw. nur rudimentär quantitativ ausgewertet.
 Das liegt schon daran, dass Fragestellungen betreffend des Inhalts nicht bzw. nur rudimentär maschinell beantwortet werden können, und sich deshalb den \eng{Digital Literary Studies} weitestgehend entzieht.\autocite[Vgl.~auch][607]{jannidis_computergestuetzte_2017}
 
-Stattdessen greifen wir auf manuell annotierte digitale Editionen dramatischer Texte zurück.
+Stattdessen wird auf auf manuell annotierte digitale Editionen dramatischer Texte zurückgegriffen.
 Diese zeichnen zu einem Dramentext die Sprechakte aus, und unterteilen das Werk in strukturelle Einheiten anhand der Überschriften bzw. des Nebentextes.
 In unserem Fall verwenden wir hierfür das \emph{German Drama Corpus (GerDraCor)}\footnote{\cite{fischer_programmable_2019}.\par Wenn im Folgenden auf \emph{GerDraCor}-Editionen Bezug genommen wird, dann ist immer die Revision e0da4e0 (20.~Februar 2021) des Git-Repositories gemeint: \url{https://github.com/dracor-org/gerdracor/tree/e0da4e0a181b577326cc8c69adf86e8cd8e94433}}, eine Sammlung TEI-codierter deutscher dramatische Werke. % hunspell: acc Git-Repositories Corpus German -Editionen
 Aus der entsprechenden XML-Datei lässt sich so die im Nebentext ausgezeichnete Akt- und Szenenabfolge des Werks bestimmen, sowie die einzelnen Repliken jeder Figur.
@@ -255,12 +255,12 @@ Hieraus wollen wir die oben definierte Struktur eines dramatischen Werks wie fol
     \item Jede Szene entspricht genau einer Situation.
         Wir gehen also davon aus, dass während der Szene keine Veränderung der präsenten Figuren erfolgt.
     \item Die Konfiguration einer Situation/Szene ergibt sich aus den Replikenmenge der Szene. % hunspell: acc Replikenmenge
-        Wir nehmen also an, dass nur jene Figuren auf der Bühne in einer Szene präsent sind, welche auch sprechen.
+        Wir nehmen also an, dass nur jene Figuren auf der Bühne in einer Szene präsent sind, welche auch sprechen.% – mehr Informationen zur Konfiguration liegen in \emph{GerDraCor} ohnehin nicht vor.
 \end{enumerate*}
 
 Es ist klar, dass diese Annahmen im Allgemeinen nicht zutreffen.
 Dieser Reduktionismus sei aber im Hinblick auf eine quantitative Auswertung großer digitaler TEI-genormter Korpora wie \emph{GerDraCor} ausgewählt.
-Ein potentielles Modell muss mit diesen Imperfektionen der Eingangsdaten umgehen.
+Eine potentielle Operationalisierung muss mit diesen Imperfektionen der Eingangsdaten umgehen.
 
 
 \subsection{Graphen}
@@ -285,6 +285,7 @@ Zur einfacheren Notation bezeichnen wir für gegebenen Graph $G$ mit $V(G)$ bzw.
 %Unmittelbar aus dieser Darstellungsweise folgt der Begriff des \emph{Wegs}:
 Ein \emph{Weg} $P$ ist eine endliche Folge $(v_0, r_1, v_1, \dots, r_k, v_k)$, $k\geq 0$, sodass $v_0, \dots, v_k$ Ecken sind, $r_1, \dots, r_k$ Pfeile sind, sowie $\alpha(r_i) = v_{i-1}$, $\omega(r_i)=v_i$ für alle $i=1,\dots, k$.
 Wir sagen, dass $P$ die Ecken $v_0, \dots, v_k$ bzw. Pfeile $r_1, \dots, r_k$ \emph{durchläuft}.
+Mit $R(P)$ bezeichnen wir die Menge an durchlaufenen Pfeilen.
 %Intuitiv also eine Folge von aufeinanderfolgenden Ecken und Pfeilen. 
 Die \emph{Länge} des Wegs $P$ ist $k$, also die Anzahl der durchlaufenen Pfeile.
 Man beachte, dass auch $(v_0)$ ein Weg (der Länge $0$) ist.\autocite[Vgl.][31]{krumke_graphentheoretische_2012}
@@ -380,7 +381,7 @@ Die Arbeit präsentiert ein \emph{statisches} Netzwerk, welches in der Lage zu s
 In diesem Abschnitt wenden wir uns dem ersten Teil der Operationalisierung von Plot zu.
 Hierzu werden \emph{Situationsgraphen} eingeführt.
 Oberflächlich gesprochen bilden diese zu einem dramatischen Werk das Netzwerk der Situationen und ihre syntagmatischen Relationen ab.
-Die Präsentation geht hierbei rückwärts vor: Erst liefern wir eine mathematisch eindeutige und präzise Definition.
+Die Präsentation geht hierbei rückwärts vor: Erst wird eine mathematisch eindeutige und präzise Definition geliefert.
 Dann wird im zweiten Teil die spezifischen Modellierungen motiviert.
 Insbesondere wird argumentiert:
 \begin{enumerate*}
@@ -534,9 +535,9 @@ Im Anschluss wird im zweiten Teil diese endgültige Operationalisierung anhand G
 \subsection{Zur Operationalisierung}
 
 Zerlegen wir $G_\text{sim}$ in disjunkte Wege, erreichen wir nach bisherigen Überlegungen eine Segmentierung des Dramas.
-Deshalb betrachten wir im Folgenden \emph{gewichtsmaximale disjunkte Wegüberdeckungen} in $G_\text{sim}$.
+Deshalb seien im Folgenden \emph{gewichtsmaximale disjunkte Wegüberdeckungen} in $G_\text{sim}$ betrachtet.
 Wir verwenden dabei folgende Definition:
-\emph{Das Gewicht einer disjunkten Wegüberdeckung $\mathcal{P}$ eines mit $w$ gewichteten Graphen ist $w(\mathcal{P}) = \sum_{P\in\mathcal{P}} \sum_{r\in P} w(r)$.}
+\emph{Das Gewicht einer disjunkten Wegüberdeckung $\mathcal{P}$ eines mit $w$ gewichteten Graphen ist $w(\mathcal{P}) = \sum_{P\in\mathcal{P}} \sum_{r\in R(P)} w(r)$. Also das gesamte Gewicht aller durclaufenen Pfeile aller Wege in $\mathcal{P}$}
 Unter dieser Definition von Gewicht ist das Bestimmen einer gewichtsmaximalen disjunkten Wegüberdeckung in gewichteten einfachen gerichteten azyklischen Graphen algorithmisch effizient lösbar, indem bspw. auf das Problem des Matchings maximalen Gewichts reduziert wird.\footnote{Dieses Ergebnis ist mathematische Folklore. Siehe auch \cite[761]{cormen_introduction_2009} für den ungewichteten Fall.}
 Damit ist auch zu gewichtetem $G_\text{sim}$ eine gewichtsmaximale Wegüberdeckung $\mathcal{P}^*$ effizient berechenbar.
 
@@ -586,7 +587,7 @@ Dazu drei Punkte:
 \end{SidewaysFigure}
 
 Die eben durchgeführten Überlegungen wollen wir nun anhand Goethes \emph{Götz von Berlichingen} vorführen und testen.
-Die Wahl dieses Werks motivieren wir anhand Klotz' Klassifikation als offenes Drama: 
+Die Wahl dieses Werks lässt sich anhand Klotz' Klassifikation als offenes Drama motivieren: 
 hier präsentiert sich \textquote{die Geschichte nicht mehr als geschlossenes, hierarchisches Ganzes}.\autocite[Vgl.][323]{pfister_drama:_2001}
 Wegen dieser strukturellen Offenheit können wir \emph{Götz} als für die Operationalisierung \emph{schweres Beispiel} verstehen.
 Ferner eignet sich die folgende Vorführung auch für einen Vergleich mit Trilckes Netzwerkanalyse des \emph{Götz}.
