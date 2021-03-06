@@ -7,9 +7,6 @@
 \setmainlanguage{german}
 \setotherlanguage{english}
 
-%./opentype/public/tex-gyre-math/texgyretermes-math.otf
-%./opentype/public/tex-gyre/texgyretermes-bold.otf
-
 
 \usepackage{fontspec}
 \usepackage{unicode-math}
@@ -68,20 +65,10 @@
 \usepackage[german=guillemets,autostyle=true]{csquotes}
 \SetCiteCommand{\autocite}
 \usepackage[format=plain]{caption}
-%\def\myquot{\list{}{\leftmargin1cm\rightmargin1cm\topsep0cm\partopsep0pt}\item[]\vspace*{-10pt}\singlespacing}
-%\let\endmyquot=\endlist
-%\SetBlockEnvironment{myquot}
-
 \usepackage[inline]{enumitem}
 \setlist{itemsep=0pt,parsep=4pt}
 \setlist[enumerate]{label=(\roman*), itemsep=0pt}
-
-
 \usepackage{mathtools}
-%\usepackage{amsthm}
-%\newcounter{satz}
-%\newtheorem{theorem}[satz]{Satz}
-%\newtheorem{observation}[satz]{Beobachtung}
 
 \setlength{\emergencystretch}{2em}
 \setlength{\parskip}{0pt}
@@ -92,8 +79,6 @@
 \newcommand{\eng}[1]{\textenglish{\emph{#1}}}
 \renewcommand{\dag}{{\scshape dag}}
 
-%\KOMAoptions{sectionentrydots=true,toc=bib}
-
 \author{Anton Ehrmanntraut}
 \date{3. März 2021}
 \title{Maschinelle Identifikation von Handlungssequenzen in digitalen Editionen dramatischer Texte}
@@ -101,12 +86,6 @@
 
 \begin{document}
 \flushbottom
-%\setlength{\abovedisplayskip}{2pt}
-%\setlength{\belowdisplayskip}{2pt}
-
-%\includepdf{./Deckblatt_Hausarbeit_Editionen_und_Korpora.pdf}
-
-
 \maketitle
 
 \begin{abstract}
@@ -120,20 +99,8 @@
     Diese wird anhand \emph{Götz von Berlichingen} vorgeführt und evaluiert.
 \end{abstract}
 
-%\tableofcontents\clearpage
-
-%\listoffigures\clearpage
-
 
 \section{Einleitung}
-
-% 1. Netzwerktheorie grundsätzlich einführen -> linNA
-% 2. Plotanalyse (vgl. Trilcke 2017, Moretti) -> Figurennetzwerke in der linNA, Untersuchung mittels SNA
-% 3. statisches Figurennetzwerk scheinbar nicht in der Lage, plot zu operationalisieren (Trilcke 2017)
-
-% Motivation: Plotanalyse, konkretes Ziel definieren
-
-% Eigener Beitrag: 
 
 Franco Moretti kann mit seinem Pamphlet \citetitle{moretti_network_2011}\autocite{moretti_network_2011} als Begründer eines Programms verstanden werden, welches die Quantifikation von Plot innerhalb narrativer Texte mittels Methoden aus den \eng{Digital Literary Studies} zum Ziel hat.
 (\emph{Plot} soll hier und im Folgenden nur intuitiv verstanden werden.)
@@ -142,8 +109,6 @@ Während Fragen zu \textquote{\eng{language and style}} durch Korpusanalysen in 
 Ferner ist in Morettis Vorhaben auch eine Motivation in Richtung \eng{distant reading} zu finden: Gerade die computerisierte Methode, Plot auszuwerten, könnte in großen Korpusanalysen generelle Grammatiken bzw. Regularitäten im Plot vieler Werke zum Vorschein bringen. % hunspell: acc -Motivation
 Zur Schließung dieser Leerstelle schlägt Moretti vor, die \emph{Netzwerkanalyse} als Instrument zur quantitativen Plot-Analyse heranzuziehen.\autocites[Vgl.][]{moretti_network_2011}[Vgl.][]{trilcke_small_2020}
 
-%Zentraler Forschungsgegenstand der Netzwerkanalyse sind \emph{Netzwerke}.
-%Intuitiv kann ein Netzwerk als eine Sammlung von Entitäten verstanden werden, welche in binären Relationen miteinander in Beziehung stehen.
 Im Rahmen Morettis Pamphlets wurde beispielsweise das \emph{Figurennetzwerk} vom dramatischen Werk \emph{Hamlet} betrachtet.
 In den Figurennetzwerken bildet das Personal von \emph{Hamlet} die Entitäten, und je zwei Figuren relieren binär (bildlich: sind verbunden), wenn diese auf der Bühne interagieren.\autocite[Siehe z.\,B.][13, Abbildung 1]{moretti_network_2011}
 Nach Moretti bilden diese Interaktionen die Handlungen des Dramas ab – das resultierende Figurennetzwerk damit die summative strukturalisierte Gesamthandlung des Werks.
@@ -169,11 +134,8 @@ Via \eng{distant reading} können dann viele Werke hinsichtlich Plot-Struktur ve
 So kann bspw. Fragen zum Verhältnis von Haupt- und Nebenhandlung, oder zu Verknüpfungstechniken von Handlungssequenzen für ein großes Korpus nachgegangen werden. % hunspell: acc distant reading
 
 
-%\subsection{Aufbau der Arbeit}
-
 Der nächste Abschnitt konkretisiert Begriffe, die wir zur Erarbeitung des Netzwerkmodells benötigen.
 Insbesondere wählen wir einen Handlungs(sequenz)begriff, definieren Begriffe aus der Graphentheorie, und gehen kurz auf das digitale Dramenkorpus \emph{GerDraCor} ein. % hunspell: acc Handlungs sequenz
-% TODO netzwerktheoretisch?
 Anschließend wird in Abschnitt \ref{sec:verwandte-arbeiten} auf verwandte Arbeiten der netzwerktheoretischen Plot-Analyse eingegangen.
 Abschnitte \ref{sec:situationsgraph} und \ref{sec:segmentierung} wenden sich dem eigentlichen Ziel zu, und behandeln o.\,g. Punkte (i) und (ii): Erster plausibilisiert das Modell der \emph{Situationsgraphen}, Zweiter erklärt wie sich hieraus eine Plot-Struktur heuristisch errechnen lassen kann.
 
@@ -207,8 +169,6 @@ chronologischer und kausaler Relationen.
 Den letzten Satz können wir als eine Definition für Handlungssequenzen (in Abgrenzung an willkürliche Sequenzen von Handlungen) auffassen.
 Dass Pfister nicht näher darauf eingeht, was er mit \textquote{chronologischen und kausalen Relationen} meint, ist durchaus nicht problematisch.
 Wir sehen das als Möglichkeit, \textquote{kausale Relationen} möglichst offen zu verstehen.
-%Nichtsdestotrotz muss angemerkt werden, dass diese Definition immer noch relativ nahe an einem aristotelischem Ideal bleibt, wenn er kausale Geschlossenheit bzw. Wahrscheinlichkeit fordert.
-%Das könnte diese Definition nur schwer anwendbar für anti-aristotelische Dramaturgien machen, welche z.B. kausale Geschlossenheit explizit verwerfen.\autocite[Vgl.][268]{pfister_drama:_2001}
 
 \label{page:plot-segmentierung}
 Im obigen Zitat wird auch das Ziel der Arbeit deutlich, wie in der Einleitung intuitiv angesprochen:
@@ -217,8 +177,6 @@ Die Komposition der Handlungssequenzen ist meist durchaus komplexer.
 Essenziell für eine Analyse ist daher, diejenigen Handlungssequenzen zu identifizieren, welche kombiniert die Gesamthandlung konstituieren.
 Gerade im Hinblick auf Fragen betreffend der hierarchischen Abstufung (\textquote*{Haupthandlung} vs. \textquote*{Nebenhandlung}) ist es vorteilhaft, wenn eine solche Segmentierung thematisch ähnliche Handlungen in Sequenzen zusammenfasst.
 Bzw. wenn die resultierenden Sequenzen der Segmentierung sich thematisch und kausal abgrenzen.
-%Als da unsere Datengrundlage ohnehin blind gegenüber Inhalt bzw. Themen des Haupttextes ist, führen wir hier schon eine erste Vereinfachung durch:
-%Wir identifizieren (starken) kausalem Zusammenhang mit thematischer Ähnlichkeit, entsprechend ist als eine wünschenswerte Segmentierung möglichst grob, also bestehend aus aus langen, stark zusammenhängenden, wenigen Handlungssequenzen.
 Eine sinnvolle Segmentierung ist deshalb auch möglichst grob, also bestehend aus aus langen, stark zusammenhängenden, wenigen Handlungssequenzen.
 
 \subsection{Segmentierung der Darstellung in Situationen}\label{sec:situationen}
@@ -259,7 +217,7 @@ Hieraus wollen wir die oben definierte Struktur eines dramatischen Werks wie fol
     \item Jede Szene entspricht genau einer Situation.
         Wir gehen also davon aus, dass während der Szene keine Veränderung der präsenten Figuren erfolgt.
     \item Die Konfiguration einer Situation/Szene ergibt sich aus den Replikenmenge der Szene. % hunspell: acc Replikenmenge
-        Wir nehmen also an, dass nur jene Figuren auf der Bühne in einer Szene präsent sind, welche auch sprechen.% – mehr Informationen zur Konfiguration liegen in \emph{GerDraCor} ohnehin nicht vor.
+        Wir nehmen also an, dass nur jene Figuren auf der Bühne in einer Szene präsent sind, welche auch sprechen.
 \end{enumerate*}
 
 Es ist klar, dass diese Annahmen im Allgemeinen nicht zutreffen.
@@ -275,22 +233,17 @@ Ein \emph{gerichteter Graph} (kurz \emph{Graph}) ist ein Quadrupel $G=(V,R,\alph
     \item Die Mengen $V$ und $R$ sind endlich und disjunkt.
         Erstere wird als \emph{Eckenmenge} bezeichnet, letztere als \emph{Pfeilmenge}.
     \item Die Funktionen $\alpha$ und $\omega$ bilden von $R$ nach $V$ ab.
-        %Für $r\in R$ ist $\alpha(r)$ die \emph{Anfangsecke} von $r$, und $\omega(r)$ die \emph{Endecke} von $r$.
         Für $r\in R$ sagen wir, dass $r$ \emph{von $\alpha(r)$ nach $\omega(r)$ zeigt}.
 \end{enumerate*}
 
 
-%Ist $a$ Anfangsecke von $r$ und $b$ Endecke von $r$, sagen wir auch, dass \emph{$a$ Vorgänger von $b$} bzw. \emph{$b$ Nachfolger von $a$} ist.
 Ein Pfeil $r$ nennen wir \emph{Schlinge} wenn $\alpha(r)=\omega(r)$. Zwei Pfeile $r, r'$ nennen wir \emph{parallel}, wenn $\alpha(r)=\alpha(r')$, $\omega(r)=\omega(r')$.
 Ein Graph ist \emph{einfach}, wenn seine Pfeilmenge weder Schlingen noch Parallelen enthält.\autocite[Vgl.][7--8]{krumke_graphentheoretische_2012}
-%Graphen werden üblicherweise diagrammatisch gezeichnet, wobei Ecken durch Punkte visualisiert werden, und Pfeile als Linienzüge zwischen den Punkten der Anfangs- und Endecke dargestellt.
 Zur einfacheren Notation bezeichnen wir für gegebenen Graph $G$ mit $V(G)$ bzw. $R(G)$ die zu $G$ zugehörige Ecken- bzw. Pfeilmenge. % hunspell: acc Ecken-
 
-%Unmittelbar aus dieser Darstellungsweise folgt der Begriff des \emph{Wegs}:
 Ein \emph{Weg} $P$ ist eine endliche Folge $(v_0,\allowbreak r_1,\allowbreak v_1, \dots, r_k, v_k)$, $k\geq 0$, sodass $v_0, \dots, v_k$ Ecken sind, $r_1, \dots, r_k$ Pfeile sind, sowie $\alpha(r_i) = v_{i-1}$, $\omega(r_i)=v_i$ für alle $i=1,\dots, k$.
 Wir sagen, dass $P$ die Ecken $v_0, \dots, v_k$ bzw. Pfeile $r_1, \dots, r_k$ \emph{durchläuft}.
 Mit $R(P)$ bezeichnen wir die Menge an durchlaufenen Pfeilen.
-%Intuitiv also eine Folge von aufeinanderfolgenden Ecken und Pfeilen. 
 Die \emph{Länge} des Wegs $P$ ist $k$, also die Anzahl der durchlaufenen Pfeile.
 Man beachte, dass auch $(v_0)$ ein Weg (der Länge $0$) ist.\autocite[Vgl.][31]{krumke_graphentheoretische_2012}
 
@@ -329,8 +282,6 @@ Um diese Limitationen zu umgehen, lassen sich zwei Lösungsansätze in der aktue
 
 Mit dem Ziel, \textcquote[178]{trilcke_netzwerkdynamik_2017}{Plot-Phänomene} zu quantifizieren, führt die dlina-Arbeitsgruppe \emph{segment-change rates} auf Basis der Konfigurationsmatrix ein.
 Diese versucht, Handlungsentwicklung quantitativ zu erfassen.
-%Sowohl die Arbeit der Arbeisgruppe, als auch die hier vorliegende Arbeit lässen sich der Konfigurationsanalyse zuordnen.
-%
 Die Arbeit sei hier deshalb diskutiert, weil sie – wie die hier vorliegende Arbeit – zur Konfigurationsanalyse gezählt werden kann; ferner haben beide Ansätze die Konfigurationsmatrix als Datengrundlage.\autocites{trilcke_netzwerkdynamik_2017}{fischer_network_2017}{trilcke_small_2020}
 
 Die \emph{segment-change rate} ergibt sich wie folgt:
@@ -351,7 +302,6 @@ Gerade deshalb versucht die hier vorliegende Arbeit das Modell immer auch aus Ko
 
 
 
-%\subsection{Zentralitätsmaße in dynamischen Netzwerken}
 \subsection{Dynamische Netzwerke}
 
 Plot fasst gerade die Temporalität narrativer Texte.
@@ -365,7 +315,6 @@ Die beschriebenen Konfigurationsmatrizen sind nicht unmittelbar als dynamisches 
 
 Näher an der Idee von Maßen dynamischer Netzwerke ist die von den Autoren zitierte Arbeit von Prado et~al. 
 Diese greift von Taylor et~al. entwickelte Zentralitätsmaße für \textquote{\eng{temporal networks}} auf, verwendet diese für literarische Fragestellungen, und wendet diese auf zeitlich variable Figurennetzwerken an.\autocites{prado_temporal_2016}{taylor_eigenvector-based_2015}
-%Auf eine ausführliche Beschreibung des Verfahrens muss an dieser Stelle wegen der 
 Aufgrund des umfangreichen und nichttrivialen Verfahrens muss auf eine Beschreibung ebendieses an dieser Stelle verzichtet werden.
 Festhalten können wir nichtsdestotrotz:
 \begin{enumerate*}
@@ -401,7 +350,7 @@ Diese Modellierung und Notation ist überwiegend von Marcus übernommen\autocite
 
 \begin{enumerate}[nosep] % hunspell: acc nosep
     \item Eine Sequenz von Situationen in der Reihenfolge, wie sie im Werk angegeben ist,\footnote{Der Begriff der \emph{Reihenfolge} ist hier bewusst unscharf gewählt, gerade auch damit das Modell mit solchen Werken umgehen kann, die nicht aufgeführt werden; oder symmetrisch: mit Werken umgehen kann, die nicht niedergeschrieben sind.} welche wir mit $s_1, s_2, \dots, s_n$ beschreiben wollen. (Situation $s_i$ also vor $s_j$ angegeben genau dann wenn $i<j$.) Die Menge aller Situationen sei im Folgenden $S$.
-    \item Eine Menge von Figuren $F$. %Im Folgenden wollen wir mit $m$ immer die Anzahl an Figuren beschreiben.
+    \item Eine Menge von Figuren $F$.
     \item Eine Funktion $\mu\colon S \to 2^F$, die einer Situation $s_i$ der zur Situation korrespondierende Konfiguration $\mu(s_i)$ (als Teilmenge von $F$) zuordnet.
     \item Eine Funktion $\rho\colon S\times F \to \mathbb{N}$, die einer Situation $s_i$ und einer Figur $f$ die Replikenlänge $\rho(s_i, f)$ von $f$ in $s_i$ zuordnet.
         Vgl. Abschnitte \ref{sec:situationen} und \ref{sec:personal}.
@@ -413,7 +362,6 @@ Damit lässt sich sofort der Situationsgraph definieren:
     Der Situationsgraph zu einem dramatischen Werk ist der durch $w\colon R\to \mathbb{N}$ gewichtete Graph $G=(S, R, \alpha, \omega)$ wobei
     \begin{equation*} R = \{ (s_i,s_j,f) \mid i<j, f\in \mu(s_i),\, f \in\mu(s_j), \text{aber $f\not\in\mu(s_k)$ wenn immer $i<k<j$} \},  \end{equation*}
     und für Pfeil $r=(s_i,s_j,f)\in R$ gilt
-    %sei $\alpha(r) \coloneq s_i$, $\omega(r) \coloneq s_j$, $w(r) \coloneq \min\{ \rho(s_i, p), \rho(s_j, p) \}$.
     \begin{equation*} \alpha(r) = s_i, \quad\omega(r) = s_j, \quad w(r) = \min\{ \rho(s_i, f), \rho(s_j, f) \} .\end{equation*}
 \end{em}
 Aus der Definition von $R$ geht hervor, dass Situationsgraphen azyklisch sind.
@@ -422,10 +370,8 @@ Intuitiv lässt sich also wie folgt ein Situationsgraph bestimmen: Zeichne für 
 Verbinde eine frühere Situation zu einer späteren Situation durch einen Pfeil,  wenn eine Figur in den beiden zugehörigen Situationen \emph{konsekutiv} auftritt, also nicht während den Situationen zwischen den beiden.
 Benenne diesen Pfeil mit der Figur.
 Weise diesem Pfeil als Gewicht die Replikenlänge jener Situation zu, in der die Figur weniger spricht.
-%Damit lässt sich im Übrigen jeder Figur ein Weg in $G$ zuordnen; alle Wege überdecken dann $G$, wobei diese zwar paarweise pfeildisjunkt, im Allgemeinen aber nicht eckendisjunkt sind.
 Abbildung \ref{fig:situationsgraph} zeigt Visualisierungen des Situationsgraphen zu Lessings \emph{Emilia Galotti} in gewichteter Darstellung.
 Die dafür notwendigen Parameter (i)–(iv) wurden dabei durch die digitale TEI-Edition bestimmt, wie in Abschnitt \ref{sec:daten} erläutert.
-%Zur Erinnerung: es werden Szenen mit Situationen identifiziert, und Konfigurationen durch die Repliken einer Szene induziert.
 
 
 \begin{SidewaysFigure}
@@ -441,33 +387,20 @@ Die dafür notwendigen Parameter (i)–(iv) wurden dabei durch die digitale TEI-
 \end{SidewaysFigure}
 
 Die selbe Abbildung zeigt schon, wie solche Situationsgraphen ein graphischen Überblick über das Werk ermöglichen.
-%Die Veränderungen der Konfigurationen im Verlauf des Werks deutlich, ähnlich wie in Konfigurationsmatrizen.
 Es sei hier anzumerken, dass sich eine Konfigurationsmatrix in einen ungewichteten Situationsgraph umrechnen lassen kann und umgekehrt – die beiden Darstellungsformen sind im Wesentlichen äquivalent.
 Vorteil der Darstellung als Graph liegt dann insbesondere darin, dass Fragen wie \textquote{Wann tritt Odoardo wieder auf, nach seiner Exposition im Akt II.4} leicht beantwortet werden können. % hunspell: acc Odoardo
-%Im Fall von \emph{Emilia Galotti} kann kann die Visualisierung bspw. auch dazu beitragen, Marinelli als \textquote*{Rechte Hand} des Prinzen zu deuten: Nicht nur überschneiden sich die Wege der Figuren im Graph häufig (blaue bzw. orangene Linien), sondern springt Marinellis Weg auch zwischen den höfischen und den bürgerlichen Figuren. % hunspell: acc Marinelli Marinellis
 
 Auf diese Verwendungsweise als Visualisierung soll aber im Folgenden nicht weiter eingegangen werden.
 Stattdessen wollen wir uns näher mit dem eigentlichen Forschungsdesiderat beschäftigen.
 Deshalb nehmen wir noch eine Vereinfachung des Situationsgraphen vor, und transformieren diesen in einen \emph{einfachen} gerichteten azyklischen Graph.
 Hierzu fassen wir alle parallelen Pfeile in einen einzigen zusammen, und summieren ihre Gewichte.
-%Präziser:
-%\begin{em}%
-    %Aus einem Situationsgraphen $G=(S, R, \alpha, \omega)$ mit Gewichtung $w$ geht wie folgt ein \emph{einfacher Situationsgraph} $G_\mathrm{sim}$ hervor: Sei $\sim$ eine Relation auf $R$ sodass $r\sim r'$ genau dann wenn $r$ und $r'$ parallel in $G$ sind.
-    %Damit ist $\sim$ eine Äquivalenzrelation. Sei deshalb $R/{\sim}$ die Partitionierung von $R$ in Äquivalenzklassen, und $[r]$ die $\sim$-Äquivalenzklasse von $r$.
-    %Dann sei $G_\mathrm{sim} \coloneq (S, R/{\sim}, \alpha', \omega')$, gewichtet durch $w\colon {R/{\sim}} \to \mathbb{N}$, mit
-    %%$\alpha'([r]) \coloneq \alpha(r)$, $ \omega'([r]) \coloneq \omega(r)$, $w([r]) \coloneq \textstyle\sum_{r'\in [r]} w(r')$.
-    %\begin{equation*} \alpha'([r]) \coloneq \alpha(r), \quad \omega'([r]) \coloneq \omega(r), \quad w([r]) \coloneq \textstyle\sum_{r'\in [r]} w(r'). \end{equation*}
-%\end{em}%
 Abbildung \ref{fig:situationsgraph-einfach} zeigt den einfachen Situationsgraphen für \emph{Emilia Galotti}, hervorgegangen aus entsprechendem Situationsgraphen der Abbildung \ref{fig:situationsgraph}.
 
 
 \subsection{Kausale Zusammenhänge zwischen Situationen}
 
-% Behauptung 1: Pfeile stellen kausale Zusammenhänge zwischen Situationen dar
-
 
 Nun können wir uns der ersten Behauptung zuwenden:
-%Pfeile im einfachen Situationsgraph machen \textquote{kausale Zusammenhänge} zwischen Situationen deutlich.
 Ein Pfeil $r$ von $s_i$ nach $s_j$ im einfachen Situationsgraph zeigt an, dass (mindestens) eine \emph{Handlung} in Situation $s_i$ kausal eine Handlung in Situation $s_j$ verursacht hat, bzw. ein Effekt dieser Handlung ist.
 Wie stark dieser Zusammenhang ist, wird durch die Gewichtung des Pfeils deutlich.
 
@@ -479,14 +412,12 @@ Zunächst halten wir folgende einfache Beobachtungen fest, die sich aus der Defi
         Für diese Figuren ist $s_j$ der unmittelbar folgende Auftritt nach $s_i$.
 \end{enumerate*}
 
-% (i) Sukzession
 Die Beobachtung (i) hängt eng mit dem \textquote{Prinzip der Sukzession} zusammen.
 Pfister argumentiert, dass ohne ein \textquote{vermittelndes Kommunikationssystem} ein narratives Nachtragen von Handlungen die Ausnahme bildet, und daher die Präsentationsabfolge der Handlungsabfolge entspricht.\autocite[Vgl.][273]{pfister_drama:_2001}
 Damit erlaubt Beobachtung (i) einen restriktiven Charakter.
 Die notwendige (zunächst aber nicht hinreichende) Voraussetzung wird gesichert, dass $s_j$ auch tatsächlich \emph{in der Gesamthandlung} nach $s_i$ stattfindet.
 Also dass Handlungen in $s_i$ überhaupt einen kausalen Effekt auf die Handlungen in $s_j$ haben kann.
 
-% (ii) Informationsweitergabe, Propagierung der Effekte von "Situations"-Veränderungen
 Auch wenn die folgende Argumentation eher unscharf sind, dürfte Beobachtung (ii) wesentlich zur Behauptung beitragen.
 Eine Teilmenge an Figuren ist sowohl in $s_i$ als auch $s_j$ präsent.
 Damit wird zum Einen eine \emph{Informationsweitergabe} im inneren Kommunikationssystem plausibel.\autocite[Vgl.][Absch.~3]{pfister_drama:_2001}
@@ -500,7 +431,6 @@ Ein kausaler Effekt durch Figur $f$ wird also dann festgemacht, wenn diese in be
 
 \subsection{Handlungssequenzen – Wege im Situationsgraph}\label{sec:wege}
 
-% Behauptung 2: Wege entsprechen Handlungs(!)sequenzen
 
 Es liegt unmittelbar nahe, die eben gewonnene Behauptung über Pfeile auf \emph{Wege} im einfachen Situationsgraph $G_\text{sim}$ auszudehnen.
 Sei $P=(s_{i_0}, r_1, s_{i_1}, r_2, s_{i_2}, \dots, r_k, s_{i_k})$ ein Weg in $G_\text{sim}$. 
@@ -520,13 +450,6 @@ Er erklärt ihr, dass der Prinz schon um Emilia beschäftigt ist, aber Claudia e
 Sie schöpft Verdacht und drängt zu Emilia (III.8).
 Nach ihrer Begegnung ist sich Claudia daher sicher, dass Emilia den Prinzen auf Distanz halten würde, und beteuert dies Odoardo (IV.8).
 
-%Die durch den letzten Pfeil von III.8 zu IV.8 angezeigte kausale Konsequenz ist abschließend aber eher zweifelhaft, 
-
-
-%In der Erinnerung an die Begegnung in der Kirche (III.5) begreift dieser, ..., und versucht deshalb Marinelli anschließend für die Intrige zu verantworten (IV.1).
-
-%Die durch den Pfeil von IV.1 zu IV.2 angezeigte kausale Konsequenz ist zweifelhaft, müsste 
-%die Diskussion zwischen Marinelli und dem Prinzen  einen Einfluss auf deren Handeln in IV.2 haben; vielmehr wird deren Handeln durch die Ankunft von Orsina bedingt.
 
 
 \section{Segmentierung in Handlungssequenzen – Disjunkte Wegüberdeckungen}\label{sec:segmentierung}
@@ -567,7 +490,6 @@ Dazu drei Punkte:
         Zum Einen haben daher die Pfeile zwischen Situationen einer Sequenz möglichst hohes Gewicht.
         Nach vorigem Abschnitt sind die Sequenzen daher kausal stark zusammenhängend.
         Zum Anderen wird das Gewicht der Pfeile zwischen den Wegen/Sequenzen von $\mathcal{P}^*$ minimiert.
-        %Übertragen auf die Segmentierung bedeutet dies, dass eine solche Segmentierung gewählt wurde, welche die kausalen Verknüpfungen \emph{zwischen} den Sequenzen minimiert.
         Daraus sollte sich ergeben, dass die entstandene Segmentierung tatsächlich \textquote{sinnvoll} im Sinne unserer Zielsetzung ist, vgl. Abschnitt \ref{sec:handlung}:
         Eine möglichst grobe Segmentierung in jeweils stark zusammenhängende Sequenzen.
 \end{enumerate*}
@@ -577,8 +499,6 @@ Dazu drei Punkte:
 
 \subsection{Evaluation an einer beispielhaften Analysen}
 
-% vgl. Dantons Tod, Götz von Berlichingen
-
 \begin{SidewaysFigure}
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=23cm]{graphsim-götz.pdf}}
@@ -587,7 +507,6 @@ Dazu drei Punkte:
         Zur besseren Sichtbarkeit ist die Dicke eines Pfeils $r\in R(G_\text{sim})$ proportional zu $w(r)^{2/3}$.
         Ein Pfeil $r$ ist rot hervorgehoben genau dann wenn $r$ von einem Weg $P\in\mathcal{P}^*$ durchlaufen wird.
         Eine Ecke $s$ ist rot hervorgehoben genau dann wenn $s$ von einem Weg $P\in\mathcal{P}^*$ der Länge 0 durchlaufen wird.}
-    %Die gewichtsmaximale disjunkte Wegüberdeckung $\mathcal{P}^*$ ist einerseits durch rot hervorgehobene Pfeile visualisiert; rot hervorgehobene Ecken repräsentieren Wege der Länge 0. N.B.: Ecke bzw. Situation V.11 (\textquote{In einem Finstern engen Gewölbe}) ist isoliert, denn keine der in dieser Situation auftrennen Figuren tritt auch in einer anderen Situation auf.}
     \label{fig:situationsgraph-götz}
 \end{SidewaysFigure}
 
@@ -597,7 +516,6 @@ hier präsentiert sich \textcquote[323]{pfister_drama:_2001}{die Geschichte nich
 Wegen dieser strukturellen Offenheit können wir \emph{Götz} als für die Operationalisierung \emph{schweres Beispiel} verstehen.
 Ferner eignet sich die folgende Vorführung auch für einen Vergleich mit Trilckes Netzwerkanalyse des \emph{Götz}.
 Er verwendete dabei Figurennetzwerke.\autocite[222--236]{trilcke_social_2013} % hunspell: acc Trilckes
-%Die eigentlichen Implikationen, welche sich für das Modell ergeben, werden aber erst in der Diskussion in Abschnitt \ref{sec:diskussion} erläutert.
 
 Der für \emph{Götz} zugehörigen Situationsgraph wird aus der TEI-Edition des \emph{GerDraCor} bestimmt, wie im Fall von \emph{Emilia Galotti}.\footnote{
 Die TEI-Edition steht dabei vor ähnlichen Schwierigkeiten wie Trilcke:
@@ -608,7 +526,6 @@ Diese Arbeit übernimmt diese Auszeichnungen.
 \cite[Vgl.][Fn.~77]{trilcke_social_2013}.
 Drittens, unabhängig von Trilcke, wurden in der TEI-Edition des \emph{GerDraCor} die Szenen V.8 und V.9 fälschlicherweise zusammengelegt, vgl. Zeile 7315. Dies wurde händisch korrigiert. 
 }
-%Auf Basis der TEI-codierten digitalen Edition des \emph{Götz} aus dem \emph{German Drama Corpus} können Situationen und Replikenlängen ausgelesen werden, und entsprechend den zugehörigen Situationsgraph bestimmen.
 Durch die in den vorigen Abschnitten beschriebenen Verfahren erreichen wir den einfachen Situationsgraphen $G_\text{sim}$ sowie die dazugehörige gewichtsmaximale disjunkte Wegüberdeckung $\mathcal{P}^*$.
 Die Überdeckung besteht aus neun Wegen.
 Sechs Wege haben die Länge $>0$, welche wir wie in Abbildung \ref{fig:situationsgraph-götz} nach absteigender Länge mit (A)–(F) benennen.
@@ -679,27 +596,6 @@ Insbesondere können die einzelnen Graphen mit dem Korpus in Beziehung gesetzt w
 \textquote{Wie viele Wege hat die gewichtsmaximale Wegüberdeckung eines Situationsgraphen des Korpus \emph{im Durchschnitt}?} wäre beispielsweise eine unmittelbar naheliegende Fragestellung.
 
 
-
-
-
-%Die Arbeit etablierte den \emph{Situationsgraph} als eine mathematische Struktur, welche Konfigurationsmatrizen ähnlich ist, und die konsekutiven Auftritte von Figuren abbildet.
-
-%\subsection{Zusammenfassung}
-
-%\subsection{Diskussion}
-
-
 \printbibliography\clearpage
-
-%\noindent
-%Hiermit versichere ich, dass ich die vorliegende Arbeit in allen Teilen selbstständig angefertigt und keine anderen als die in der Arbeit angegebenen Quellen und Hilfsmittel benutzt habe. Sämtliche wörtlichen oder sinngemäßen Übernahmen und Zitate sind kenntlich gemacht und nachgewiesen.
-%%
-%Ferner versichere ich, dass das Thema dieser Arbeit nicht identisch ist mit dem Thema einer von mir bereits für eine andere Prüfung eingereichten Arbeit.
-%%
-%Ich erkläre weiterhin, dass ich die Arbeit nicht bereits an einer anderen Hochschule als Prüfungsleistung eingereicht habe.
-
-%\vspace{2cm}
-%\noindent
-%\makebox[8cm]{\dotfill}
 
 \end{document}
