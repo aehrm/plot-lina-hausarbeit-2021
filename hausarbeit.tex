@@ -1,6 +1,7 @@
 % hunspell: tex
-\documentclass[titlepage=firstiscover,a4paper,12pt,headings=small]{scrartcl}
-\usepackage[lmargin=3cm,rmargin=3cm,tmargin=2cm,bmargin=2.0cm,footskip=0.7cm]{geometry}
+\documentclass[a4paper,10pt,abstract=true,headings=small]{scrartcl}
+\usepackage[lmargin=4cm,rmargin=4cm,tmargin=3cm,bmargin=5.0cm,footskip=1.5cm]{geometry}
+\linespread{1.1}
 
 \usepackage[luatexrenderer=Node]{polyglossia}
 \setmainlanguage{german}
@@ -15,16 +16,8 @@
 %\setmainfont[Scale=1.05]{Libertinus Serif}
 \setmainfont[BoldFont=texgyretermes-bold.otf,ItalicFont=texgyretermes-italic.otf]{texgyretermes-regular.otf}
 \setmathfont{texgyretermes-math.otf}
-%\addtokomafont{disposition}{\rmfamily\scshape}
-\usepackage{setspace}
-\onehalfspacing
-\setkomafont{sectioning}{}
-\addtokomafont{section}{\itshape\large}
-\addtokomafont{subsection}{\itshape\normalsize}
-\addtokomafont{footnote}{\fontsize{10pt}{10pt}\selectfont}
-\renewcommand{\footnotesize}{\fontsize{10pt}{10pt}\selectfont}
-\RedeclareSectionCommand[beforeskip=-1.5ex,afterskip=1.5ex,runin=false]{subsection}
-\RedeclareSectionCommand[beforeskip=-2.5ex,afterskip=1.5ex,runin=false]{section}
+\addtokomafont{disposition}{\rmfamily}
+
 
 \usepackage[hidelinks,pdfusetitle,pdfencoding=auto,psdextra,bookmarksopen]{hyperref}
 
@@ -40,7 +33,7 @@
 \newcommand{\newSFPage}[1]% #1 = \theabspage
   {\global\expandafter\let\csname SFPage@#1\endcsname\null}
 
-\NewEnviron{SidewaysFigure}{\begin{figure}[p]
+\NewEnviron{SidewaysFigure}{\begin{figure*}[p]
 \protected@write\@auxout{\let\theabspage=\relax}% delays expansion until shipout
   {\string\newSFPage{\theabspage}}%
 \ifdim\textwidth=\textheight
@@ -48,7 +41,7 @@
 \else
   \rotatebox{90}{\parbox[c][\textwidth][c]{20cm}{\BODY}}%
 \fi
-\end{figure}}
+\end{figure*}}
 
 \AddEverypageHook{% check if sideways figure on this page
   \ifdim\textwidth=\textheight
@@ -75,9 +68,9 @@
 \usepackage[german=guillemets,autostyle=true]{csquotes}
 \SetCiteCommand{\autocite}
 \usepackage[format=plain]{caption}
-\def\myquot{\list{}{\leftmargin1cm\rightmargin1cm\topsep0cm\partopsep0pt}\item[]\vspace*{-10pt}\singlespacing}
-\let\endmyquot=\endlist
-\SetBlockEnvironment{myquot}
+%\def\myquot{\list{}{\leftmargin1cm\rightmargin1cm\topsep0cm\partopsep0pt}\item[]\vspace*{-10pt}\singlespacing}
+%\let\endmyquot=\endlist
+%\SetBlockEnvironment{myquot}
 
 \usepackage[inline]{enumitem}
 \setlist{itemsep=0pt,parsep=4pt}
@@ -92,33 +85,42 @@
 
 \setlength{\emergencystretch}{2em}
 \setlength{\parskip}{0pt}
-\setlength{\parindent}{1cm}
-\setlength{\footnotesep}{0pt}
+\setlength{\parindent}{.4cm}
 \widowpenalty=10000
-\clubpenalty=0
+\clubpenalty=10000
 
 \newcommand{\eng}[1]{\textenglish{\emph{#1}}}
 \renewcommand{\dag}{{\scshape dag}}
 
-\KOMAoptions{sectionentrydots=true,toc=bib}
+%\KOMAoptions{sectionentrydots=true,toc=bib}
 
 \author{Anton Ehrmanntraut}
-\date{\today}
+\date{3. März 2021}
 \title{Maschinelle Identifikation von Handlungssequenzen in digitalen Editionen dramatischer Texte}
 \subtitle{\vspace*{.5cm}Eine netzwerktheoretische Heuristik\vspace*{.5cm}}
-%\subtitle{Repräsentation von Dramen als gerichtete azyklische Graphen und deren Handlungen als Flüsse}
 
 \begin{document}
 \flushbottom
-\setlength{\abovedisplayskip}{2pt}
-\setlength{\belowdisplayskip}{2pt}
+%\setlength{\abovedisplayskip}{2pt}
+%\setlength{\belowdisplayskip}{2pt}
 
-\includepdf{./Deckblatt_Hausarbeit_Editionen_und_Korpora.pdf}
+%\includepdf{./Deckblatt_Hausarbeit_Editionen_und_Korpora.pdf}
 
 
-\maketitle\clearpage
+\maketitle
 
-\tableofcontents\clearpage
+\begin{abstract}
+    Aktuelles Forschungsdesiderat in den literarischen Netzwerkanalyse ist eine effektive Modellierung von Plot bzw. Handlungsabläufen.
+    Im Kontext von Dramen werden dabei üblicherweise Figurennetzwerke herangezogen.
+    Diese werden in aktuellen Forschungsansätzen durch eine zeitliche Dimension zu dynamischen Figurennetzwerken erweitert, um so Plot-Entwicklungen abzubilden.
+    Die hier vorliegende Arbeit wählt einen alternativen Weg und präsentiert statische gerichtete Netzwerke, in der die Szenen bzw. Situationen die Entitäten des Netzwerks bilden, nicht Figuren.
+    Gerichtete Kanten im Netzwerk verbinden frühere zu späteren Situationen, wenn eine Figur in den beiden Situationen sukzessiv auftritt.
+    Die Arbeit versucht zu verdeutlichen, dass in solchen Netzwerken Handlungssequenzen erkennbar werden.
+    Hieraus ergibt sich auf natürliche Weise eine Operationalisierung mittels gewichtsmaximalen disjunkten Wegüberdeckungen, welche aus der Struktur eines Dramas eine Plot-Segmentierung errechnen kann.
+    Diese wird anhand \emph{Götz von Berlichingen} vorgeführt und evaluiert.
+\end{abstract}
+
+%\tableofcontents\clearpage
 
 %\listoffigures\clearpage
 
@@ -146,11 +148,13 @@ Im Rahmen Morettis Pamphlets wurde beispielsweise das \emph{Figurennetzwerk} vom
 In den Figurennetzwerken bildet das Personal von \emph{Hamlet} die Entitäten, und je zwei Figuren relieren binär (bildlich: sind verbunden), wenn diese auf der Bühne interagieren.\autocite[Siehe z.\,B.][13, Abbildung 1]{moretti_network_2011}
 Nach Moretti bilden diese Interaktionen die Handlungen des Dramas ab – das resultierende Figurennetzwerk damit die summative strukturalisierte Gesamthandlung des Werks.
 Trilcke greift diese Idee auf, und führt diese mit Mitteln der \emph{Social Network Analysis} rigoros weiter.\autocite{trilcke_social_2013} % hunsepll: acc Social Network Analysis
-Auch wenn diese Ergebnisse in die Richtung einer Operationalisierung von Plot gehen, macht Trilcke selbst später darauf aufmerksam, dass die Erfassung von Plot durch diese Figurennetzwerke nicht zufriedenstellend ist.
-Nach Trilcke et~al. sei zentrale Schwachstelle, dass Figurennetzwerke als \emph{statische} Modelle die zeitliche Dimension von Plot nicht abbilden können.\autocite[Vgl.][176]{trickle_netzwerkdynamik_2017}
+Es ist klar, dass eine solche reduktionistische Quantifikation nie den reichhaltigen Plot-Begriff vollständig abbilden kann.
+Vielmehr soll durch dieses Vorhaben analysiert werden, welche Plot-Aspekte überhaupt aus struktureller Perspektive erklärt werden können.\autocite[Vgl.][176]{trilcke_netzwerkdynamik_2017}
 
+Auch wenn o.\,g. Ergebnisse in die Richtung einer Operationalisierung von Plot gehen, macht Trilcke selbst später darauf aufmerksam, dass die Erfassung von Plot durch diese Figurennetzwerke nicht zufriedenstellend ist.
+Nach Trilcke et~al. sei zentrale Schwachstelle, dass Figurennetzwerke als \emph{statische} Modelle die zeitliche Dimension von Plot nicht abbilden können.\autocite[Vgl.][176]{trilcke_netzwerkdynamik_2017}
 Die hier vorliegene Arbeit folgt daher ihrem generellem Forschungsdesiderat: Die Netzwerkanalyse im Rahmen von Dramen sei in Richtung einer quantitativen Plot-Analyse weiterzuentwickeln.
-Aktuelle Entwicklungen in der Netzwerkanalyse versuchen daher, \emph{dynamische} Netzwerke zu entwickeln, um sie für die Plot-Analyse zu gebrauchen.\autocite[Vgl.][176]{trickle_netzwerkdynamik_2017}
+Aktuelle Entwicklungen in der Netzwerkanalyse versuchen daher, \emph{dynamische} Netzwerke zu entwickeln, um sie für die Plot-Analyse zu gebrauchen.\autocite[Vgl.][176]{trilcke_netzwerkdynamik_2017}
 Diese Arbeit wählt einen alternativen Weg und motiviert Netzwerke für dramatische Texte, in denen die \emph{Auftritte} die Entitäten des Netzwerks darstellen, nicht die Figuren.
 Wie in der literarischen Netzwerkanalyse üblich, verwertet die hier vorgestellte Methode ausschließlich strukturelle Aspekte der dramatischen Werke.
 Das Modell ist daher blind gegenüber dem Inhalt des Haupttext.
@@ -283,7 +287,7 @@ Ein Graph ist \emph{einfach}, wenn seine Pfeilmenge weder Schlingen noch Paralle
 Zur einfacheren Notation bezeichnen wir für gegebenen Graph $G$ mit $V(G)$ bzw. $R(G)$ die zu $G$ zugehörige Ecken- bzw. Pfeilmenge. % hunspell: acc Ecken-
 
 %Unmittelbar aus dieser Darstellungsweise folgt der Begriff des \emph{Wegs}:
-Ein \emph{Weg} $P$ ist eine endliche Folge $(v_0, r_1, v_1, \dots, r_k, v_k)$, $k\geq 0$, sodass $v_0, \dots, v_k$ Ecken sind, $r_1, \dots, r_k$ Pfeile sind, sowie $\alpha(r_i) = v_{i-1}$, $\omega(r_i)=v_i$ für alle $i=1,\dots, k$.
+Ein \emph{Weg} $P$ ist eine endliche Folge $(v_0,\allowbreak r_1,\allowbreak v_1, \dots, r_k, v_k)$, $k\geq 0$, sodass $v_0, \dots, v_k$ Ecken sind, $r_1, \dots, r_k$ Pfeile sind, sowie $\alpha(r_i) = v_{i-1}$, $\omega(r_i)=v_i$ für alle $i=1,\dots, k$.
 Wir sagen, dass $P$ die Ecken $v_0, \dots, v_k$ bzw. Pfeile $r_1, \dots, r_k$ \emph{durchläuft}.
 Mit $R(P)$ bezeichnen wir die Menge an durchlaufenen Pfeilen.
 %Intuitiv also eine Folge von aufeinanderfolgenden Ecken und Pfeilen. 
@@ -323,11 +327,11 @@ Um diese Limitationen zu umgehen, lassen sich zwei Lösungsansätze in der aktue
 
 \subsection{Change Rates}
 
-Mit dem Ziel, \textcquote[178]{trickle_netzwerkdynamik_2017}{Plot-Phänomene} zu quantifizieren, führt die dlina-Arbeitsgruppe \emph{segment-change rates} auf Basis der Konfigurationsmatrix ein.
+Mit dem Ziel, \textcquote[178]{trilcke_netzwerkdynamik_2017}{Plot-Phänomene} zu quantifizieren, führt die dlina-Arbeitsgruppe \emph{segment-change rates} auf Basis der Konfigurationsmatrix ein.
 Diese versucht, Handlungsentwicklung quantitativ zu erfassen.
 %Sowohl die Arbeit der Arbeisgruppe, als auch die hier vorliegende Arbeit lässen sich der Konfigurationsanalyse zuordnen.
 %
-Die Arbeit sei hier deshalb diskutiert, weil sie – wie die hier vorliegende Arbeit – zur Konfigurationsanalyse gezählt werden kann; ferner haben beide Ansätze die Konfigurationsmatrix als Datengrundlage.\autocites{trickle_netzwerkdynamik_2017}{fischer_network_2017}{trilcke_small_2020}
+Die Arbeit sei hier deshalb diskutiert, weil sie – wie die hier vorliegende Arbeit – zur Konfigurationsanalyse gezählt werden kann; ferner haben beide Ansätze die Konfigurationsmatrix als Datengrundlage.\autocites{trilcke_netzwerkdynamik_2017}{fischer_network_2017}{trilcke_small_2020}
 
 Die \emph{segment-change rate} ergibt sich wie folgt:
 Seien $s$ und $s'$ unmittelbar konsekutive Situationen.
@@ -353,10 +357,11 @@ Gerade deshalb versucht die hier vorliegende Arbeit das Modell immer auch aus Ko
 Plot fasst gerade die Temporalität narrativer Texte.
 Nach der dlina-Arbeitsgruppe müsse eine Weiterentwicklung der literarischen \emph{Netzwerk}analyse daher Wege finden, diese zeitliche Dimension zu modellieren – nur dann besteht die Möglichkeit, Plot zu fassen. % hunspell: acc analyse
 Nach ihnen sei daher der einzige Ausweg, den Text als ein \emph{dynamisches} Netzwerk zu modellieren, welches sich über die zeitliche Dimension verändert.
-Nur die \textquote{Netzwerkdynamik}, also die \textquote{verändernde Folge von Netzwerkzuständen}, würden dann einen Zugang zur quantitativen Netzwerkanalyse bergen.\autocite[Vgl.][176]{trickle_netzwerkdynamik_2017}
-In dieser Hinsicht sieht die Arbeitsgruppe zum Anderen mehr Potential in der \textquote{Berechnung netzwerkanalytischer Maße \textins{von dynamischen Netzwerken} und deren statistische Weiterverarbeitung}\autocites[178]{trickle_netzwerkdynamik_2017}[Vgl. auch][438]{fischer_network_2017}
+Nur die \textquote{Netzwerkdynamik}, also die \textquote{verändernde Folge von Netzwerkzuständen}, würden dann einen Zugang zur quantitativen Netzwerkanalyse bergen.\autocite[Vgl.][176]{trilcke_netzwerkdynamik_2017}
+In dieser Hinsicht sieht die Arbeitsgruppe zum Anderen mehr Potential in der \textquote{Berechnung netzwerkanalytischer Maße \textins{von dynamischen Netzwerken} und deren statistische Weiterverarbeitung}\autocites[178]{trilcke_netzwerkdynamik_2017}[Vgl. auch][438]{fischer_network_2017}
 Deshalb entwickelt die Arbeitsgruppe auch die oben ausgeführte \emph{segment-change rate} als solches Maß.\autocite[Vgl.][437]{fischer_network_2017}
-Warum sie die \emph{segment-change rate} den dynamischen Netzwerkmaßen zuordnen, ist dem Autor der hier vorliegenden Arbeit nicht ersichtlich, sind ja die beschriebenen Konfigurationsmatrizen weder Netzwerke noch dynamisch.
+Streng genommen ist unklar, warum die \emph{segment-change rate} den dynamischen Netzwerkmaßen zugeordnet wurde.
+Die beschriebenen Konfigurationsmatrizen sind nicht unmittelbar als dynamisches Netzwerk erkennbar.
 
 Näher an der Idee von Maßen dynamischer Netzwerke ist die von den Autoren zitierte Arbeit von Prado et~al. 
 Diese greift von Taylor et~al. entwickelte Zentralitätsmaße für \textquote{\eng{temporal networks}} auf, verwendet diese für literarische Fragestellungen, und wendet diese auf zeitlich variable Figurennetzwerken an.\autocites{prado_temporal_2016}{taylor_eigenvector-based_2015}
@@ -367,7 +372,7 @@ Festhalten können wir nichtsdestotrotz:
     \item Die Analyse kann neue Erkenntnisse über die für die Gesamthandlung relevantesten Figuren liefern kann.
     \item Dennoch ist aus literaturwissenschaftlicher Perspektive unklar, wie sich diese Maße ergeben.
         Ebenso ist die Interpretationen der Maße tendenziell schwierig.\autocite[Vgl.][14--15]{prado_temporal_2016}
-        Ob die Methode von Prado et~al. tatsächlich ein Instrumentarium zur quantitativen Plot-Analyse beitragen kann, zweifeln Trilcke et~al. an.\footnote{\textquote{Tatsächlich lässt sich dieses Erkenntnisversprechen \textins{der quantitativen Plot-Analyse} mit den derzeit verfolgten Ansätzen im Bereich der literaturwissenschaftlichen Netzwerkanalyse kaum aufgreifen, geschweige denn einlösen \emph{(so auch Prado et al. 2016)}}; Hervorhebung nur hier. \cite[176]{trickle_netzwerkdynamik_2017}.}
+        Ob die Methode von Prado et~al. tatsächlich ein Instrumentarium zur quantitativen Plot-Analyse beitragen kann, zweifeln Trilcke et~al. an.\footnote{\textquote{Tatsächlich lässt sich dieses Erkenntnisversprechen \textins{der quantitativen Plot-Analyse} mit den derzeit verfolgten Ansätzen im Bereich der literaturwissenschaftlichen Netzwerkanalyse kaum aufgreifen, geschweige denn einlösen \emph{(so auch Prado et al. 2016)}}; Hervorhebung nur hier. \cite[176]{trilcke_netzwerkdynamik_2017}.}
     \item Ferner bleiben bei Prado et~al. die Figurennetzwerke die Datengrundlage.
        Das unterscheidet diese Methode von der hier vorliegenden Arbeit, welche explizit nicht mit Figurennetzwerken arbeitet.
 \end{enumerate*}
@@ -394,19 +399,19 @@ Insbesondere wird argumentiert:
 Um eine präzise Angabe des Graphen möglich zu machen, führen wir einige mathematische Objekte ein, welche sich aus der Struktur des Dramas ergeben.
 Diese Modellierung und Notation ist überwiegend von Marcus übernommen\autocite{marcus_mathematisch-linguistisches_1971}.
 
-\begin{enumerate*}[itemjoin=\\\hspace*{\parindent}] % hunspell: acc itemjoin
+\begin{enumerate}[nosep] % hunspell: acc nosep
     \item Eine Sequenz von Situationen in der Reihenfolge, wie sie im Werk angegeben ist,\footnote{Der Begriff der \emph{Reihenfolge} ist hier bewusst unscharf gewählt, gerade auch damit das Modell mit solchen Werken umgehen kann, die nicht aufgeführt werden; oder symmetrisch: mit Werken umgehen kann, die nicht niedergeschrieben sind.} welche wir mit $s_1, s_2, \dots, s_n$ beschreiben wollen. (Situation $s_i$ also vor $s_j$ angegeben genau dann wenn $i<j$.) Die Menge aller Situationen sei im Folgenden $S$.
     \item Eine Menge von Figuren $F$. %Im Folgenden wollen wir mit $m$ immer die Anzahl an Figuren beschreiben.
     \item Eine Funktion $\mu\colon S \to 2^F$, die einer Situation $s_i$ der zur Situation korrespondierende Konfiguration $\mu(s_i)$ (als Teilmenge von $F$) zuordnet.
     \item Eine Funktion $\rho\colon S\times F \to \mathbb{N}$, die einer Situation $s_i$ und einer Figur $f$ die Replikenlänge $\rho(s_i, f)$ von $f$ in $s_i$ zuordnet.
         Vgl. Abschnitte \ref{sec:situationen} und \ref{sec:personal}.
         $\mathbb{N}$ sei hier und im Folgenden immer als Menge der nicht-negativen ganzen Zahlen zu verstehen.
-\end{enumerate*}
+\end{enumerate}
 
 Damit lässt sich sofort der Situationsgraph definieren:
 \begin{em}%
     Der Situationsgraph zu einem dramatischen Werk ist der durch $w\colon R\to \mathbb{N}$ gewichtete Graph $G=(S, R, \alpha, \omega)$ wobei
-    \begin{equation*} R = \{ (s_i,s_j,f) \mid i<j, f\in \mu(s_i), f \in\mu(s_j), \text{aber $f\not\in\mu(s_k)$ wenn immer $i<k<j$}  \}, \end{equation*}
+    \begin{equation*} R = \{ (s_i,s_j,f) \mid i<j, f\in \mu(s_i),\, f \in\mu(s_j), \text{aber $f\not\in\mu(s_k)$ wenn immer $i<k<j$} \},  \end{equation*}
     und für Pfeil $r=(s_i,s_j,f)\in R$ gilt
     %sei $\alpha(r) \coloneq s_i$, $\omega(r) \coloneq s_j$, $w(r) \coloneq \min\{ \rho(s_i, p), \rho(s_j, p) \}$.
     \begin{equation*} \alpha(r) = s_i, \quad\omega(r) = s_j, \quad w(r) = \min\{ \rho(s_i, f), \rho(s_j, f) \} .\end{equation*}
@@ -425,12 +430,12 @@ Die dafür notwendigen Parameter (i)–(iv) wurden dabei durch die digitale TEI-
 
 \begin{SidewaysFigure}
     \centering
-    \makebox[\textwidth][c]{\includegraphics[width=25cm]{graph.pdf}}
+    \makebox[\textwidth][c]{\includegraphics[width=23cm]{graph.pdf}}
     \caption{Einbettung des Situationsgraphen zu \emph{Emilia Galotti}.
         Jede Ecke wird als ein Punkt gezeichnet. Pfeile $r$ werden als Linie von $\alpha(r)$ zu $\omega(r)$ dargestellt, dabei ist der Punkt zu $\alpha(r)$ in der Darstellung immer links vom Punkt zu $\omega(r)$.
     Bis auf Angelo, Conti und den Kammerdiener ist dem Pfad jeder Figur eine eindeutige Farbe zugeordnet. Alle Pfeile der Form $(s_i,s_j, f)$ mit Gewicht $w$ sind dann in der zu $f$ zugehörigen Farbe gezeichnet, und die Dicke des Pfeilzugs ist linear in Abhängigkeit von $w$.}
     \label{fig:situationsgraph}
-    \makebox[\textwidth][c]{\includegraphics[width=25cm]{graphsim.pdf}}
+    \makebox[\textwidth][c]{\includegraphics[width=23cm]{graphsim.pdf}}
     \caption{Selbe Einbettung des einfachen Situationsgraphen zu \emph{Emilia Galotti}. Die rot hervorgehobenen Linienzüge entsprechen dem auf S.~\pageref{pos:weg-diskussion} diskutierten Weg.} 
     \label{fig:situationsgraph-einfach}
 \end{SidewaysFigure}
@@ -537,7 +542,7 @@ Im Anschluss wird im zweiten Teil diese endgültige Operationalisierung anhand G
 Zerlegen wir $G_\text{sim}$ in disjunkte Wege, erreichen wir nach bisherigen Überlegungen eine Segmentierung des Dramas.
 Deshalb seien im Folgenden \emph{gewichtsmaximale disjunkte Wegüberdeckungen} in $G_\text{sim}$ betrachtet.
 Wir verwenden dabei folgende Definition:
-\emph{Das Gewicht einer disjunkten Wegüberdeckung $\mathcal{P}$ eines mit $w$ gewichteten Graphen ist $w(\mathcal{P}) = \sum_{P\in\mathcal{P}} \sum_{r\in R(P)} w(r)$. Also das gesamte Gewicht aller durclaufenen Pfeile aller Wege in $\mathcal{P}$}
+\emph{Das Gewicht einer disjunkten Wegüberdeckung $\mathcal{P}$ eines mit $w$ gewichteten Graphen ist $w(\mathcal{P}) = \sum_{P\in\mathcal{P}} \sum_{r\in R(P)} w(r)$. Also das gesamte Gewicht aller durchlaufener Pfeile aller Wege in $\mathcal{P}$.}
 Unter dieser Definition von Gewicht ist das Bestimmen einer gewichtsmaximalen disjunkten Wegüberdeckung in gewichteten einfachen gerichteten azyklischen Graphen algorithmisch effizient lösbar, indem bspw. auf das Problem des Matchings maximalen Gewichts reduziert wird.\footnote{Dieses Ergebnis ist mathematische Folklore. Siehe auch \cite[761]{cormen_introduction_2009} für den ungewichteten Fall.}
 Damit ist auch zu gewichtetem $G_\text{sim}$ eine gewichtsmaximale Wegüberdeckung $\mathcal{P}^*$ effizient berechenbar.
 
@@ -576,7 +581,7 @@ Dazu drei Punkte:
 
 \begin{SidewaysFigure}
     \centering
-    \makebox[\textwidth][c]{\includegraphics[width=25cm]{graphsim-götz.pdf}}
+    \makebox[\textwidth][c]{\includegraphics[width=23cm]{graphsim-götz.pdf}}
     \caption{Einbettung des einfachen Situationsgraphen $G_\text{sim}$ zu \emph{Götz von Berlichingen}.
         Wieder sind Ecken als Punkte und Pfeile als Linien visualisiert, Letztere sind von links nach rechts zu lesen.
         Zur besseren Sichtbarkeit ist die Dicke eines Pfeils $r\in R(G_\text{sim})$ proportional zu $w(r)^{2/3}$.
@@ -588,13 +593,13 @@ Dazu drei Punkte:
 
 Die eben durchgeführten Überlegungen wollen wir nun anhand Goethes \emph{Götz von Berlichingen} vorführen und testen.
 Die Wahl dieses Werks lässt sich anhand Klotz' Klassifikation als offenes Drama motivieren: 
-hier präsentiert sich \textquote{die Geschichte nicht mehr als geschlossenes, hierarchisches Ganzes}.\autocite[Vgl.][323]{pfister_drama:_2001}
+hier präsentiert sich \textcquote[323]{pfister_drama:_2001}{die Geschichte nicht mehr als geschlossenes, hierarchisches Ganzes}.
 Wegen dieser strukturellen Offenheit können wir \emph{Götz} als für die Operationalisierung \emph{schweres Beispiel} verstehen.
 Ferner eignet sich die folgende Vorführung auch für einen Vergleich mit Trilckes Netzwerkanalyse des \emph{Götz}.
 Er verwendete dabei Figurennetzwerke.\autocite[222--236]{trilcke_social_2013} % hunspell: acc Trilckes
 %Die eigentlichen Implikationen, welche sich für das Modell ergeben, werden aber erst in der Diskussion in Abschnitt \ref{sec:diskussion} erläutert.
 
-Der für \emph{Götz} zugehörigen Situationsgraph wird aus der TEI-Edition des \emph{GerDraCor} bestimmt, wie im Fall von \emph{Emilia Galotti}\footnote{
+Der für \emph{Götz} zugehörigen Situationsgraph wird aus der TEI-Edition des \emph{GerDraCor} bestimmt, wie im Fall von \emph{Emilia Galotti}.\footnote{
 Die TEI-Edition steht dabei vor ähnlichen Schwierigkeiten wie Trilcke:
 Erstens treten im \emph{Götz} Kollektive auf, welche in der TEI-Edition wie bei Trilcke als jeweils ein Akteur codiert werden.
 Zweitens ist ebenso unklar, ob nicht namentlich genannte Figuren identisch sind oder nicht.
@@ -683,17 +688,18 @@ Insbesondere können die einzelnen Graphen mit dem Korpus in Beziehung gesetzt w
 
 %\subsection{Diskussion}
 
-\clearpage\printbibliography\clearpage
 
-\noindent
-Hiermit versichere ich, dass ich die vorliegende Arbeit in allen Teilen selbstständig angefertigt und keine anderen als die in der Arbeit angegebenen Quellen und Hilfsmittel benutzt habe. Sämtliche wörtlichen oder sinngemäßen Übernahmen und Zitate sind kenntlich gemacht und nachgewiesen.
-%
-Ferner versichere ich, dass das Thema dieser Arbeit nicht identisch ist mit dem Thema einer von mir bereits für eine andere Prüfung eingereichten Arbeit.
-%
-Ich erkläre weiterhin, dass ich die Arbeit nicht bereits an einer anderen Hochschule als Prüfungsleistung eingereicht habe.
+\printbibliography\clearpage
 
-\vspace{2cm}
-\noindent
-\makebox[8cm]{\dotfill}
+%\noindent
+%Hiermit versichere ich, dass ich die vorliegende Arbeit in allen Teilen selbstständig angefertigt und keine anderen als die in der Arbeit angegebenen Quellen und Hilfsmittel benutzt habe. Sämtliche wörtlichen oder sinngemäßen Übernahmen und Zitate sind kenntlich gemacht und nachgewiesen.
+%%
+%Ferner versichere ich, dass das Thema dieser Arbeit nicht identisch ist mit dem Thema einer von mir bereits für eine andere Prüfung eingereichten Arbeit.
+%%
+%Ich erkläre weiterhin, dass ich die Arbeit nicht bereits an einer anderen Hochschule als Prüfungsleistung eingereicht habe.
+
+%\vspace{2cm}
+%\noindent
+%\makebox[8cm]{\dotfill}
 
 \end{document}
