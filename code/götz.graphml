@@ -1,0 +1,291 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="color" for="edge" attr.name="color" attr.type="string"/>
+<key id="weight" for="edge" attr.name="weight" attr.type="double"/>
+<key id="color" for="node" attr.name="color" attr.type="string"/>
+<graph edgedefault="directed"><node id="II.3"/>
+<node id="III.2"/>
+<node id="II.7"/>
+<node id="II.8"/>
+<node id="II.9"/>
+<node id="II.10"/>
+<node id="II.11"/>
+<node id="III.4"/>
+<node id="III.6"/>
+<node id="III.7">
+  <data key="color">red</data>
+</node>
+<node id="IV.2"/>
+<node id="II.1"/>
+<node id="II.2"/>
+<node id="II.4"/>
+<node id="II.5"/>
+<node id="II.6"/>
+<node id="III.8"/>
+<node id="IV.8"/>
+<node id="I.2"/>
+<node id="I.4"/>
+<node id="I.1"/>
+<node id="I.7"/>
+<node id="I.3"/>
+<node id="I.5"/>
+<node id="I.6"/>
+<node id="I.8"/>
+<node id="III.1"/>
+<node id="III.3"/>
+<node id="III.5"/>
+<node id="IV.1"/>
+<node id="IV.4"/>
+<node id="V.1"/>
+<node id="V.5"/>
+<node id="V.8"/>
+<node id="V.7"/>
+<node id="IV.3"/>
+<node id="IV.5"/>
+<node id="IV.6"/>
+<node id="V.3"/>
+<node id="IV.7"/>
+<node id="V.2"/>
+<node id="V.4"/>
+<node id="V.6"/>
+<edge source="II.3" target="III.2">
+  <data key="weight">199.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="II.3" target="II.4">
+  <data key="weight">3.0</data>
+</edge>
+<edge source="III.2" target="III.3">
+  <data key="weight">66.0</data>
+</edge>
+<edge source="II.7" target="II.8">
+  <data key="weight">228.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="II.7" target="III.4">
+  <data key="weight">191.0</data>
+</edge>
+<edge source="II.8" target="II.9">
+  <data key="weight">7.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="II.9" target="II.10">
+  <data key="weight">44.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="II.9" target="II.11">
+  <data key="weight">5.0</data>
+</edge>
+<edge source="II.10" target="II.11">
+  <data key="weight">69.0</data>
+</edge>
+<edge source="II.10" target="III.1">
+  <data key="weight">370.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="II.11" target="III.6">
+  <data key="weight">7.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="III.4" target="III.6">
+  <data key="weight">16.0</data>
+</edge>
+<edge source="III.4" target="III.5">
+  <data key="weight">153.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="III.6" target="III.7">
+  <data key="weight">36.0</data>
+</edge>
+<edge source="III.6" target="III.8">
+  <data key="weight">119.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="III.7" target="IV.2">
+  <data key="weight">6.0</data>
+</edge>
+<edge source="III.7" target="III.8">
+  <data key="weight">41.0</data>
+</edge>
+<edge source="IV.2" target="IV.4">
+  <data key="weight">61.0</data>
+</edge>
+<edge source="IV.2" target="IV.3">
+  <data key="weight">103.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="II.1" target="II.2">
+  <data key="weight">16.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="II.1" target="II.3">
+  <data key="weight">10.0</data>
+</edge>
+<edge source="II.2" target="II.4">
+  <data key="weight">167.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="II.4" target="II.5">
+  <data key="weight">61.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="II.4" target="IV.6">
+  <data key="weight">91.0</data>
+</edge>
+<edge source="II.4" target="II.9">
+  <data key="weight">3.0</data>
+</edge>
+<edge source="II.5" target="II.6">
+  <data key="weight">61.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="II.6" target="II.7">
+  <data key="weight">285.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="III.8" target="IV.8">
+  <data key="weight">175.0</data>
+</edge>
+<edge source="III.8" target="V.7">
+  <data key="weight">7.0</data>
+</edge>
+<edge source="III.8" target="IV.1">
+  <data key="weight">163.0</data>
+</edge>
+<edge source="IV.8" target="V.2">
+  <data key="weight">166.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="I.2" target="I.4">
+  <data key="weight">81.0</data>
+</edge>
+<edge source="I.2" target="I.3">
+  <data key="weight">70.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="I.4" target="I.5">
+  <data key="weight">105.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="I.1" target="I.7">
+  <data key="weight">2.0</data>
+</edge>
+<edge source="I.1" target="I.2">
+  <data key="weight">70.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="I.7" target="I.8">
+  <data key="weight">102.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="I.3" target="I.4">
+  <data key="weight">106.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="I.5" target="I.6">
+  <data key="weight">105.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="I.6" target="I.7">
+  <data key="weight">186.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="I.6" target="II.9">
+  <data key="weight">42.0</data>
+</edge>
+<edge source="I.8" target="III.1">
+  <data key="weight">102.0</data>
+</edge>
+<edge source="III.1" target="III.3">
+  <data key="weight">190.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="III.1" target="III.2">
+  <data key="weight">223.0</data>
+</edge>
+<edge source="III.3" target="III.5">
+  <data key="weight">190.0</data>
+</edge>
+<edge source="III.3" target="III.4">
+  <data key="weight">66.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="III.5" target="IV.1">
+  <data key="weight">259.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="III.5" target="III.8">
+  <data key="weight">7.0</data>
+</edge>
+<edge source="III.5" target="III.6">
+  <data key="weight">82.0</data>
+</edge>
+<edge source="IV.1" target="IV.2">
+  <data key="weight">224.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="IV.4" target="V.1">
+  <data key="weight">61.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="IV.4" target="IV.5">
+  <data key="weight">4.0</data>
+</edge>
+<edge source="V.1" target="V.5">
+  <data key="weight">78.0</data>
+</edge>
+<edge source="V.1" target="V.3">
+  <data key="weight">132.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="V.5" target="V.8">
+  <data key="weight">70.0</data>
+</edge>
+<edge source="V.5" target="V.6">
+  <data key="weight">125.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="V.7" target="V.8">
+  <data key="weight">143.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="IV.3" target="IV.5">
+  <data key="weight">131.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="IV.3" target="IV.4">
+  <data key="weight">4.0</data>
+</edge>
+<edge source="IV.5" target="IV.6">
+  <data key="weight">245.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="IV.6" target="V.1">
+  <data key="weight">161.0</data>
+</edge>
+<edge source="IV.6" target="IV.7">
+  <data key="weight">175.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="V.3" target="V.5">
+  <data key="weight">132.0</data>
+</edge>
+<edge source="V.3" target="V.4">
+  <data key="weight">120.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="IV.7" target="IV.8">
+  <data key="weight">179.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="V.2" target="V.3">
+  <data key="weight">120.0</data>
+</edge>
+<edge source="V.4" target="V.5">
+  <data key="weight">153.0</data>
+  <data key="color">red</data>
+</edge>
+<edge source="V.6" target="V.7">
+  <data key="weight">125.0</data>
+  <data key="color">red</data>
+</edge>
+</graph></graphml>

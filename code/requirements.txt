@@ -1,0 +1,6 @@
+graphviz==0.20
+lxml==4.7.1
+more-itertools==8.10.0
+networkx==2.8
+pandas==1.4.2
+pygraphviz==1.9
